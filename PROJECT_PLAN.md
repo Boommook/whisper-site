@@ -260,14 +260,14 @@ The first public deployment is ready only when:
 
 ### Milestone 2 — Home and About pages
 
-**Status:** Implemented on the `milestone-2` branch. Final team review, approved imagery, and interactive visual QA are required before public launch.
+**Status:** Implemented on `main`. Public copy cleaned against `/docs` source materials. Local interactive browser QA was performed at representative widths. Final team review and approved imagery are still required before public launch.
 
 - **Objective:** Explain the team clearly and establish the primary public story.
-- **Main deliverables:** Responsive Home and About pages, approved copy, hero/team imagery, recruitment CTA, team story, leadership section, and intentional empty/conditional states.
+- **Main deliverables:** Responsive Home and About pages, source-supported copy, hero/team imagery when available, recruitment CTA, team story, leadership section, and intentional empty/conditional states.
 - **Dependencies:** Approved description, history, leadership data, brand direction, photography rights, and primary CTA.
-- **Acceptance criteria:** Copy is verified; pages work at target widths; images are optimized/accessible; no invented claims or stale event content appears.
+- **Acceptance criteria:** Copy is verified against repository sources; pages work at target widths; images are optimized/accessible; no invented claims or stale event content appears.
 
-Implementation notes: the pages use verified project context plus restrained general copy, with explicit status messages in place of unverified history and leadership details. No assets were added. Reusable section-heading, link-card, value-card, and callout patterns were introduced without changing later route scope.
+Implementation notes: Home and About use Constitution and FAQ facts rewritten into visitor-facing language, with Transition Doc culture themes used cautiously and Spirit Manual chant content excluded. No public visual assets were added. Reusable section-heading, link-card, value-card, and callout patterns support these pages without changing later route scope.
 
 ### Milestone 3 — Roster and team data
 
@@ -309,4 +309,6 @@ Implementation notes: the pages use verified project context plus restrained gen
 - Update this plan when scope or architectural decisions change.
 - Treat [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) as the live editorial checklist.
 - Treat [ASSET_INVENTORY.md](ASSET_INVENTORY.md) as the source of truth for repository media and rights/optimization status.
+- Treat [`docs/`](docs/README.md) as part of the project's content-source inventory. Those files are research material, not automatic permission to publish.
+- Standing rule for future milestones: inspect all relevant repository source documents before drafting content; treat the Constitution as authoritative for formal governance; validate changing operational details for freshness; do not publish internal or sensitive information merely because it exists in the repository.
 - Record consequential decisions in pull requests or a future lightweight decision log so succeeding student maintainers understand why they were made.

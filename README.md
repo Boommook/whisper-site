@@ -4,15 +4,18 @@ The developing public website for WPI Whisper, Worcester Polytechnic Institute's
 
 ## Current status
 
-**Milestone 2 implementation complete; interactive browser QA pending.**
+**Milestone 2 Home and About cleanup complete.**
 
-The Home and About placeholders have been replaced with complete, responsive page layouts. They use verified project context, restrained general copy, intentional history and leadership status messaging, internal calls to action, and a photo-independent visual system. Automated checks and production route checks pass; a representative-width interactive browser walkthrough remains required because no browser surface was available in the implementation environment. Roster, Schedule, Join, Media, and Contact remain functional structural placeholders for later milestones.
+Home (`/`) and About (`/about`) are implemented as public-facing pages. Copy draws from repository source documents under [`docs/`](docs/README.md), especially the club constitution and club-fair FAQ, rewritten into visitor-facing language. Roster, Schedule, Join, Media, and Contact remain functional structural placeholders for later milestones.
+
+Automated lint, typecheck, and production build pass. Interactive browser QA was run against a local production server at 320, 375, 768, 1024, and 1440px for Home and About, including desktop/mobile navigation, focus outlines, and route checks for all planned pages plus the custom 404.
 
 Milestone 0 planning remains authoritative:
 
 - [Project plan](PROJECT_PLAN.md)
 - [Content inventory](CONTENT_INVENTORY.md)
 - [Asset inventory](ASSET_INVENTORY.md)
+- [Source documents guide](docs/README.md)
 
 ## Technology
 
@@ -75,20 +78,21 @@ No environment variables are required. If a future milestone adds any, document 
 └── /contact
 ```
 
-Every route currently has an intentional page header and development notice, not production team content.
+Home and About contain implemented public copy. Roster, Schedule, Join, Media, and Contact still use intentional placeholder notices until their milestones supply verified content.
 
 ## Project structure
 
 ```text
+docs/                   # Internal source documents and publication guide
 src/
-├── app/                  # App Router pages, metadata, global CSS, and 404
+├── app/                # App Router pages, metadata, global CSS, and 404
 ├── components/
-│   ├── layout/           # Shared shell, navigation, page, and section components
-│   └── ui/               # Focused reusable UI primitives
-├── config/               # Site identity and central navigation configuration
-├── data/                 # Future typed team, roster, and schedule data
-├── lib/                  # Shared utilities
-└── types/                # Shared TypeScript types
+│   ├── layout/         # Shared shell, navigation, page, and section components
+│   └── ui/             # Focused reusable UI primitives
+├── config/             # Site identity and central navigation configuration
+├── data/               # Future typed team, roster, and schedule data
+├── lib/                # Shared utilities
+└── types/              # Shared TypeScript types
 ```
 
 ## Maintaining navigation
@@ -97,6 +101,7 @@ All primary navigation entries live in [`src/config/navigation.ts`](src/config/n
 
 ## Adding future content and media
 
+- Inspect relevant files under [`docs/`](docs/README.md) before drafting team-specific copy. The constitution is authoritative for formal governance; validate changing operational details for freshness; never publish sensitive or internal-only material merely because it exists in the repository.
 - Add stable site settings and small shared configuration under `src/config/`.
 - Add structured roster, leadership, schedule/results, contact, and social data under `src/data/` once their schemas and publication rules are approved.
 - Add page-specific implementation under the matching `src/app/` route and reuse the layout primitives under `src/components/layout/`.
@@ -120,11 +125,13 @@ The following remain unavailable or unapproved and must not be invented:
 
 - Official Whisper logo and WPI branding rules
 - Final colors and typography
-- Approved team description, history, leadership, and voice
+- Current officer/captain names with publication consent
+- Verified team history milestones and founding details
 - Roster fields, current player data, consent, and update ownership
 - Tournament schedule, results, and historical-retention policy
-- Recruitment details and intake method
-- Public contacts and official social accounts
+- Current recruitment intake method (form, Slack, or email) and monitored owner
+- Exact current practice times, dues, and season dates for public display
+- Public contacts and official social account URLs
 - Rights-cleared photography/video and social-sharing image
 - Production domain and metadata base
 
@@ -134,7 +141,7 @@ See [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) for the complete collection che
 
 0. Project definition and content planning — complete
 1. Application foundation and global design system — complete
-2. Home and About pages — implementation complete; interactive browser QA pending
+2. Home and About pages — implemented; content cleanup from `/docs` complete; interactive browser QA performed locally
 3. Roster and team data
 4. Schedule and results
 5. Recruitment, media, and contact

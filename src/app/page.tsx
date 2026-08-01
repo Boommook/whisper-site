@@ -19,21 +19,19 @@ const primaryPaths = [
   {
     title: "Join Whisper",
     description:
-      "Learn what participation looks like and find the next step for connecting with the team.",
+      "See how WPI students get involved, from casual play to the competitive travel team.",
     href: "/join",
     icon: UsersRound,
   },
   {
     title: "Meet the Team",
-    description:
-      "Visit the roster area, where approved player information will be published as it becomes available.",
+    description: "Browse the roster of players who practice, travel, and compete with Whisper.",
     href: "/roster",
     icon: CircleUserRound,
   },
   {
     title: "Schedule & Results",
-    description:
-      "Visit the schedule area for confirmed competition dates and verified results as they become available.",
+    description: "Find tournaments, games, and results from Whisper's competitive season.",
     href: "/schedule",
     icon: CalendarDays,
   },
@@ -56,7 +54,7 @@ export default function HomePage() {
               <span className="block text-[var(--brand-primary)]">Build together.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-[var(--text-muted)] sm:text-xl sm:leading-9">
-              WPI Whisper is Worcester Polytechnic Institute&apos;s men&apos;s club ultimate frisbee team, offering WPI students a place to play, compete, and develop as teammates.
+              WPI Whisper is Worcester Polytechnic Institute&apos;s men&apos;s club ultimate frisbee team—a student-run program for players who want to learn, compete, and grow with teammates.
             </p>
             <div className="mt-8 flex flex-col gap-3 min-[400px]:flex-row min-[400px]:items-center">
               <Link href="/join" className={buttonVariants({ className: "w-full min-[400px]:w-auto" })}>
@@ -90,10 +88,10 @@ export default function HomePage() {
           <p className="eyebrow lg:pt-2">The team</p>
           <div>
             <h2 className="max-w-3xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.04em] sm:text-5xl">
-              Competition gives the team direction. Community gives it meaning.
+              Train together. Compete with purpose. Welcome every skill level.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
-              Whisper brings WPI students together around organized ultimate frisbee. The club creates opportunities to compete, improve individual and team skills, and take part in a shared team experience.
+              Whisper exists to educate and train WPI students in ultimate frisbee, with room for both competitive travel and a more casual league experience. Prior ultimate experience helps, but it is not required—athletes who are ready to learn are a common and welcome part of the team.
             </p>
             <Link
               href="/about"
@@ -110,7 +108,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Find your route"
           title="Start with what matters to you."
-          description="The site is organized around the questions players, supporters, and other teams need answered."
+          description="Whether you want to join, follow the roster, or check the season schedule, these paths get you there."
         />
         <div className="mt-10 grid gap-8 md:grid-cols-3 md:gap-6 lg:gap-10">
           {primaryPaths.map((path) => (
@@ -122,12 +120,12 @@ export default function HomePage() {
       <Section className="py-[var(--space-section)]">
         <Callout
           eyebrow="Interested in playing?"
-          title="There is a clear place to begin."
+          title="All skill levels are welcome."
           href="/join"
           linkLabel="Explore joining Whisper"
         >
           <p>
-            Interested in playing ultimate at WPI? Learn what participation looks like and how to contact the team as verified recruitment details become available.
+            Membership is open to currently enrolled WPI students. Start with the Join page to learn how fall league, tryouts, and the competitive team fit together—and how to take the next step.
           </p>
         </Callout>
       </Section>

@@ -6,7 +6,9 @@ Audit date: July 31, 2026.
 
 No website assets were found in the repository. The repository contained only `.git` metadata before the Milestone 0 Markdown files were created. Git internals are not public website assets and are intentionally excluded from the table.
 
-Milestone 2 added no image, logo, font, video, or document assets. The Home and About pages intentionally use CSS geometry and the existing text-only temporary mark so they remain polished without implying that an approved team asset exists.
+Milestone 2 added no image, logo, font, video, or public website document assets. The Home and About pages intentionally use CSS geometry and the existing text-only temporary mark so they remain polished without implying that an approved team asset exists.
+
+Internal reference documents under `docs/` were added for content research. They are not public visual assets and must not be treated as logos, photography, or downloadable public files.
 
 Do not mark an item as present until the exact file has been added and its provenance checked.
 
@@ -21,7 +23,17 @@ Do not mark an item as present until the exact file has been added and its prove
 | Videos | None found | — | — | — | — |
 | Icons | None found | — | — | — | — |
 | Fonts | None found | — | — | — | — |
-| Documents | None found | — | — | — | — |
+| Public documents | None found | — | — | — | — |
+
+## Internal reference materials (not public assets)
+
+| File | Type | Role | Publication note |
+|---|---|---|---|
+| `docs/Ultimate Frisbee Constitution.docx` | DOCX | Formal governance source | Extract approved public facts only; do not host as a public download unless later approved |
+| `docs/Frisbee FAQ (for club fair).docx` | DOCX | Prospective-player FAQ source | Reuse facts, not necessarily original wording; confirm intake links before use |
+| `docs/THE Transition Doc.docx` | DOCX | Officer transition / operations | Largely internal; exclude sensitive and stale details |
+| `docs/Bullets Spirit Manual.docx` | DOCX | Incomplete / misaligned spirit notes | Not a public asset; title may be outdated; content is not visitor-safe as written |
+| `docs/README.md` | Markdown | Source-document publication guide | Maintainer reference only |
 
 ## Important missing assets
 

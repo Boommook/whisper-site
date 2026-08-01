@@ -5,8 +5,15 @@ This is the working content checklist for launch. At the Milestone 0 audit on Ju
 Status labels used below:
 
 - **Missing:** Not present in the repository or brief.
+- **Verified and implemented:** Supported by repository sources and present on the public page.
+- **Supported but not yet implemented:** Present in `/docs` or planning notes, but deferred to a later milestone or page.
+- **Possibly outdated:** Appears in source documents but may no longer be current.
+- **Conflicting:** Sources disagree; do not publish until resolved.
+- **Private/internal:** Exists in repository materials but must not be published without explicit approval.
 - **Verification required:** The item must be confirmed for accuracy, privacy, ownership, or currency before publication.
 - **Optional:** It may be omitted without blocking the first release.
+
+Source documents live under [`docs/`](docs/README.md). Prefer the Constitution for formal governance; validate changing operational details for freshness; never publish sensitive material merely because it exists in `/docs`.
 
 ## Sitewide
 
@@ -34,38 +41,42 @@ Status labels used below:
 
 ## Home (`/`)
 
-Milestone 2 status: the page structure, route CTAs, and restrained general description are implemented. Copy is based only on the verified description of Whisper as WPI's men's club ultimate frisbee team. Final brand language, time-sensitive recruitment status, and imagery remain unapproved.
+Milestone 2 status: public-facing Home copy is implemented from Constitution and FAQ facts. Hero CTAs, team introduction, path cards, and recruitment callout avoid editorial workflow language. Season-specific recruitment status and imagery remain open.
 
 ### Required for launch
 
-- [ ] **Approval required:** Current temporary hero line, “Play fast. Build together.” It is presentation copy, not a factual team claim.
-- [x] **Implemented general copy:** Concise team introduction using verified project context; final voice approval remains desirable.
-- [x] **Implemented:** Primary CTA to `/join` and secondary CTA to `/about`; no active-tryout claim is made.
-- [ ] **Missing:** Recruitment status and relevant season/date.
+- [ ] **Verification required:** Temporary hero line “Play fast. Build together.” Presentation copy, not a factual claim. Team may approve or replace.
+- [x] **Verified and implemented:** Concise team introduction as WPI's men's club ultimate program that educates/trains students and welcomes players without prior ultimate experience. Sources: Constitution Art. II; FAQ experience answers.
+- [x] **Verified and implemented:** Primary CTA to `/join` and secondary CTA to `/about`; no active-tryout date claim.
+- [x] **Verified and implemented:** Recruitment callout stating membership is open to currently enrolled WPI students and all skill levels are welcome. Sources: Constitution Art. III; FAQ.
+- [ ] **Missing:** Current-season recruitment status and relevant dates.
 - [ ] **Missing:** Hero image or approved graphic with credit, rights, consent, and alt text.
+- [ ] **Supported but not yet implemented / Possibly outdated:** FAQ intake via Slack or forms—deferred to Join/Contact until durable public channels are confirmed.
 
 ### Optional
 
 - [ ] Next confirmed event drawn from schedule data.
 - [ ] Recent media highlights.
-- [x] **Implemented general copy:** Short competition, development, and team-community introduction; team approval remains pending.
 
 ### Verification required
 
 - [ ] Confirm that no time-sensitive home-page content can silently become stale.
-- [ ] Confirm all competitive or historical claims.
+- [ ] Confirm brand voice for the hero line and supporting sentence.
 
 ## About (`/about`)
 
-Milestone 2 status: the page structure and carefully qualified general copy are implemented. No dates, achievements, named leaders, schedules, costs, or endorsements were added. History and leadership use explicit content-status messaging.
+Milestone 2 status: About copy presents Whisper as a student-run club sport using Constitution purpose, membership, league/competitive structure, officer roles, and FAQ practice cadence. No founding year, championships, or named current officers are published. Named people and internal transition details remain private/internal.
 
 ### Required for launch
 
-- [x] **Implemented general copy:** Team overview based on verified club-team context; a formal approved mission is still missing.
-- [ ] **Missing:** Verified team history and dates.
-- [x] **Implemented as aspirational framing:** Competition, improvement, teamwork, and community; formal team approval remains pending.
-- [ ] **Missing:** Current leadership names, roles, preferred labels, and consent.
-- [x] **Implemented general overview:** Practices, competition, development, and student leadership with unapproved specifics explicitly omitted.
+- [x] **Verified and implemented:** Team overview and purpose language from Constitution Art. II (educate/train; may travel to or host competitions).
+- [x] **Verified and implemented:** Club-sport identity as a student-run WPI club with competitive travel and a larger casual/educational league. Source: Constitution Art. III.
+- [ ] **Missing:** Verified team history and dates. No reliable founding year or milestone timeline was found in `/docs`.
+- [x] **Verified and implemented:** Culture principles framed as expectations (Spirit of the Game / self-refereed play, improvement, teamwork, communication). Sources: FAQ sport definition; Constitution purpose; Transition Doc culture themes. Spirit Manual file does not supply usable principles.
+- [ ] **Missing:** Current leadership names, preferred labels, and consent for public listing.
+- [x] **Verified and implemented:** High-level student leadership structure (elected executive board roles and coaching support) without names. Source: Constitution Arts. V–VIII.
+- [x] **Verified and implemented:** Club experience overview covering fall league, competitive tryouts/USAU spring season, typical twice-weekly practices, and student leadership. Sources: Constitution Art. III; FAQ; Transition Doc operational patterns.
+- [x] **Verified and implemented:** Membership openness and non-discrimination statement summarized from Constitution Arts. III and XI.
 
 ### Optional
 
@@ -73,12 +84,18 @@ Milestone 2 status: the page structure and carefully qualified general copy are 
 - [ ] Timeline of notable, verified events.
 - [ ] Leadership portraits.
 
+### Conflicts / caution
+
+- [ ] **Conflicting:** `Bullets Spirit Manual.docx` uses “Bullets” while Constitution/site branding use Whisper / WPI Ultimate Frisbee Club. Do not publish a former-name claim without team confirmation.
+- [ ] **Possibly outdated:** Exact practice days, tournament names, dues, and intake links in FAQ/Transition Doc.
+- [ ] **Private/internal:** Transition Doc officer names, coach names, staff contacts, vendor emails, account handoff notes, and social-event procedures.
+
 ### Verification required
 
-- [ ] Confirm wording describing affiliation with WPI and club-sports status.
-- [ ] Confirm any achievements with primary records.
+- [ ] Confirm public wording for WPI club-sports affiliation remains accurate.
+- [ ] Confirm whether current officer names should appear on About or only on Contact.
 - [ ] Decide whether alumni information is in launch scope.
-- [ ] Approve or revise the aspirational program-character language used on the page.
+- [ ] Approve or revise Spirit / culture language if the team prefers different emphasis.
 
 ## Roster (`/roster`)
 
@@ -142,12 +159,12 @@ Milestone 2 status: the page structure and carefully qualified general copy are 
 
 ### Required for launch
 
-- [ ] **Missing:** Eligibility requirements.
-- [ ] **Missing:** Recruitment and tryout process, including relevant season/dates.
+- [ ] **Supported but not yet implemented:** Eligibility — currently enrolled WPI students; all skill levels welcome. Sources: Constitution Art. III; FAQ. Page remains a placeholder until Milestone 5.
+- [ ] **Supported but not yet implemented / Possibly outdated:** Recruitment and tryout process, including fall league vs competitive team cadence. Sources: FAQ; Constitution Art. III.
 - [ ] **Missing:** Practice schedule/location appropriate for public display.
-- [ ] **Missing:** Time commitment, travel expectations, equipment, costs/dues, and experience requirements.
-- [ ] **Missing:** Inclusive beginner-facing guidance.
-- [ ] **Missing:** Verified recruitment CTA: email, Google Form, or website form.
+- [ ] **Possibly outdated:** Time commitment notes (fall league ~1 day/week; competitive practices ~2x/week Fall/Spring) need current-season confirmation before publishing exact expectations.
+- [ ] **Verified in sources, deferred:** Inclusive beginner-facing guidance (no ultimate experience required). Source: FAQ.
+- [ ] **Missing / Possibly outdated:** Verified recruitment CTA: email, Google Form, Slack, or website form. FAQ mentions forms/Slack without durable public URLs in-repo.
 - [ ] **Missing:** Monitored recipient/owner and response expectation.
 
 ### Optional

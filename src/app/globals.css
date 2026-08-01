@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --page-background: #f5f3f0;
+  --surface: #ffffff;
+  --surface-muted: #ece9e5;
+  --text-primary: #191817;
+  --text-muted: #55514e;
+  --text-subtle: #6d6763;
+  --border: #d8d2cc;
+  --border-strong: #aaa19a;
+  --brand-primary: #9d1d34;
+  --brand-primary-hover: #7d1429;
+  --brand-secondary: #312e2d;
+  --brand-soft: #f5dde2;
+  --accent: #d79b2e;
+  --focus-ring: #075fae;
+  --destructive: #b42318;
+  --radius-control: 0.5rem;
+  --radius-panel: 0.875rem;
+  --content-width: 76rem;
+  --reading-width: 44rem;
+  --header-height: 4.75rem;
+  --space-section: clamp(3rem, 8vw, 6rem);
+  --shadow-soft: 0 12px 36px rgb(36 27 23 / 0.07);
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-heading: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--page-background);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  background: var(--page-background);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--brand-primary);
+  color: white;
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.eyebrow {
+  color: var(--brand-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  border-radius: var(--radius-control);
+  background: var(--text-primary);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

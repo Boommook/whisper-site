@@ -34,11 +34,13 @@ Status labels used below:
 
 ## Home (`/`)
 
+Milestone 2 status: the page structure, route CTAs, and restrained general description are implemented. Copy is based only on the verified description of Whisper as WPI's men's club ultimate frisbee team. Final brand language, time-sensitive recruitment status, and imagery remain unapproved.
+
 ### Required for launch
 
-- [ ] **Missing:** Approved headline/tagline.
-- [ ] **Missing:** Concise team introduction.
-- [ ] **Missing:** Primary CTA label and destination.
+- [ ] **Approval required:** Current temporary hero line, “Play fast. Build together.” It is presentation copy, not a factual team claim.
+- [x] **Implemented general copy:** Concise team introduction using verified project context; final voice approval remains desirable.
+- [x] **Implemented:** Primary CTA to `/join` and secondary CTA to `/about`; no active-tryout claim is made.
 - [ ] **Missing:** Recruitment status and relevant season/date.
 - [ ] **Missing:** Hero image or approved graphic with credit, rights, consent, and alt text.
 
@@ -46,7 +48,7 @@ Status labels used below:
 
 - [ ] Next confirmed event drawn from schedule data.
 - [ ] Recent media highlights.
-- [ ] Short values/culture summary.
+- [x] **Implemented general copy:** Short competition, development, and team-community introduction; team approval remains pending.
 
 ### Verification required
 
@@ -55,13 +57,15 @@ Status labels used below:
 
 ## About (`/about`)
 
+Milestone 2 status: the page structure and carefully qualified general copy are implemented. No dates, achievements, named leaders, schedules, costs, or endorsements were added. History and leadership use explicit content-status messaging.
+
 ### Required for launch
 
-- [ ] **Missing:** Full team overview and mission.
+- [x] **Implemented general copy:** Team overview based on verified club-team context; a formal approved mission is still missing.
 - [ ] **Missing:** Verified team history and dates.
-- [ ] **Missing:** Values/culture description.
+- [x] **Implemented as aspirational framing:** Competition, improvement, teamwork, and community; formal team approval remains pending.
 - [ ] **Missing:** Current leadership names, roles, preferred labels, and consent.
-- [ ] **Missing:** Practice/competition overview suitable for public display.
+- [x] **Implemented general overview:** Practices, competition, development, and student leadership with unapproved specifics explicitly omitted.
 
 ### Optional
 
@@ -74,6 +78,7 @@ Status labels used below:
 - [ ] Confirm wording describing affiliation with WPI and club-sports status.
 - [ ] Confirm any achievements with primary records.
 - [ ] Decide whether alumni information is in launch scope.
+- [ ] Approve or revise the aspirational program-character language used on the page.
 
 ## Roster (`/roster`)
 

@@ -95,6 +95,65 @@ a {
   outline-offset: 3px;
 }
 
+.hero-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-field::before {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgb(25 24 23 / 0.035) 1px, transparent 1px);
+  background-size: clamp(3.5rem, 9vw, 8rem) 100%;
+  content: "";
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.hero-field__line {
+  position: absolute;
+  right: -8rem;
+  bottom: 8%;
+  width: min(58rem, 78vw);
+  border-top: 1px solid color-mix(in srgb, var(--brand-primary) 24%, transparent);
+  transform: rotate(-11deg);
+  transform-origin: right center;
+}
+
+.hero-field__disc {
+  position: absolute;
+  right: clamp(-7rem, -3vw, -2rem);
+  top: 5%;
+  width: clamp(18rem, 42vw, 42rem);
+  aspect-ratio: 1;
+  border: clamp(2.5rem, 6vw, 6rem) solid var(--brand-soft);
+  border-radius: 50%;
+}
+
+.hero-field__arc {
+  position: absolute;
+  right: 7%;
+  bottom: -19rem;
+  width: min(48rem, 68vw);
+  aspect-ratio: 1;
+  border: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: 50%;
+}
+
+@media (max-width: 639px) {
+  .hero-field__disc {
+    right: -10rem;
+    top: 10%;
+    opacity: 0.7;
+  }
+
+  .hero-field__arc {
+    right: -12rem;
+    bottom: -12rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -10,7 +10,8 @@ This repository is intended to become the primary public website for WPI Whisper
 
 - Next.js (current stable version to be selected during Milestone 1)
 - TypeScript
-- Tailwind CSS
+- React
+- Tailwind CSS, ShadCN, Lucide React
 - GitHub for version control and review
 - Vercel for preview and production deployment
 

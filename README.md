@@ -4,9 +4,9 @@ The developing public website for WPI Whisper, Worcester Polytechnic Institute's
 
 ## Current status
 
-**Milestone 1 implementation complete; interactive visual QA pending.**
+**Milestone 2 implementation complete; interactive browser QA pending.**
 
-The repository now contains a production-buildable Next.js application with all planned route shells, a responsive shared layout, accessible desktop and mobile navigation, a preliminary design-token system, route metadata, and a custom not-found page. Automated checks and route-level rendering checks pass. A final interactive browser pass at narrow, tablet, and desktop widths is still required before the milestone is formally closed. Pages intentionally contain structural placeholders only. Approved team copy, roster data, schedules, recruitment details, contacts, brand assets, and media remain future work.
+The Home and About placeholders have been replaced with complete, responsive page layouts. They use verified project context, restrained general copy, intentional history and leadership status messaging, internal calls to action, and a photo-independent visual system. Automated checks and production route checks pass; a representative-width interactive browser walkthrough remains required because no browser surface was available in the implementation environment. Roster, Schedule, Join, Media, and Contact remain functional structural placeholders for later milestones.
 
 Milestone 0 planning remains authoritative:
 
@@ -104,6 +104,10 @@ All primary navigation entries live in [`src/config/navigation.ts`](src/config/n
 - Keep player portraits separate from general team and tournament photography.
 - Record credits, rights, consent, captions, and context-aware alt text for every published asset.
 
+Home content is maintained in `src/app/page.tsx`, and About content is maintained in `src/app/about/page.tsx`. Shared editorial patterns used by both pages live in `src/components/layout/`, including section headings, link cards, value cards, and callouts. Keep concise page-specific content close to its route until content volume or editing needs justify a separate typed data module.
+
+No imagery was added in Milestone 2 because no approved team assets are available. When photography is approved, add optimized files beneath `public/images/team/`, record the required rights and alt-text metadata, and preserve the current typography-and-geometry treatment as the no-image fallback.
+
 ## Design-system status
 
 The preliminary system uses a neutral foundation with a restrained deep-red direction, accessible interaction states, system fonts, and a text-only temporary “WPI Whisper” mark. It is intentionally replaceable. It does not claim to reproduce official WPI branding and includes no unofficial WPI or Whisper logo.
@@ -129,8 +133,8 @@ See [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) for the complete collection che
 ## Milestones
 
 0. Project definition and content planning — complete
-1. Application foundation and global design system — implementation complete; interactive visual QA pending
-2. Home and About pages
+1. Application foundation and global design system — complete
+2. Home and About pages — implementation complete; interactive browser QA pending
 3. Roster and team data
 4. Schedule and results
 5. Recruitment, media, and contact

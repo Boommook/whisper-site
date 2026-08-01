@@ -6,6 +6,8 @@ Audit date: July 31, 2026.
 
 No website assets were found in the repository. The repository contained only `.git` metadata before the Milestone 0 Markdown files were created. Git internals are not public website assets and are intentionally excluded from the table.
 
+Milestone 2 added no image, logo, font, video, or document assets. The Home and About pages intentionally use CSS geometry and the existing text-only temporary mark so they remain polished without implying that an approved team asset exists.
+
 Do not mark an item as present until the exact file has been added and its provenance checked.
 
 ## Assets currently present

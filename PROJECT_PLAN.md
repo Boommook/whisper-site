@@ -260,10 +260,14 @@ The first public deployment is ready only when:
 
 ### Milestone 2 — Home and About pages
 
+**Status:** Implemented on the `milestone-2` branch. Final team review, approved imagery, and interactive visual QA are required before public launch.
+
 - **Objective:** Explain the team clearly and establish the primary public story.
 - **Main deliverables:** Responsive Home and About pages, approved copy, hero/team imagery, recruitment CTA, team story, leadership section, and intentional empty/conditional states.
 - **Dependencies:** Approved description, history, leadership data, brand direction, photography rights, and primary CTA.
 - **Acceptance criteria:** Copy is verified; pages work at target widths; images are optimized/accessible; no invented claims or stale event content appears.
+
+Implementation notes: the pages use verified project context plus restrained general copy, with explicit status messages in place of unverified history and leadership details. No assets were added. Reusable section-heading, link-card, value-card, and callout patterns were introduced without changing later route scope.
 
 ### Milestone 3 — Roster and team data
 

@@ -31,7 +31,7 @@ export function validateRosterData({ season, players, leadership }: RosterDatase
 
   const playerIds = new Set<string>();
   const playersById = new Map<string, PublicPlayer>();
-  const jerseyNumbers = new Set<number>();
+  const activeJerseyNumbers = new Set<number>();
 
   for (const player of players) {
     if (!PLAYER_ID_PATTERN.test(player.id)) {
@@ -61,10 +61,12 @@ export function validateRosterData({ season, players, leadership }: RosterDatase
       if (!Number.isInteger(player.jerseyNumber) || player.jerseyNumber < 0 || player.jerseyNumber > 99) {
         fail(`Player "${player.id}" has invalid jerseyNumber ${player.jerseyNumber}; expected 0-99.`);
       }
-      if (jerseyNumbers.has(player.jerseyNumber)) {
+      if (player.status === "active" && activeJerseyNumbers.has(player.jerseyNumber)) {
         fail(`Duplicate jersey number ${player.jerseyNumber}.`);
       }
-      jerseyNumbers.add(player.jerseyNumber);
+      if (player.status === "active") {
+        activeJerseyNumbers.add(player.jerseyNumber);
+      }
     }
 
     for (const [field, value] of [

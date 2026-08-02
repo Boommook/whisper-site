@@ -44,9 +44,11 @@ export function PlayerCard({ player }: { player: PublicPlayer }) {
           <h3 className="font-heading text-2xl font-black tracking-[-0.025em]">
             {player.displayName}
           </h3>
-          <span className="text-sm font-bold text-[var(--brand-primary)]">
-            Class of {player.classYear}
-          </span>
+          {player.classYear !== undefined ? (
+            <span className="text-sm font-bold text-[var(--brand-primary)]">
+              Class of {player.classYear}
+            </span>
+          ) : null}
         </div>
         {player.pronouns ? (
           <p className="mt-1 text-sm text-[var(--text-subtle)]">{player.pronouns}</p>

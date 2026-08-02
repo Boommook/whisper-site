@@ -1,4 +1,4 @@
-import { Clock3, MapPin } from "lucide-react";
+import { Clock3, ExternalLink, MapPin } from "lucide-react";
 
 import { formatGameDate, formatTime } from "@/lib/schedule-date";
 import { getGameOutcome } from "@/lib/schedule";
@@ -37,6 +37,17 @@ export function GameResult({ game }: { game: ScheduleGame }) {
           </p>
         ) : null}
         {game.resultNote ? <p className="mt-2 text-sm text-[var(--text-muted)]">{game.resultNote}</p> : null}
+        {game.externalUrl ? (
+          <a
+            href={game.externalUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-flex min-h-11 items-center gap-2 py-2 text-sm font-bold text-[var(--brand-primary)] underline decoration-2 decoration-transparent transition-colors hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)] motion-reduce:transition-none"
+          >
+            Game details <ExternalLink aria-hidden="true" className="size-4" />
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        ) : null}
       </div>
 
       {game.status === "completed" && outcome ? (

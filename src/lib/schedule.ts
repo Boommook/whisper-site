@@ -17,6 +17,19 @@ export function getGameOutcome(game: ScheduleGame): GameOutcome | undefined {
   return "tie";
 }
 
+export function getSeasonRecord(events: readonly ScheduleEvent[]) {
+  const record = { wins: 0, losses: 0, ties: 0 };
+  for (const event of events) {
+    for (const game of event.games ?? []) {
+      const outcome = getGameOutcome(game);
+      if (outcome === "win") record.wins += 1;
+      if (outcome === "loss") record.losses += 1;
+      if (outcome === "tie") record.ties += 1;
+    }
+  }
+  return record;
+}
+
 function compareWithOverride(a: ScheduleEvent, b: ScheduleEvent) {
   if (a.sortOrder !== undefined || b.sortOrder !== undefined) {
     const orderDifference = (a.sortOrder ?? 100) - (b.sortOrder ?? 100);

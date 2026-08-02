@@ -6,7 +6,10 @@ export type LeadershipRole =
   | "Treasurer"
   | "Secretary"
   | "Public Relations Chair"
+  | "Social Media Manager"
   | "Captain";
+
+export type FieldRole = "Handler" | "Cutter" | "Hybrid";
 
 export type PlayerPortrait = Readonly<{
   src: `/images/players/${string}`;
@@ -25,7 +28,7 @@ export type ApprovedSocialLink = Readonly<{
 export type PublicPlayer = Readonly<{
   id: string;
   displayName: string;
-  classYear: number;
+  classYear?: number;
   status: PlayerStatus;
   jerseyNumber?: number;
   fieldRole?: string;

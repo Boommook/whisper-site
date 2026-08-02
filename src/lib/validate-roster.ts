@@ -48,9 +48,10 @@ export function validateRosterData({ season, players, leadership }: RosterDatase
     requireText(player.displayName, "displayName", player.id);
 
     if (
-      !Number.isInteger(player.classYear) ||
-      player.classYear < MIN_CLASS_YEAR ||
-      player.classYear > MAX_CLASS_YEAR
+      player.classYear !== undefined &&
+      (!Number.isInteger(player.classYear) ||
+        player.classYear < MIN_CLASS_YEAR ||
+        player.classYear > MAX_CLASS_YEAR)
     ) {
       fail(
         `Player "${player.id}" has implausible classYear ${player.classYear}; expected ${MIN_CLASS_YEAR}-${MAX_CLASS_YEAR}.`,

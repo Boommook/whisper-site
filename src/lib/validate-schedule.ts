@@ -55,6 +55,15 @@ function validateOptionalText(value: string | undefined, context: string, field:
   if (value !== undefined) requireText(value, context, field);
 }
 
+function validateExternalUrl(value: string, context: string, field: string) {
+  try {
+    const url = new URL(value);
+    if (url.protocol !== "https:" || url.username || url.password) throw new Error();
+  } catch {
+    fail(`${context} ${field} must be a safe HTTPS URL.`);
+  }
+}
+
 function validateGame(game: ScheduleGame, event: ScheduleEvent, gameIds: Set<string>) {
   const context = `Event "${event.id}" game "${game.id}"`;
   if (!ID_PATTERN.test(game.id)) fail(`${context} must use a lowercase kebab-case ID.`);
@@ -78,6 +87,9 @@ function validateGame(game: ScheduleGame, event: ScheduleEvent, gameIds: Set<str
     }
   }
   validateTimeAndZone(game.startTime, game.timezone, context);
+  if (game.externalUrl !== undefined) {
+    validateExternalUrl(game.externalUrl, context, "externalUrl");
+  }
 
   const scores = [game.whisperScore, game.opponentScore];
   for (const score of scores) {
@@ -144,12 +156,7 @@ export function validateScheduleData({ season, events }: ScheduleDataset) {
     ] as const) validateOptionalText(value, context, field);
 
     if (event.externalUrl !== undefined) {
-      try {
-        const url = new URL(event.externalUrl);
-        if (url.protocol !== "https:" || url.username || url.password) throw new Error();
-      } catch {
-        fail(`${context} externalUrl must be a safe HTTPS URL.`);
-      }
+      validateExternalUrl(event.externalUrl, context, "externalUrl");
     }
     if (event.sortOrder !== undefined && !Number.isInteger(event.sortOrder)) {
       fail(`${context} sortOrder must be an integer.`);

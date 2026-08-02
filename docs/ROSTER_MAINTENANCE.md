@@ -18,7 +18,7 @@ Every field identifies a student or describes their participation. Obtain player
 |---|---|---|
 | `id` | Stable lowercase kebab-case record key | Internal identifier; avoid student IDs or sensitive identifiers |
 | `displayName` | Publicly displayed player name | Confirm spelling, preference, and consent |
-| `classYear` | Graduation/class year | Confirm accuracy and consent |
+| `classYear` | Optional graduation/class year | Confirm accuracy and consent; omit until known |
 | `status` | Controls current-roster inclusion | Use `active` for the current public roster; `inactive` records are not rendered |
 | `jerseyNumber` | Optional public uniform number | Confirm assignment and uniqueness among active players |
 | `fieldRole` | Optional ultimate role | Confirm team terminology and player assignment |
@@ -85,4 +85,4 @@ npm run typecheck
 npm run build
 ```
 
-Validation detects duplicate IDs, duplicate jersey numbers among active players, malformed IDs, empty text fields, class years outside the deliberately broad 2020–2040 range, invalid jersey numbers, incomplete/unsafe portrait metadata, insecure social links, duplicate leadership assignments, and leadership references to missing or inactive players. Revisit the class-year bounds as the site ages. Errors identify the affected record and field.
+Validation detects duplicate IDs, duplicate jersey numbers among active players, malformed IDs, empty text fields, supplied class years outside the deliberately broad 2020–2040 range, invalid jersey numbers, incomplete/unsafe portrait metadata, insecure social links, duplicate leadership assignments, and leadership references to missing or inactive players. Revisit the class-year bounds as the site ages. Errors identify the affected record and field.

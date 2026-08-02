@@ -8,7 +8,7 @@ import { EventCard } from "@/components/schedule/event-card";
 import { ScheduleEmptyState } from "@/components/schedule/schedule-empty-state";
 import { SectionEmptyState } from "@/components/schedule/section-empty-state";
 import { scheduleEvents, scheduleSeason } from "@/data/schedule";
-import { sortCompletedEvents, sortUpcomingEvents } from "@/lib/schedule";
+import { getSeasonRecord, sortCompletedEvents, sortUpcomingEvents } from "@/lib/schedule";
 import { validateScheduleData } from "@/lib/validate-schedule";
 
 export const metadata: Metadata = {
@@ -21,6 +21,8 @@ validateScheduleData({ season: scheduleSeason, events: scheduleEvents });
 
 const upcomingEvents = sortUpcomingEvents(scheduleEvents);
 const completedEvents = sortCompletedEvents(scheduleEvents);
+const seasonRecord = getSeasonRecord(scheduleEvents);
+const hasResults = seasonRecord.wins + seasonRecord.losses + seasonRecord.ties > 0;
 
 export default function SchedulePage() {
   return (
@@ -38,6 +40,16 @@ export default function SchedulePage() {
               <CalendarRange aria-hidden="true" className="size-4 text-[var(--brand-primary)]" />
               <span>{scheduleSeason.label}</span>
             </div>
+            {hasResults ? (
+              <p className="mt-4 text-sm font-bold text-[var(--text-muted)]">
+                Season record{" "}
+                <span className="font-heading text-2xl font-black tabular-nums text-[var(--text-primary)]">
+                  {seasonRecord.wins}–{seasonRecord.losses}
+                  {seasonRecord.ties > 0 ? `–${seasonRecord.ties}` : ""}
+                </span>
+                {seasonRecord.ties > 0 ? " (W–L–T)" : " (W–L)"}
+              </p>
+            ) : null}
           </div>
           <div>
             <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.04em] sm:text-4xl">

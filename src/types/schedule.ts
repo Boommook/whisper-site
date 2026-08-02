@@ -33,6 +33,7 @@ export type ScheduleGame = Readonly<{
   whisperScore?: number;
   opponentScore?: number;
   resultNote?: string;
+  externalUrl?: `https://${string}`;
 }>;
 
 export type ScheduleEvent = Readonly<{

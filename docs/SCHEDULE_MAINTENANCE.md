@@ -74,7 +74,7 @@ games: [
 ]
 ```
 
-This is fictional documentation data. Before recording a real result, verify the opponent spelling and both scores against an authoritative result or a designated team owner. Set the game to `completed` and provide both non-negative integer scores in the same change. Do not store `win`, `loss`, or `tie`: the interface derives that label by comparing scores. Equal scores render as a tie.
+This is fictional documentation data. Before recording a real result, verify the opponent spelling and both scores against an authoritative result or a designated team owner. Set the game to `completed` and provide both non-negative integer scores in the same change. Do not store `win`, `loss`, `tie`, or the season record: the interface derives outcomes and the aggregate record from game scores. Equal scores render as a tie.
 
 A completed tournament without approved game-level results may omit `games`; the public card then states only that the event is complete. It does not imply a record.
 

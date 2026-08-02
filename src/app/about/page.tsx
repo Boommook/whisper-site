@@ -37,7 +37,7 @@ const values = [
   {
     title: "Teamwork",
     description:
-      "Strong culture means working hard and staying close as teammates—through wins, losses, travel, and the everyday work of building a program.",
+      "Strong culture means working hard and staying close as teammates—through wins, losses, practices, and the everyday work of building a program.",
     icon: Handshake,
   },
   {
@@ -55,15 +55,15 @@ const clubExperience = [
   },
   {
     label: "Competitive team",
-    text: "Whisper's travel team holds tryouts and rosters players dedicated to competing against other schools during the spring USAU college season. Athletic backgrounds are welcome even without prior ultimate experience.",
+    text: "The competitive team holds tryouts in the fall and rosters players who want to compete against other schools. The main USAU college season is in the spring, with a couple of tournaments or games in the fall as well. Athletic backgrounds are welcome even without prior ultimate experience.",
   },
   {
     label: "Practice & competition",
-    text: "The competitive team typically practices twice a week during the fall and spring and travels to tournaments against other colleges. Exact times and venues change with field availability each term.",
+    text: "The competitive team practices twice a week in the fall and spring. Exact times and venues change with field availability each term.",
   },
   {
     label: "Student leadership",
-    text: "Whisper is student-run. An elected executive board organizes the club, and coaches help mentor the competitive team through practices, strategy, and travel.",
+    text: "Whisper is student-run. An elected executive board organizes the club, and coaches help mentor the competitive team through practices, strategy, and competition.",
   },
 ] as const;
 
@@ -73,7 +73,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About WPI Whisper"
         title="A student-run club sport built around ultimate."
-        description="Whisper is Worcester Polytechnic Institute's men's club ultimate frisbee team. The club educates and trains WPI students in the sport and may travel to or host competitions against other schools."
+        description="Whisper is Worcester Polytechnic Institute's men's club ultimate frisbee team. The club educates and trains WPI students in the sport and competes against other schools."
       />
 
       <Section className="py-[var(--space-section)]">
@@ -81,10 +81,10 @@ export default function AboutPage() {
           <SectionHeading eyebrow="Team identity" title="Club sport. Shared purpose." />
           <div className="max-w-2xl space-y-5 text-lg leading-8 text-[var(--text-muted)]">
             <p>
-              Whisper is a student-run club sport at WPI. Membership is open to currently enrolled students who want to play ultimate in an organized setting—whether that means competitive travel, a more casual league experience, or both.
+              Whisper is a student-run club sport at WPI. Membership is open to currently enrolled students who want to play ultimate in an organized setting—whether that means the competitive team, a more casual league experience, or both.
             </p>
             <p>
-              The program balances competition with community. Players learn the game, support one another, and build a team environment that works for dedicated travelers and students balancing other commitments.
+              The program balances competition with community. Players learn the game, support one another, and build a team environment that works for dedicated competitors and students balancing other commitments.
             </p>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="The club experience"
             title="How participation works."
-            description="Whisper includes both competitive travel and a broader league experience for WPI students."
+            description="Whisper includes both a competitive team and a broader league experience for WPI students."
           />
           <ol className="divide-y divide-[var(--border)] border-y border-[var(--border)]">
             {clubExperience.map((item, index) => (
@@ -141,7 +141,7 @@ export default function AboutPage() {
               Led by an elected student board.
             </h2>
             <p className="mt-4 leading-7 text-[var(--text-muted)]">
-              Rostered competitive-team members elect an executive board that includes a president, vice president, treasurer, secretary, and public relations chair. Coaches support the competitive team with practice planning, development, and tournament travel. Reach out through the contact page for team inquiries.
+              Rostered competitive-team members elect an executive board that includes a president, vice president, treasurer, secretary, and public relations chair. Coaches support the competitive team with practice planning, development, and competition. Reach out through the contact page for team inquiries.
             </p>
             <Link
               href="/contact"

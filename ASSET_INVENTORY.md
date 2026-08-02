@@ -37,6 +37,8 @@ Do not mark an item as present until the exact file has been added and its prove
 
 ## Important missing assets
 
+Milestone 3 added portrait support but no files. Player cards use an `aria-hidden` initials treatment when an approved portrait is absent; it is not presented as a real photograph.
+
 - [ ] Official Whisper logo in its original vector format, plus approved monochrome/light/dark variants.
 - [ ] WPI marks only if permission and usage rules allow them.
 - [ ] Favicon/app-icon source that remains legible at small sizes.

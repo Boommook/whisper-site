@@ -19,19 +19,19 @@ const primaryPaths = [
   {
     title: "Join Whisper",
     description:
-      "See how WPI students get involved, from casual play to the competitive travel team.",
+      "See how WPI students get involved, from casual play to the competitive team.",
     href: "/join",
     icon: UsersRound,
   },
   {
     title: "Meet the Team",
-    description: "Browse the roster of players who practice, travel, and compete with Whisper.",
+    description: "Browse the roster of players who practice and compete with Whisper.",
     href: "/roster",
     icon: CircleUserRound,
   },
   {
     title: "Schedule & Results",
-    description: "Find tournaments, games, and results from Whisper's competitive season.",
+    description: "Find tournaments, games, and results across Whisper's fall and spring season.",
     href: "/schedule",
     icon: CalendarDays,
   },
@@ -91,7 +91,7 @@ export default function HomePage() {
               Train together. Compete with purpose. Welcome every skill level.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
-              Whisper exists to educate and train WPI students in ultimate frisbee, with room for both competitive travel and a more casual league experience. Prior ultimate experience helps, but it is not required—athletes who are ready to learn are a common and welcome part of the team.
+              Whisper exists to educate and train WPI students in ultimate frisbee, with room for both a competitive team and a more casual league experience. Prior ultimate experience helps, but it is not required—athletes who are ready to learn are a common and welcome part of the team.
             </p>
             <Link
               href="/about"

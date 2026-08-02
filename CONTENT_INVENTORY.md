@@ -75,7 +75,7 @@ Milestone 2 status: About copy presents Whisper as a student-run club sport usin
 - [x] **Verified and implemented:** Culture principles framed as expectations (Spirit of the Game / self-refereed play, improvement, teamwork, communication). Sources: FAQ sport definition; Constitution purpose; Transition Doc culture themes. Spirit Manual file does not supply usable principles.
 - [ ] **Missing:** Current leadership names, preferred labels, and consent for public listing.
 - [x] **Verified and implemented:** High-level student leadership structure (elected executive board roles and coaching support) without names. Source: Constitution Arts. V–VIII.
-- [x] **Verified and implemented:** Club experience overview covering fall league, competitive tryouts/USAU spring season, typical twice-weekly practices, and student leadership. Sources: Constitution Art. III; FAQ; Transition Doc operational patterns.
+- [x] **Verified and implemented:** Club experience overview covering fall league, fall tryouts, spring USAU season with some fall games/tournaments, twice-weekly practices in fall and spring, and student leadership. Sources: Constitution Art. III; FAQ; team clarification of current season pattern.
 - [x] **Verified and implemented:** Membership openness and non-discrimination statement summarized from Constitution Arts. III and XI.
 
 ### Optional
@@ -99,9 +99,11 @@ Milestone 2 status: About copy presents Whisper as a student-run club sport usin
 
 ## Roster (`/roster`)
 
+Milestone 3 status: the public roster page, typed local data model, validation, optional portrait presentation, conditional leadership section, and empty state are implemented. No player or leadership records were added because no publication-approved roster exists.
+
 ### Required for launch
 
-- [ ] **Missing:** Active season label.
+- [ ] **Approval required:** Specific active-season label. The page currently uses the deliberate generic label “Current season.”
 - [ ] **Missing:** Complete current roster from an authoritative team source.
 - [ ] **Missing:** Approved public roster fields and consent policy.
 - [ ] **Missing:** Named owner and update cadence.
@@ -121,6 +123,15 @@ Milestone 2 status: About copy presents Whisper as a student-run club sport usin
 - [ ] Individual player profile pages.
 - [ ] Captains/leadership callout.
 - [ ] Team photo.
+
+### Implemented infrastructure
+
+- [x] Typed public-player, portrait, social-link, season, and leadership schemas.
+- [x] Empty typed player and leadership exports under `src/data/`.
+- [x] Validation for duplicate IDs/numbers, class-year range, required text, portrait paths/metadata, social links, and leadership references.
+- [x] Responsive player-card grid with an accessible decorative-initials fallback.
+- [x] Conditional leadership rendering and a public-quality empty-roster state.
+- [x] Privacy and editing guidance in `docs/ROSTER_MAINTENANCE.md`.
 
 ### Verification required
 

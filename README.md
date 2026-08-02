@@ -4,9 +4,9 @@ The developing public website for WPI Whisper, Worcester Polytechnic Institute's
 
 ## Current status
 
-**Milestone 2 Home and About cleanup complete.**
+**Milestone 3 roster and team-data implementation complete.**
 
-Home (`/`) and About (`/about`) are implemented as public-facing pages. Copy draws from repository source documents under [`docs/`](docs/README.md), especially the club constitution and club-fair FAQ, rewritten into visitor-facing language. Roster, Schedule, Join, Media, and Contact remain functional structural placeholders for later milestones.
+Home (`/`), About (`/about`), and Roster (`/roster`) are implemented as public-facing pages. Roster uses typed local season, player, and leadership data with build-time validation and a publication-ready empty state while approved records are unavailable. Schedule, Join, Media, and Contact remain functional structural placeholders for later milestones.
 
 Automated lint, typecheck, and production build pass. Interactive browser QA was run against a local production server at 320, 375, 768, 1024, and 1440px for Home and About, including desktop/mobile navigation, focus outlines, and route checks for all planned pages plus the custom 404.
 
@@ -78,7 +78,7 @@ No environment variables are required. If a future milestone adds any, document 
 └── /contact
 ```
 
-Home and About contain implemented public copy. Roster, Schedule, Join, Media, and Contact still use intentional placeholder notices until their milestones supply verified content.
+Home and About contain implemented public copy. Roster is data-driven and currently shows an intentional publication-pending state because no player records are approved. Schedule, Join, Media, and Contact still use intentional placeholder notices until their milestones supply verified content.
 
 ## Project structure
 
@@ -90,7 +90,7 @@ src/
 │   ├── layout/         # Shared shell, navigation, page, and section components
 │   └── ui/             # Focused reusable UI primitives
 ├── config/             # Site identity and central navigation configuration
-├── data/               # Future typed team, roster, and schedule data
+├── data/               # Typed local team data, beginning with roster/leadership
 ├── lib/                # Shared utilities
 └── types/              # Shared TypeScript types
 ```
@@ -110,6 +110,8 @@ All primary navigation entries live in [`src/config/navigation.ts`](src/config/n
 - Record credits, rights, consent, captions, and context-aware alt text for every published asset.
 
 Home content is maintained in `src/app/page.tsx`, and About content is maintained in `src/app/about/page.tsx`. Shared editorial patterns used by both pages live in `src/components/layout/`, including section headings, link cards, value cards, and callouts. Keep concise page-specific content close to its route until content volume or editing needs justify a separate typed data module.
+
+Roster season metadata, player entries, and leadership assignments are maintained in `src/data/roster.ts`. Read the [roster maintenance guide](docs/ROSTER_MAINTENANCE.md) before adding records. The guide documents approval boundaries, portrait handling, schema examples, and validation behavior.
 
 No imagery was added in Milestone 2 because no approved team assets are available. When photography is approved, add optimized files beneath `public/images/team/`, record the required rights and alt-text metadata, and preserve the current typography-and-geometry treatment as the no-image fallback.
 
@@ -142,7 +144,7 @@ See [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) for the complete collection che
 0. Project definition and content planning — complete
 1. Application foundation and global design system — complete
 2. Home and About pages — implemented; content cleanup from `/docs` complete; interactive browser QA performed locally
-3. Roster and team data
+3. Roster and team data — implemented with an empty approved dataset
 4. Schedule and results
 5. Recruitment, media, and contact
 6. Accessibility, SEO, testing, and launch

@@ -55,3 +55,7 @@ Examples of known caution areas:
 - Extract facts first; rewrite in visitor-facing language second.
 - Keep internal editorial status language out of public pages.
 - Do not modify the original `.docx` files as part of ordinary website work.
+
+## Maintainer guides
+
+- [Roster maintenance](ROSTER_MAINTENANCE.md) — public schema, approval boundaries, data editing, leadership references, portraits, empty-state behavior, and validation

@@ -271,10 +271,14 @@ Implementation notes: Home and About use Constitution and FAQ facts rewritten in
 
 ### Milestone 3 — Roster and team data
 
+**Status:** Implemented in the working tree with an intentionally empty public dataset. Real publication remains dependent on team-approved records, fields, ownership, and portrait permissions.
+
 - **Objective:** Publish an accurate, maintainable roster using structured data.
 - **Main deliverables:** Typed roster/leadership schemas and data, roster presentation, optional portraits, season labeling, editing guide, and validation.
 - **Dependencies:** Roster publication/privacy decision, confirmed active roster, approved fields, photo consent, and update owner.
 - **Acceptance criteria:** Every displayed field is approved and verified; missing photos degrade gracefully; data changes require no component edits; build/type checks catch invalid entries.
+
+Implementation notes: roster content lives in typed local modules, validates at build time, and renders through reusable roster, player, leadership, season-label, and empty-state components. Leadership assignments reference roster player IDs and render only when approved assignments exist. No names, roles, numbers, class years, biographies, or portraits were invented.
 
 ### Milestone 4 — Schedule and results
 

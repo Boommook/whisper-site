@@ -1,18 +1,88 @@
+import { CalendarRange } from "lucide-react";
 import type { Metadata } from "next";
 
-import { PlaceholderPage } from "@/components/layout/placeholder-page";
+import { PageHeader } from "@/components/layout/page-header";
+import { Section } from "@/components/layout/section";
+import { SectionHeading } from "@/components/layout/section-heading";
+import { EventCard } from "@/components/schedule/event-card";
+import { ScheduleEmptyState } from "@/components/schedule/schedule-empty-state";
+import { SectionEmptyState } from "@/components/schedule/section-empty-state";
+import { scheduleEvents, scheduleSeason } from "@/data/schedule";
+import { sortCompletedEvents, sortUpcomingEvents } from "@/lib/schedule";
+import { validateScheduleData } from "@/lib/validate-schedule";
 
 export const metadata: Metadata = {
-  title: "Schedule & Results",
-  description: "Schedule-and-results foundation for WPI Whisper men's ultimate frisbee.",
+  title: "WPI Whisper Schedule & Results",
+  description:
+    "Find upcoming WPI Whisper events and verified game results as public schedule information becomes available.",
 };
+
+validateScheduleData({ season: scheduleSeason, events: scheduleEvents });
+
+const upcomingEvents = sortUpcomingEvents(scheduleEvents);
+const completedEvents = sortCompletedEvents(scheduleEvents);
 
 export default function SchedulePage() {
   return (
-    <PlaceholderPage
-      eyebrow="Schedule & results"
-      title="Know what comes next."
-      description="Confirmed tournaments, games, and verified results will be organized here in a clear season view."
-    />
+    <>
+      <PageHeader
+        eyebrow="Schedule & results"
+        title="Every event. Every verified result."
+        description="Follow WPI Whisper's upcoming competition and review completed events in one clear season view."
+      />
+
+      <Section className="py-[var(--space-section)]">
+        <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+          <div>
+            <div className="inline-flex min-h-10 items-center gap-2 border-l-2 border-[var(--brand-primary)] bg-[var(--surface-muted)] px-3 py-2 text-sm font-bold">
+              <CalendarRange aria-hidden="true" className="size-4 text-[var(--brand-primary)]" />
+              <span>{scheduleSeason.label}</span>
+            </div>
+          </div>
+          <div>
+            <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.04em] sm:text-4xl">
+              Plan ahead. Catch up afterward.
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
+              {scheduleSeason.description ?? "Event details and verified results are organized by season."}
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {scheduleEvents.length === 0 ? (
+        <Section className="border-t border-[var(--border)] bg-[var(--surface-muted)] py-[var(--space-section)]">
+          <ScheduleEmptyState />
+        </Section>
+      ) : (
+        <>
+          <Section className="border-t border-[var(--border)] bg-[var(--surface-muted)] py-[var(--space-section)]">
+            <SectionHeading
+              eyebrow="On the calendar"
+              title="Upcoming events"
+              description="Scheduled competition, tentative plans, and important event updates appear here in date order."
+            />
+            <div className="mt-10 grid gap-6">
+              {upcomingEvents.length > 0 ? upcomingEvents.map((event) => (
+                <EventCard key={event.id} event={event} />
+              )) : <SectionEmptyState>There are no upcoming public events on the calendar.</SectionEmptyState>}
+            </div>
+          </Section>
+
+          <Section className="border-t border-[var(--border)] py-[var(--space-section)]">
+            <SectionHeading
+              eyebrow="Final whistle"
+              title="Completed events & results"
+              description="Only completed events and verified game scores are shown as final results."
+            />
+            <div className="mt-10 grid gap-6">
+              {completedEvents.length > 0 ? completedEvents.map((event) => (
+                <EventCard key={event.id} event={event} />
+              )) : <SectionEmptyState>No completed events or public results are available yet.</SectionEmptyState>}
+            </div>
+          </Section>
+        </>
+      )}
+    </>
   );
 }

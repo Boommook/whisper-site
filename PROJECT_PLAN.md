@@ -282,10 +282,14 @@ Implementation notes: roster content lives in typed local modules, validates at 
 
 ### Milestone 4 — Schedule and results
 
+**Status:** Implemented on `main` with a typed, validated schedule system and an intentionally empty public dataset. Real publication remains dependent on confirmed events, verified results, an update owner, and a history policy.
+
 - **Objective:** Make upcoming events and verified results easy to find and update.
 - **Main deliverables:** Typed event/result model, upcoming and completed views, status/location handling, empty states, and update instructions.
 - **Dependencies:** Confirmed schedule, result source, history policy, display granularity, and update owner.
 - **Acceptance criteria:** Dates/statuses are unambiguous and accessible; events sort correctly; unverified scores cannot appear; past/upcoming and empty states are tested.
+
+Implementation notes: schedule content lives in typed local season, event, and game records. Focused validation enforces IDs, calendar values, date ranges, timezones, HTTPS links, score rules, and event/game status consistency. Native date utilities avoid date-only timezone shifts, result outcomes are derived from scores, and responsive cards support empty and partial-data states. No tournament, opponent, date, location, score, or link was invented or published.
 
 ### Milestone 5 — Recruitment, media, and contact
 

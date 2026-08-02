@@ -4,9 +4,9 @@ The developing public website for WPI Whisper, Worcester Polytechnic Institute's
 
 ## Current status
 
-**Milestone 3 roster and team-data implementation complete.**
+**Milestone 4 schedule-and-results implementation complete.**
 
-Home (`/`), About (`/about`), and Roster (`/roster`) are implemented as public-facing pages. Roster uses typed local season, player, and leadership data with build-time validation and a publication-ready empty state while approved records are unavailable. Schedule, Join, Media, and Contact remain functional structural placeholders for later milestones.
+Home (`/`), About (`/about`), Roster (`/roster`), and Schedule & Results (`/schedule`) are implemented as public-facing pages. Schedule uses typed local season, event, and game data with build-time validation, deterministic date formatting, responsive upcoming/result views, and a publication-ready empty state. No event or result records are published because none are verified in the repository. Join, Media, and Contact remain functional structural placeholders for later milestones.
 
 Automated lint, typecheck, and production build pass. Interactive browser QA was run against a local production server at 320, 375, 768, 1024, and 1440px for Home and About, including desktop/mobile navigation, focus outlines, and route checks for all planned pages plus the custom 404.
 
@@ -78,7 +78,7 @@ No environment variables are required. If a future milestone adds any, document 
 └── /contact
 ```
 
-Home and About contain implemented public copy. Roster is data-driven and currently shows an intentional publication-pending state because no player records are approved. Schedule, Join, Media, and Contact still use intentional placeholder notices until their milestones supply verified content.
+Home and About contain implemented public copy. Roster and Schedule are data-driven and currently show intentional empty states because no player or event records are approved. Join, Media, and Contact still use intentional placeholder notices until their milestones supply verified content.
 
 ## Project structure
 
@@ -113,6 +113,8 @@ Home content is maintained in `src/app/page.tsx`, and About content is maintaine
 
 Roster season metadata, player entries, and leadership assignments are maintained in `src/data/roster.ts`. Read the [roster maintenance guide](docs/ROSTER_MAINTENANCE.md) before adding records. The guide documents approval boundaries, portrait handling, schema examples, and validation behavior.
 
+Schedule season metadata, events, and game results are maintained in `src/data/schedule.ts`; validation lives in `src/lib/validate-schedule.ts`. Read the [schedule maintenance guide](docs/SCHEDULE_MAINTENANCE.md) before adding records. With no verified data, `/schedule` directs visitors to Join and Roster without showing fictional details.
+
 No imagery was added in Milestone 2 because no approved team assets are available. When photography is approved, add optimized files beneath `public/images/team/`, record the required rights and alt-text metadata, and preserve the current typography-and-geometry treatment as the no-image fallback.
 
 ## Design-system status
@@ -145,7 +147,7 @@ See [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) for the complete collection che
 1. Application foundation and global design system — complete
 2. Home and About pages — implemented; content cleanup from `/docs` complete; interactive browser QA performed locally
 3. Roster and team data — implemented with an empty approved dataset
-4. Schedule and results
+4. Schedule and results — implemented with an empty approved dataset
 5. Recruitment, media, and contact
 6. Accessibility, SEO, testing, and launch
 7. Optional future features justified by post-launch needs

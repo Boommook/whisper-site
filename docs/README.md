@@ -59,3 +59,4 @@ Examples of known caution areas:
 ## Maintainer guides
 
 - [Roster maintenance](ROSTER_MAINTENANCE.md) — public schema, approval boundaries, data editing, leadership references, portraits, empty-state behavior, and validation
+- [Schedule and results maintenance](SCHEDULE_MAINTENANCE.md) — event and result schemas, statuses, date/time conventions, privacy boundaries, validation, sorting, and empty states

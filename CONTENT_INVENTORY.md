@@ -146,6 +146,17 @@ Milestone 3 status: the public roster page, typed local data model, validation, 
 
 ## Schedule & Results (`/schedule`)
 
+Milestone 4 status: the public schedule page, typed season/event/game model, validation, deterministic date formatting, upcoming and completed views, accessible statuses, result outcomes, and empty/partial-data states are implemented. No events or results were added because the repository contains no publication-approved schedule source.
+
+### Implemented infrastructure
+
+- [x] Typed local schedule data in `src/data/schedule.ts` with schemas in `src/types/schedule.ts`.
+- [x] Build-time validation for IDs, text, dates, times, timezones, URLs, scores, ranges, and event/game status consistency.
+- [x] Chronological upcoming events and newest-first completed events with an optional explicit ordering override.
+- [x] Responsive event and game-result cards with semantic dates and text-based status/outcome labels.
+- [x] Deliberate empty and partial-data states with verified internal navigation only.
+- [x] Maintainer and privacy guidance in `docs/SCHEDULE_MAINTENANCE.md`.
+
 ### Required for launch
 
 - [ ] **Missing:** Current-season tournaments/events with confirmed names, dates, locations, and statuses.

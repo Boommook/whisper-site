@@ -6,7 +6,7 @@ The developing public website for WPI Whisper, Worcester Polytechnic Institute's
 
 **Milestone 5 recruitment, media, and contact implementation complete, with documented launch inputs still outstanding.**
 
-All planned routes are implemented. Join uses centrally configured Fall 2026 tryout and interest forms plus verified Slack and Instagram routes. Media uses typed, approved local gallery metadata and a limited-media fallback. Contact routes visitors through the same verified configuration without fabricating a leadership email.
+All planned routes are implemented. Join uses centrally configured Fall 2026 tryout and interest forms plus verified Slack and Instagram routes. Media uses typed, approved local gallery metadata and a limited-media fallback. Contact routes visitors through the same verified configuration, including the executive-board email alias.
 
 Automated lint, typecheck, and production build checks run locally and in GitHub Actions for pull requests and pushes to `main`. The Milestone 4 QA matrix covers every route, the custom 404, responsive widths from 320 through 1440px, and focused schedule states; see the closeout commit and maintenance guide for the date/status policy.
 
@@ -148,7 +148,7 @@ See [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) for the complete collection che
 2. Home and About pages — implemented; content cleanup from `/docs` complete; interactive browser QA performed locally
 3. Roster and team data — implemented with optional private Google data and a safe empty fallback
 4. Schedule and results — complete with verified 2026 USA Ultimate results
-5. Recruitment, media, and contact — complete with safe fallbacks; seasonal ownership, full leadership email, and additional media approvals remain open
+5. Recruitment, media, and contact — complete with safe fallbacks; seasonal ownership and additional media approvals remain open
 6. Accessibility, SEO, testing, and launch
 7. Optional future features justified by post-launch needs
 

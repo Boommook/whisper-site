@@ -8,7 +8,7 @@ Public recruitment actions, community links, social accounts, and contact routin
 | Fall 2026 club interest form | General recruitment interest | Yes | Enabled |
 | WPI Frisbee Slack | Community communication | No | Enabled |
 | Instagram `@wpimensultimate` | Public updates and media | No | Enabled |
-| Captain/exec email | Direct leadership contact | No | Incomplete address; disabled |
+| Captain/exec email | Direct leadership contact | No | Enabled: `gr-ateam_exec@wpi.edu` |
 
 ## Updating channels
 
@@ -16,7 +16,7 @@ Public recruitment actions, community links, social accounts, and contact routin
 - For a new season, replace the label, description, `href`, and `season`; verify the published form in a private browser before enabling it.
 - Exactly one active recruitment action should normally have `primary: true`.
 - Update Instagram's canonical URL and username together. Replace the Slack signup URL only with a public, team-approved signup destination.
-- To add leadership email later, replace the incomplete entry with a complete verified address using `mailto:`, then set `enabled` and `public` to `true`. Never infer a domain from `gr-ateam_exec`.
+- If the leadership alias changes, update the `mailto:` address and its label together, then verify the link before publishing.
 - Test every external link during launch QA and review seasonal CTAs before each recruitment cycle.
 
 The pages intentionally omit disabled entries and remain useful through other verified routes. Never reuse private roster Sheet fields as public contact data; roster consent does not authorize publication of personal contact details.

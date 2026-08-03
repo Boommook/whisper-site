@@ -16,7 +16,8 @@ export const metadata: Metadata = {
     "Explore tournament photography and event galleries featuring WPI Whisper men's ultimate frisbee.",
 };
 
-const portfolioUrl = "https://photo-makanapp.com/";
+const portfolioUrl = "https://photo-makanapp.com/portfolio/";
+const sportsPortfolioUrl = "https://photo-makanapp.com/portfolio/sports";
 
 export default function MediaPage() {
   const approvedCollections = mediaCollections.filter((collection) => collection.publicationApproved);

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, Instagram, Slack } from "lucide-react";
 import Link from "next/link";
 
-import { ExternalActionLink } from "@/components/communications/external-action-link";
+import { ActionLink } from "@/components/communications/action-link";
 import { PageHeader } from "@/components/layout/page-header";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
@@ -63,9 +63,10 @@ export default function JoinPage() {
               <p className="eyebrow">Broader interest</p>
               <h3 className="mt-3 font-heading text-3xl font-black">Stay informed</h3>
               <p className="mt-4 leading-7 text-[var(--text-muted)]">{interestAction.description}</p>
-              <ExternalActionLink
+              <ActionLink
                 href={interestAction.href!}
                 label={interestAction.label}
+                external={interestAction.external}
                 variant="secondary"
                 className="mt-4 pt-2"
               />
@@ -78,17 +79,18 @@ export default function JoinPage() {
               </p>
               <h3 className="mt-3 font-heading text-3xl font-black">Fall 2026 Tryouts</h3>
               <p className="mt-4 leading-7 text-white/75">{tryoutAction.description}</p>
-              <ExternalActionLink
+              <ActionLink
                 href={tryoutAction.href!}
                 label={tryoutAction.label}
+                external={tryoutAction.external}
                 className="mt-auto pt-2"
               />
             </article>
           ) : null}
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {slackAction ? <ExternalActionLink href={slackAction.href!} label={slackAction.label} icon={<Slack aria-hidden="true" className="size-5 text-[var(--brand-primary)]" />} variant="ghost" className="justify-start border border-[var(--border)] bg-[var(--surface)]" /> : null}
-          {instagram ? <ExternalActionLink href={instagram.href} label={`${instagram.accessibleLabel} (${instagram.username})`} icon={<Instagram aria-hidden="true" className="size-5 text-[var(--brand-primary)]" />} variant="ghost" className="justify-start border border-[var(--border)] bg-[var(--surface)]" /> : null}
+          {slackAction ? <ActionLink href={slackAction.href!} label={slackAction.label} external={slackAction.external} icon={<Slack aria-hidden="true" className="size-5 text-[var(--brand-primary)]" />} variant="ghost" className="justify-start border border-[var(--border)] bg-[var(--surface)]" /> : null}
+          {instagram ? <ActionLink href={instagram.href} label={`${instagram.accessibleLabel} (${instagram.username})`} external icon={<Instagram aria-hidden="true" className="size-5 text-[var(--brand-primary)]" />} variant="ghost" className="justify-start border border-[var(--border)] bg-[var(--surface)]" /> : null}
         </div>
       </Section>
 
@@ -114,7 +116,7 @@ export default function JoinPage() {
       </Section>
 
       <Section className="pb-[var(--space-section)] pt-0">
-        <div className="bg-[var(--brand-secondary)] p-8 text-white sm:p-12 lg:flex lg:items-end lg:justify-between lg:gap-12"><div><p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[var(--accent)]">Ready for the next point?</p><h2 className="mt-3 font-heading text-3xl font-black sm:text-4xl">Take the right Fall 2026 step.</h2><p className="mt-4 max-w-2xl text-white/75">Students trying out must complete both the interest form and tryout form. If you are unsure or do not want to play competitively, complete only the interest form.</p></div><div className="mt-7 flex flex-col items-start gap-3 lg:mt-0">{interestAction ? <ExternalActionLink href={interestAction.href!} label={interestAction.label} /> : null}{tryoutAction ? <ExternalActionLink href={tryoutAction.href!} label={tryoutAction.label} variant="secondary" className="border-white/70 bg-transparent !text-white hover:bg-white/10 hover:!text-white" /> : null}{!interestAction && !tryoutAction ? <Link href="/contact" className={buttonVariants()}>View current contact options</Link> : null}</div></div>
+        <div className="bg-[var(--brand-secondary)] p-8 text-white sm:p-12 lg:flex lg:items-end lg:justify-between lg:gap-12"><div><p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[var(--accent)]">Ready for the next point?</p><h2 className="mt-3 font-heading text-3xl font-black sm:text-4xl">Take the right Fall 2026 step.</h2><p className="mt-4 max-w-2xl text-white/75">Students trying out must complete both the interest form and tryout form. If you are unsure or do not want to play competitively, complete only the interest form.</p></div><div className="mt-7 flex flex-col items-start gap-3 lg:mt-0">{interestAction ? <ActionLink href={interestAction.href!} label={interestAction.label} external={interestAction.external} /> : null}{tryoutAction ? <ActionLink href={tryoutAction.href!} label={tryoutAction.label} external={tryoutAction.external} variant="secondary" className="border-white/70 bg-transparent !text-white hover:bg-white/10 hover:!text-white" /> : null}{!interestAction && !tryoutAction ? <Link href="/contact" className={buttonVariants()}>View current contact options</Link> : null}</div></div>
       </Section>
     </>
   );

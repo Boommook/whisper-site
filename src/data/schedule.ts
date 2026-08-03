@@ -1,13 +1,13 @@
 import type { ScheduleEvent, ScheduleSeason } from "@/types/schedule";
 
 /**
- * A specific label and date range must not be published until team leadership
- * confirms the season. See docs/SCHEDULE_MAINTENANCE.md before editing.
+ * USA Ultimate identifies the regular-season events below with its 2026
+ * college season. See docs/SCHEDULE_MAINTENANCE.md before editing.
  */
 export const scheduleSeason = {
   id: "2026",
   label: "2026 season",
-  description: "Completed events and verified game results from the 2026 season.",
+  description: "Completed events and verified game results from WPI Whisper's spring 2026 competition.",
   publicationStatus: "published",
   startDate: "2026-03-21",
   endDate: "2026-04-12",
@@ -41,6 +41,7 @@ export const scheduleEvents: readonly ScheduleEvent[] =
       status: "completed",
       startDate: "2026-03-28",
       endDate: "2026-03-29",
+      location: "South Kingston, RI",
       externalUrl: "https://play.usaultimate.org/events/Ocean-State-Invite-26/",
       games: [
         { id: "rhode-island-day-one", opponent: "Rhode Island", status: "completed", date: "2026-03-28", whisperScore: 5, opponentScore: 8, externalUrl: "https://play.usaultimate.org/teams/events/match_report/?EventGameId=ffJUqYLVbbQmqXIfyQApnvNFtfi%2fARQQYxpf2LKnJEQ%3d" },

@@ -6,9 +6,9 @@ The developing public website for WPI Whisper, Worcester Polytechnic Institute's
 
 **Milestone 4 schedule-and-results implementation complete.**
 
-Home (`/`), About (`/about`), Roster (`/roster`), and Schedule & Results (`/schedule`) are implemented as public-facing pages. Schedule uses typed local season, event, and game data with build-time validation, deterministic date formatting, responsive upcoming/result views, and a publication-ready empty state. No event or result records are published because none are verified in the repository. Join, Media, and Contact remain functional structural placeholders for later milestones.
+Home (`/`), About (`/about`), Roster (`/roster`), and Schedule & Results (`/schedule`) are implemented as public-facing pages. Schedule publishes three 2026 events and 19 verified game results from linked USA Ultimate pages, with a derived 8–11 record, date-aware upcoming/past views, build-time validation, and empty/partial states. Roster records load server-side from a private Google Sheet when configured and safely fall back to the public empty state. Join, Media, and Contact remain functional structural placeholders for later milestones.
 
-Automated lint, typecheck, and production build pass. Interactive browser QA was run against a local production server at 320, 375, 768, 1024, and 1440px for Home and About, including desktop/mobile navigation, focus outlines, and route checks for all planned pages plus the custom 404.
+Automated lint, typecheck, and production build checks run locally and in GitHub Actions for pull requests and pushes to `main`. The Milestone 4 QA matrix covers every route, the custom 404, responsive widths from 320 through 1440px, and focused schedule states; see the closeout commit and maintenance guide for the date/status policy.
 
 Milestone 0 planning remains authoritative:
 
@@ -78,7 +78,7 @@ The roster integration requires four server-only Google environment variables. C
 └── /contact
 ```
 
-Home and About contain implemented public copy. Roster and Schedule are data-driven and currently show intentional empty states because no player or event records are approved. Join, Media, and Contact still use intentional placeholder notices until their milestones supply verified content.
+Home and About contain implemented public copy. Roster is data-driven from private Google services when configured and has an intentional public fallback; Schedule publishes the current verified local dataset. Join, Media, and Contact still use intentional placeholder notices until their milestones supply verified content.
 
 ## Project structure
 
@@ -113,13 +113,13 @@ Home content is maintained in `src/app/page.tsx`, and About content is maintaine
 
 Roster season metadata remains in `src/data/roster.ts`; player and leadership records are loaded server-side from a private Google Sheet, with optional portraits proxied from a private Google Drive folder. Read the [roster maintenance guide](docs/ROSTER_MAINTENANCE.md) before editing the Sheet or portrait folder. It documents environment setup, exact columns, access boundaries, portrait validation, caching, and fallback behavior.
 
-Schedule season metadata, events, and game results are maintained in `src/data/schedule.ts`; validation lives in `src/lib/validate-schedule.ts`. Read the [schedule maintenance guide](docs/SCHEDULE_MAINTENANCE.md) before adding records. With no verified data, `/schedule` directs visitors to Join and Roster without showing fictional details.
+Schedule season metadata, events, and game results are maintained in `src/data/schedule.ts`; validation lives in `src/lib/validate-schedule.ts`. Read the [schedule maintenance guide](docs/SCHEDULE_MAINTENANCE.md) before changing records. Current results link to USA Ultimate event and match-report sources.
 
-No imagery was added in Milestone 2 because no approved team assets are available. When photography is approved, add optimized files beneath `public/images/team/`, record the required rights and alt-text metadata, and preserve the current typography-and-geometry treatment as the no-image fallback.
+The About and Roster banners and header logo live under `public/img/`. Banner credits identify Luca Makarushka-Napp and link to the supplied photographer site. The repository records the supplied attribution, but team ownership, participant consent, and final publication approval still require confirmation; see [ASSET_INVENTORY.md](ASSET_INVENTORY.md).
 
 ## Design-system status
 
-The preliminary system uses a neutral foundation with a restrained deep-red direction, accessible interaction states, system fonts, and a text-only temporary “WPI Whisper” mark. It is intentionally replaceable. It does not claim to reproduce official WPI branding and includes no unofficial WPI or Whisper logo.
+The preliminary system uses a neutral foundation with a restrained deep-red direction, accessible interaction states, system fonts, and the supplied Whisper logo in the header. The mark remains replaceable and is not presented as an official WPI mark; original vector artwork and approval evidence remain outstanding.
 
 Reusable color, radius, width, spacing, focus, and header tokens are defined in `src/app/globals.css`. Shared primitives include the site shell, container, page header, section, placeholder notice, and button variants.
 
@@ -127,16 +127,16 @@ Reusable color, radius, width, spacing, focus, and header tokens are defined in 
 
 The following remain unavailable or unapproved and must not be invented:
 
-- Official Whisper logo and WPI branding rules
+- Original vector logo, logo approval evidence, and WPI branding rules
 - Final colors and typography
 - Current officer/captain names with publication consent
 - Verified team history milestones and founding details
-- Roster fields, current player data, consent, and update ownership
-- Tournament schedule, results, and historical-retention policy
+- Roster field/portrait consent and update ownership
+- Schedule update ownership and historical-retention policy
 - Current recruitment intake method (form, Slack, or email) and monitored owner
 - Exact current practice times, dues, and season dates for public display
 - Public contacts and official social account URLs
-- Rights-cleared photography/video and social-sharing image
+- Confirmed rights/participant consent for current photography, additional media, and a social-sharing image
 - Production domain and metadata base
 
 See [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) for the complete collection checklist and [PROJECT_PLAN.md](PROJECT_PLAN.md#open-decisions-requiring-team-input) for decisions requiring team input.
@@ -146,8 +146,8 @@ See [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) for the complete collection che
 0. Project definition and content planning — complete
 1. Application foundation and global design system — complete
 2. Home and About pages — implemented; content cleanup from `/docs` complete; interactive browser QA performed locally
-3. Roster and team data — implemented with an empty approved dataset
-4. Schedule and results — implemented with an empty approved dataset
+3. Roster and team data — implemented with optional private Google data and a safe empty fallback
+4. Schedule and results — complete with verified 2026 USA Ultimate results
 5. Recruitment, media, and contact
 6. Accessibility, SEO, testing, and launch
 7. Optional future features justified by post-launch needs

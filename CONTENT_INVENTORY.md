@@ -146,23 +146,23 @@ Milestone 3 status: the public roster page, typed data model, validation, option
 
 ## Schedule & Results (`/schedule`)
 
-Milestone 4 status: the public schedule page, typed season/event/game model, validation, deterministic date formatting, upcoming and completed views, accessible statuses, result outcomes, and empty/partial-data states are implemented. No events or results were added because the repository contains no publication-approved schedule source.
+Milestone 4 status: complete. The public schedule page publishes three spring 2026 events and 19 game results linked to USA Ultimate, derives an 8–11 record, validates the dataset, classifies events by status and current date, and preserves empty/partial-data states.
 
 ### Implemented infrastructure
 
 - [x] Typed local schedule data in `src/data/schedule.ts` with schemas in `src/types/schedule.ts`.
 - [x] Build-time validation for IDs, text, dates, times, timezones, URLs, scores, ranges, and event/game status consistency.
-- [x] Chronological upcoming events and newest-first completed events with an optional explicit ordering override.
+- [x] Date-aware chronological upcoming events and newest-first past events with an optional explicit ordering override.
 - [x] Responsive event and game-result cards with semantic dates and text-based status/outcome labels.
 - [x] Deliberate empty and partial-data states with verified internal navigation only.
 - [x] Maintainer and privacy guidance in `docs/SCHEDULE_MAINTENANCE.md`.
 
 ### Required for launch
 
-- [ ] **Missing:** Current-season tournaments/events with confirmed names, dates, locations, and statuses.
-- [ ] **Missing:** Verified completed-game opponents and scores where results exist.
+- [x] Three 2026 tournament records with USA Ultimate event links, dates, public locations where verified, and completed statuses.
+- [x] Nineteen completed-game opponents and scores with USA Ultimate match-report links.
 - [ ] **Missing:** Source of truth, update owner, and expected update timing.
-- [ ] **Missing:** Policy for cancellations, postponements, tentative events, and unknown details.
+- [x] Date/status policy for cancellations, postponements, tentative events, and stale records documented in the maintenance guide.
 
 ### Optional
 

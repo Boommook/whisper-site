@@ -38,15 +38,27 @@ function compareWithOverride(a: ScheduleEvent, b: ScheduleEvent) {
   return a.startDate.localeCompare(b.startDate) || a.name.localeCompare(b.name);
 }
 
-export function sortUpcomingEvents(events: readonly ScheduleEvent[]) {
+/**
+ * Active events remain upcoming through their final scheduled day. After that,
+ * every event moves to the past section even if its status was never updated.
+ * This keeps stale cancelled, postponed, tentative, and scheduled records from
+ * appearing indefinitely as future plans.
+ */
+export function sortUpcomingEvents(events: readonly ScheduleEvent[], today: string) {
   return [...events]
-    .filter((event) => event.status !== "completed")
+    .filter(
+      (event) =>
+        event.status !== "completed" && (event.endDate ?? event.startDate) >= today,
+    )
     .sort(compareWithOverride);
 }
 
-export function sortCompletedEvents(events: readonly ScheduleEvent[]) {
+export function sortPastEvents(events: readonly ScheduleEvent[], today: string) {
   return [...events]
-    .filter((event) => event.status === "completed")
+    .filter(
+      (event) =>
+        event.status === "completed" || (event.endDate ?? event.startDate) < today,
+    )
     .sort((a, b) => {
       if (a.sortOrder !== undefined || b.sortOrder !== undefined) {
         const orderDifference = (a.sortOrder ?? 100) - (b.sortOrder ?? 100);

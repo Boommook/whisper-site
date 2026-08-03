@@ -156,19 +156,19 @@ The experience should be competitive, energetic, welcoming, modern, connected to
 
 | Area | Current state | Needed decision/evidence |
 |---|---|---|
-| Official Whisper logo | Missing | Obtain approved vector artwork and usage variants; verify ownership |
+| Whisper logo | Supplied PNG used in header; approval evidence unresolved | Obtain approved vector artwork and usage variants; verify ownership |
 | WPI branding constraints | Unknown | Confirm trademark/name/logo rules and whether official WPI marks may be used |
 | Primary/secondary colors | Undecided | Derive an accessible palette from approved Whisper/WPI identity, not assumptions |
 | Accent colors | Undecided | Select one restrained, high-energy accent after the core palette is approved |
 | Heading typography | Undecided | Choose a bold, athletic but non-gimmicky face with web licensing confirmed |
 | Body typography | Undecided | Choose a highly readable, performant face with compatible metrics and licensing |
-| Photography style | No assets | Prefer candid action, team connection, and campus context; define crop and color treatment |
+| Photography style | Two supplied team banners now used | Confirm rights/participant consent; retain visible photographer credit; define future crop and color treatment |
 | Graphic elements | Undecided | Explore disc arcs, field lines, or geometric WPI references without visual clutter |
 | Tone of voice | Direction only | Direct, spirited, inclusive, student-led, and credible; avoid corporate or exaggerated claims |
 
 ## Content inventory
 
-No actual team content was present during the audit. Every item below must be supplied or verified; no player, schedule, score, contact, quote, or history is assumed.
+No actual team content was present during the original Milestone 0 audit. Later milestones added the roster integration, verified schedule/results, and supplied imagery; unchecked items below remain collection or approval needs.
 
 | Page | Content item | Required for launch | Current status | Proposed source | Notes |
 |---|---|:---:|---|---|---|
@@ -204,7 +204,7 @@ The operational checklist is maintained in [CONTENT_INVENTORY.md](CONTENT_INVENT
 
 ## Asset inventory
 
-No assets are currently present. There are no logos, team photos, player photos, tournament photos, videos, icons, fonts, or documents in the repository. Git metadata is not a site asset. See [ASSET_INVENTORY.md](ASSET_INVENTORY.md) for the auditable inventory, missing-asset checklist, and recommended organization.
+The repository now contains a supplied PNG logo and two JPEG banner photographs under `public/img/`. Their supplied photographer attribution is visible, while ownership, usage permission, and participant consent still require team confirmation. See [ASSET_INVENTORY.md](ASSET_INVENTORY.md) for the current inventory and remaining checklist.
 
 ## Launch requirements
 
@@ -260,18 +260,18 @@ The first public deployment is ready only when:
 
 ### Milestone 2 — Home and About pages
 
-**Status:** Implemented on `main`. Public copy cleaned against `/docs` source materials. Local interactive browser QA was performed at representative widths. Final team review and approved imagery are still required before public launch.
+**Status:** Implemented on `main`. Public copy was cleaned against `/docs` source materials. The About page now uses supplied, visibly credited photography; rights and participant-consent confirmation remain required before final launch approval.
 
 - **Objective:** Explain the team clearly and establish the primary public story.
 - **Main deliverables:** Responsive Home and About pages, source-supported copy, hero/team imagery when available, recruitment CTA, team story, leadership section, and intentional empty/conditional states.
 - **Dependencies:** Approved description, history, leadership data, brand direction, photography rights, and primary CTA.
 - **Acceptance criteria:** Copy is verified against repository sources; pages work at target widths; images are optimized/accessible; no invented claims or stale event content appears.
 
-Implementation notes: Home and About use Constitution and FAQ facts rewritten into visitor-facing language, with Transition Doc culture themes used cautiously and Spirit Manual chant content excluded. No public visual assets were added. Reusable section-heading, link-card, value-card, and callout patterns support these pages without changing later route scope.
+Implementation notes: Home and About use Constitution and FAQ facts rewritten into visitor-facing language, with Transition Doc culture themes used cautiously and Spirit Manual chant content excluded. About uses a responsive supplied banner with visible photographer credit. Reusable section-heading, link-card, value-card, and callout patterns support these pages without changing later route scope.
 
 ### Milestone 3 — Roster and team data
 
-**Status:** Implemented in the working tree with an intentionally empty public dataset. Real publication remains dependent on team-approved records, fields, ownership, and portrait permissions.
+**Status:** Implemented on `main` with server-side Google Sheets/Drive loading and an intentional empty fallback. Publication remains dependent on configured private services, team-approved fields, ownership, and portrait permissions.
 
 - **Objective:** Publish an accurate, maintainable roster using structured data.
 - **Main deliverables:** Typed roster/leadership schemas and data, roster presentation, optional portraits, season labeling, editing guide, and validation.
@@ -282,14 +282,14 @@ Implementation notes: roster types and season metadata live in typed local modul
 
 ### Milestone 4 — Schedule and results
 
-**Status:** Implemented on `main` with a typed, validated schedule system and an intentionally empty public dataset. Real publication remains dependent on confirmed events, verified results, an update owner, and a history policy.
+**Status:** Complete on `main` with a typed, validated schedule system and three published 2026 USA Ultimate events containing 19 linked results (8–11). Ongoing maintenance still needs a named owner and history policy.
 
 - **Objective:** Make upcoming events and verified results easy to find and update.
-- **Main deliverables:** Typed event/result model, upcoming and completed views, status/location handling, empty states, and update instructions.
+- **Main deliverables:** Typed event/result model, upcoming and past views, status/location handling, empty states, and update instructions.
 - **Dependencies:** Confirmed schedule, result source, history policy, display granularity, and update owner.
 - **Acceptance criteria:** Dates/statuses are unambiguous and accessible; events sort correctly; unverified scores cannot appear; past/upcoming and empty states are tested.
 
-Implementation notes: schedule content lives in typed local season, event, and game records. Focused validation enforces IDs, calendar values, date ranges, timezones, HTTPS links, score rules, and event/game status consistency. Native date utilities avoid date-only timezone shifts, result outcomes are derived from scores, and responsive cards support empty and partial-data states. No tournament, opponent, date, location, score, or link was invented or published.
+Implementation notes: schedule content lives in typed local season, event, and game records sourced from linked USA Ultimate pages. Focused validation enforces IDs, calendar values, date ranges, timezones, HTTPS links, score rules, duplicate records, and event/game status consistency. Date-aware classification moves stale non-completed events out of Upcoming; outcomes and the 8–11 record are derived from scores. Responsive cards retain empty and partial-data states.
 
 ### Milestone 5 — Recruitment, media, and contact
 

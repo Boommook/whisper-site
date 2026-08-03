@@ -8,7 +8,7 @@ This guide covers the public schedule and result data shown at `/schedule`. Publ
 - `src/data/schedule.ts` is the only production schedule dataset maintainers normally edit.
 - `src/lib/validate-schedule.ts` rejects malformed or internally inconsistent records during the production build.
 - `src/lib/schedule-date.ts` formats date-only values without timezone shifting and formats approved event times.
-- `src/lib/schedule.ts` derives outcomes and sorts upcoming and completed events.
+- `src/lib/schedule.ts` derives outcomes and separates upcoming and past events using status plus the current New York calendar date.
 - `src/components/schedule/` contains the responsive presentation components.
 - `src/app/schedule/page.tsx` validates, separates, and assembles the page.
 
@@ -92,7 +92,7 @@ If a postponed event has no confirmed replacement date, retain the last verified
 
 ## Sorting
 
-Upcoming, tentative, in-progress, cancelled, and postponed events appear in ascending date order. Completed events appear newest first. `sortOrder` is an optional integer override; lower values appear first and should be used sparingly for an approved editorial need. Event name breaks remaining ties deterministically.
+An event remains in Upcoming only when it is not completed and its end date (or start date for a one-day event) is today or later. This includes future/current scheduled, tentative, in-progress, postponed, and cancelled notices. Once its last published date is past, any event moves to Past even if a maintainer never changed its status; completed events always appear in Past. Past entries appear newest first. A postponed event without a confirmed replacement keeps its last verified date and therefore moves to Past after that date; assign a future date only when the replacement is authoritative. `sortOrder` is an optional integer override within either section; lower values appear first and should be used sparingly. Event name breaks remaining ties deterministically.
 
 ## Locations, links, and partial details
 
@@ -112,11 +112,11 @@ Never include hotel details, transport assignments, driver information, player a
 
 Before publishing, identify the authoritative source, the person responsible for updates, and the expected review cadence. Recheck dates, status, venue, opponent spelling, and every score. Record source details in the pull request or another access-controlled team process, not in public data when the source contains private information.
 
-Validation rejects malformed IDs, duplicate event IDs, duplicate game IDs within an event, empty text, invalid calendar dates or times, incomplete season ranges, reversed date ranges, events outside supplied season dates, game dates outside event dates, invalid timezones, unsafe links, invalid sort orders, negative or partial scores, scores on unfinished games, completed games under inconsistent event statuses, and public events in an unapproved season.
+Validation rejects malformed IDs, duplicate event IDs, duplicate game IDs within an event, exact duplicate opponent/date/result records, empty text, invalid calendar dates or times, incomplete season ranges, reversed date ranges, events outside supplied season dates, game dates outside event dates, invalid timezones, unsafe links, invalid sort orders, negative or partial scores, scores on unfinished games, completed games under inconsistent event statuses, and public events in an unapproved season. Legitimate rematches remain valid when their date, time, or result differs.
 
 ## Empty-state behavior
 
-When `scheduleEvents` is empty, `/schedule` presents a deliberate visitor-facing message with links to Join and Roster. It does not expose internal editorial language. When only one group has data, the other section explains that no public upcoming events or completed results are available.
+When `scheduleEvents` is empty, `/schedule` presents a deliberate visitor-facing message with links to Join and Roster. It does not expose internal editorial language. When only one group has data, the other section explains that no public upcoming events or past results are available.
 
 ## Before committing
 

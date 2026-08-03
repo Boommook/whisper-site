@@ -15,6 +15,8 @@ The public roster is loaded server-side from the `Roster` tab in a private Googl
 
 Google API failures are logged on the server. The public page falls back to the existing empty roster state rather than exposing an error or credentials.
 
+Configuration is optional for builds and public-route availability. With all four variables absent, partially configured, invalid, or temporarily unable to reach Google, `/roster` catches the server-side failure and renders the same visitor-facing empty state. A portrait lookup failure omits only portraits. The portrait route accepts only validated Drive file IDs, rechecks that each file belongs to the configured folder, enforces approved image MIME types and a 10 MB limit, and returns `404` for invalid or inaccessible requests; it is not a general Google Drive proxy.
+
 ## Required server environment variables
 
 ```text
@@ -85,6 +87,8 @@ Update `currentSeason` in `src/data/roster.ts` only after its public wording is 
 When Google data is unavailable or no active records are returned, `/roster` displays the intentional empty state. Leadership is omitted when no valid assignments exist.
 
 ## Validation before committing
+
+CI intentionally supplies no Google credentials, so every change continuously verifies the no-secrets build path. Test configured data in a protected local or preview environment; never add service-account values to workflow files.
 
 ```bash
 npm run lint

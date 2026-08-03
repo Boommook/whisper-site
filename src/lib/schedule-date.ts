@@ -15,6 +15,20 @@ const shortDateFormatter = new Intl.DateTimeFormat("en-US", {
   timeZone: "UTC",
 });
 
+export function getCurrentDateInTimeZone(
+  timeZone: string,
+  now: Date = new Date(),
+) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    timeZone,
+  }).formatToParts(now);
+  const value = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${value.year}-${value.month}-${value.day}`;
+}
+
 export function isValidDateOnly(value: string) {
   const match = DATE_PATTERN.exec(value);
   if (!match) return false;

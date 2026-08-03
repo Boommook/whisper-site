@@ -163,7 +163,25 @@ export function validateScheduleData({ season, events }: ScheduleDataset) {
     }
 
     const gameIds = new Set<string>();
-    for (const game of event.games ?? []) validateGame(game, event, gameIds);
+    const gameRecords = new Map<string, string>();
+    for (const game of event.games ?? []) {
+      validateGame(game, event, gameIds);
+      const recordKey = JSON.stringify([
+        game.opponent.trim().toLocaleLowerCase("en-US"),
+        game.date ?? null,
+        game.startTime ?? null,
+        game.status,
+        game.whisperScore ?? null,
+        game.opponentScore ?? null,
+      ]);
+      const duplicateId = gameRecords.get(recordKey);
+      if (duplicateId !== undefined) {
+        fail(
+          `${context} game "${game.id}" duplicates opponent/date/result record from game "${duplicateId}".`,
+        );
+      }
+      gameRecords.set(recordKey, game.id);
+    }
 
     if (event.status === "completed") {
       const unfinished = (event.games ?? []).find(

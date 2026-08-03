@@ -8,7 +8,8 @@ import { EventCard } from "@/components/schedule/event-card";
 import { ScheduleEmptyState } from "@/components/schedule/schedule-empty-state";
 import { SectionEmptyState } from "@/components/schedule/section-empty-state";
 import { scheduleEvents, scheduleSeason } from "@/data/schedule";
-import { getSeasonRecord, sortCompletedEvents, sortUpcomingEvents } from "@/lib/schedule";
+import { getSeasonRecord, sortPastEvents, sortUpcomingEvents } from "@/lib/schedule";
+import { getCurrentDateInTimeZone } from "@/lib/schedule-date";
 import { validateScheduleData } from "@/lib/validate-schedule";
 
 export const metadata: Metadata = {
@@ -19,12 +20,15 @@ export const metadata: Metadata = {
 
 validateScheduleData({ season: scheduleSeason, events: scheduleEvents });
 
-const upcomingEvents = sortUpcomingEvents(scheduleEvents);
-const completedEvents = sortCompletedEvents(scheduleEvents);
 const seasonRecord = getSeasonRecord(scheduleEvents);
 const hasResults = seasonRecord.wins + seasonRecord.losses + seasonRecord.ties > 0;
 
+export const revalidate = 3600;
+
 export default function SchedulePage() {
+  const today = getCurrentDateInTimeZone("America/New_York");
+  const upcomingEvents = sortUpcomingEvents(scheduleEvents, today);
+  const pastEvents = sortPastEvents(scheduleEvents, today);
   return (
     <>
       <PageHeader
@@ -84,13 +88,13 @@ export default function SchedulePage() {
           <Section className="border-t border-[var(--border)] py-[var(--space-section)]">
             <SectionHeading
               eyebrow="Final whistle"
-              title="Completed events & results"
-              description="Only completed events and verified game scores are shown as final results."
+              title="Past events & results"
+              description="Completed events include verified scores. Other past events retain their latest published status."
             />
             <div className="mt-10 grid gap-6">
-              {completedEvents.length > 0 ? completedEvents.map((event) => (
+              {pastEvents.length > 0 ? pastEvents.map((event) => (
                 <EventCard key={event.id} event={event} />
-              )) : <SectionEmptyState>No completed events or public results are available yet.</SectionEmptyState>}
+              )) : <SectionEmptyState>No past events or public results are available yet.</SectionEmptyState>}
             </div>
           </Section>
         </>

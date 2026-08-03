@@ -2,23 +2,21 @@
 
 ## Audit summary
 
-Audit date: July 31, 2026.
+Audit updated: August 2, 2026.
 
-No website assets were found in the repository. The repository contained only `.git` metadata before the Milestone 0 Markdown files were created. Git internals are not public website assets and are intentionally excluded from the table.
-
-Milestone 2 added no image, logo, font, video, or public website document assets. The Home and About pages intentionally use CSS geometry and the existing text-only temporary mark so they remain polished without implying that an approved team asset exists.
+The initial July 31 audit found no website assets. The repository now contains a header logo and two banner photographs under `public/img/`; this inventory records their actual use and the attribution supplied by the team.
 
 Internal reference documents under `docs/` were added for content research. They are not public visual assets and must not be treated as logos, photography, or downloadable public files.
 
-Do not mark an item as present until the exact file has been added and its provenance checked.
+Presence does not establish publication approval. Rights, participant consent, and ownership evidence remain team sign-off items unless recorded below.
 
 ## Assets currently present
 
 | Category | File name | File type | Intended use | Optimization/conversion | Rights/attribution |
 |---|---|---|---|---|---|
-| Logos | `public/img/whisper-logo.png` | PNG | Site-header identity mark | Web-ready PNG; vector source still preferred | Credit requirement supplied by team: Luca Makarushka-Napp, https://photo-makanapp.com/ |
-| Team photos | `public/img/whisper-huddle.jpeg` | JPEG | Roster header banner | Responsive crop through `next/image`; future WebP/AVIF conversion recommended | Photo: Luca Makarushka-Napp, https://photo-makanapp.com/; visible credit rendered with banner |
-| Team photos | `public/img/whisper-about.jpeg` | JPEG | About header banner | Responsive crop through `next/image`; future WebP/AVIF conversion recommended | Photo: Luca Makarushka-Napp, https://photo-makanapp.com/; visible credit rendered with banner |
+| Logos | `public/img/whisper-logo.png` | PNG, 1200×1200, 14 KB | Site-header identity mark | Small transfer size and responsive `next/image` rendering; vector source still preferred | Credit requirement supplied by team: Luca Makarushka-Napp, https://photo-makanapp.com/; ownership/approval evidence unresolved |
+| Team photos | `public/img/whisper-huddle.jpeg` | JPEG, 1600×1066, 339 KB | Roster header banner | Responsive crop and `sizes` through `next/image`; future WebP/AVIF conversion recommended | Photo: Luca Makarushka-Napp, https://photo-makanapp.com/; visible credit rendered; rights and participant consent unresolved |
+| Team photos | `public/img/whisper-about.jpeg` | JPEG, 1600×1066, 354 KB | About header banner | Responsive crop and `sizes` through `next/image`; future WebP/AVIF conversion recommended | Photo: Luca Makarushka-Napp, https://photo-makanapp.com/; visible credit rendered; rights and participant consent unresolved |
 | Player photos | None found | — | — | — | — |
 | Tournament photos | None found | — | — | — | — |
 | Videos | None found | — | — | — | — |

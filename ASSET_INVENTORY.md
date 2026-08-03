@@ -4,7 +4,7 @@
 
 Audit updated: August 2, 2026.
 
-The initial July 31 audit found no website assets. The repository now contains a header logo and two banner photographs under `public/img/`; this inventory records their actual use and the attribution supplied by the team.
+The initial July 31 audit found no website assets. The repository now contains a header logo, two banner photographs, and two tournament gallery covers under `public/img/`; this inventory records their actual use and supplied attribution.
 
 Internal reference documents under `docs/` were added for content research. They are not public visual assets and must not be treated as logos, photography, or downloadable public files.
 
@@ -17,8 +17,10 @@ Presence does not establish publication approval. Rights, participant consent, a
 | Logos | `public/img/whisper-logo.png` | PNG, 1200×1200, 14 KB | Site-header identity mark | Small transfer size and responsive `next/image` rendering; vector source still preferred | Credit requirement supplied by team: Luca Makarushka-Napp, https://photo-makanapp.com/; ownership/approval evidence unresolved |
 | Team photos | `public/img/whisper-huddle.jpeg` | JPEG, 1600×1066, 339 KB | Roster header banner | Responsive crop and `sizes` through `next/image`; future WebP/AVIF conversion recommended | Photo: Luca Makarushka-Napp, https://photo-makanapp.com/; visible credit rendered; rights and participant consent unresolved |
 | Team photos | `public/img/whisper-about.jpeg` | JPEG, 1600×1066, 354 KB | About header banner | Responsive crop and `sizes` through `next/image`; future WebP/AVIF conversion recommended | Photo: Luca Makarushka-Napp, https://photo-makanapp.com/; visible credit rendered; rights and participant consent unresolved |
+| Tournament gallery cover | `public/img/sectionals-cover.jpg` | JPEG, 2048×1365 | Media collection cover | Responsive 4:3 crop through `next/image` | photo.makanapp; linked external gallery; final rights/consent record remains required |
+| Tournament gallery cover | `public/img/RWU-cover.jpg` | JPEG, 5424×3616 | Media collection cover | Responsive 4:3 crop through `next/image`; derivative optimization recommended | photo.makanapp; linked external gallery; final rights/consent record remains required |
 | Player photos | None found | — | — | — | — |
-| Tournament photos | None found | — | — | — | — |
+| Additional tournament photos | None approved | — | Media page has an intentional limited state | — | Rights, captions, credits, and consent required before addition |
 | Videos | None found | — | — | — | — |
 | Icons | None found | — | — | — | — |
 | Fonts | None found | — | — | — | — |

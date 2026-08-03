@@ -2,7 +2,7 @@ import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
 import Image from "next/image";
 
 import { buttonVariants } from "@/components/ui/button";
-import type { MediaCollection } from "@/data/media";
+import type { MediaCollection } from "@/types/media";
 
 export function MediaCollectionCard({ collection }: { collection: MediaCollection }) {
   return (
@@ -33,7 +33,7 @@ export function MediaCollectionCard({ collection }: { collection: MediaCollectio
         </h3>
         <p className="mt-4 leading-7 text-[var(--text-muted)]">{collection.description}</p>
         <p className="mt-5 text-sm font-bold text-[var(--text-subtle)]">
-          Photography by {collection.photographer}
+          Photography by {collection.creditName}
         </p>
         <a
           href={collection.galleryUrl}

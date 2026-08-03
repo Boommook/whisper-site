@@ -293,6 +293,8 @@ Implementation notes: schedule content lives in typed local season, event, and g
 
 ### Milestone 5 — Recruitment, media, and contact
 
+**Status:** Implemented. Join, Media, and Contact are complete responsive routes backed by typed communications and media configuration. Fall 2026 forms, public Slack, and Instagram are enabled. The full captain/exec email, changing practice/cost details, additional media approvals, and ongoing channel ownership remain unresolved launch inputs.
+
 - **Objective:** Complete the main action-oriented and community-facing content.
 - **Main deliverables:** Join page and FAQ, tested recruitment action, media gallery/video links, contact page, verified social links, and asset metadata.
 - **Dependencies:** Recruitment process, contact ownership, media rights/consent, collected assets, and official social URLs.

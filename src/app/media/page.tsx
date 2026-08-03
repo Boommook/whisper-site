@@ -7,6 +7,7 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { MediaCollectionCard } from "@/components/media/media-collection-card";
 import { buttonVariants } from "@/components/ui/button";
+import { publicSocialLinks } from "@/config/communications";
 import { mediaCollections } from "@/data/media";
 
 export const metadata: Metadata = {
@@ -18,6 +19,8 @@ export const metadata: Metadata = {
 const portfolioUrl = "https://photo-makanapp.com/";
 
 export default function MediaPage() {
+  const approvedCollections = mediaCollections.filter((collection) => collection.publicationApproved);
+  const instagram = publicSocialLinks.find((link) => link.platform === "instagram");
   return (
     <>
       <PageHeader
@@ -44,11 +47,11 @@ export default function MediaPage() {
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
-        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 lg:gap-8">
-          {mediaCollections.map((collection) => (
+        {approvedCollections.length ? <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 lg:gap-8">
+          {approvedCollections.map((collection) => (
             <MediaCollectionCard key={collection.galleryUrl} collection={collection} />
           ))}
-        </div>
+        </div> : <div className="mt-10 border-l-4 border-[var(--brand-primary)] bg-[var(--surface)] p-7"><h3 className="font-heading text-2xl font-black">More media is being prepared.</h3><p className="mt-3 text-[var(--text-muted)]">Approved team photography will appear here after its context, credit, rights, and consent are confirmed.</p><Link href="/join" className={buttonVariants({ variant: "secondary", className: "mt-5" })}>Explore joining Whisper</Link></div>}
       </Section>
 
       <Section className="border-y border-[var(--border)] bg-[var(--brand-secondary)] py-[var(--space-section)] text-white">
@@ -106,6 +109,7 @@ export default function MediaPage() {
             Contact the Team
             <ArrowRight aria-hidden="true" className="size-4" />
           </Link>
+          {instagram ? <a href={instagram.href} target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "ghost" })}>Follow {instagram.username}<ExternalLink aria-hidden="true" className="size-4" /><span className="sr-only"> on Instagram (opens in a new tab)</span></a> : null}
         </div>
       </Section>
     </>

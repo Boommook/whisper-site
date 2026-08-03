@@ -23,9 +23,9 @@ Source documents live under [`docs/`](docs/README.md). Prefer the Constitution f
 - [ ] **Missing:** Approved primary navigation labels.
 - [ ] **Missing:** Official logo, favicon, and social-sharing image; verify rights and WPI brand compliance.
 - [ ] **Missing:** Approved colors and typography; verify accessibility and font licenses.
-- [ ] **Missing:** Official social account URLs; confirm that each is current and team-controlled.
+- [x] **Supplied and configured:** Official Instagram `@wpimensultimate` at `https://www.instagram.com/wpimensultimate`.
 - [ ] **Missing:** Default SEO title/description and public site URL.
-- [ ] **Missing:** Public contact/recruitment method and named update owner.
+- [x] **Supplied and configured:** Fall 2026 tryout and club-interest forms plus public WPI Frisbee Slack signup. A named update owner remains unresolved.
 - [ ] **Missing:** Image credits, rights, consent, captions, and alt-text records.
 
 ### Optional
@@ -179,20 +179,22 @@ Milestone 4 status: complete. The public schedule page publishes three spring 20
 
 ## Join Whisper (`/join`)
 
+Milestone 5 status: implemented with distinct centrally configured Fall 2026 tryout and interest actions, public Slack community signup, verified Instagram, source-grounded expectations, semantic FAQ, and honest fallbacks for changing details.
+
 ### Required for launch
 
-- [ ] **Supported but not yet implemented:** Eligibility — currently enrolled WPI students; all skill levels welcome. Sources: Constitution Art. III; FAQ. Page remains a placeholder until Milestone 5.
-- [ ] **Supported but not yet implemented / Possibly outdated:** Recruitment and tryout process, including fall league vs competitive team cadence. Sources: FAQ; Constitution Art. III.
+- [x] **Supported and implemented:** Eligibility — currently enrolled WPI students; all skill levels welcome. Sources: Constitution Art. III; FAQ.
+- [x] **Supported and implemented:** Fall league, competitive team, and recruitment-process overview. Sources: FAQ; Constitution Art. III.
 - [ ] **Missing:** Practice schedule/location appropriate for public display.
 - [ ] **Possibly outdated:** Time commitment notes (fall league ~1 day/week; competitive practices ~2x/week Fall/Spring) need current-season confirmation before publishing exact expectations.
-- [ ] **Verified in sources, deferred:** Inclusive beginner-facing guidance (no ultimate experience required). Source: FAQ.
-- [ ] **Missing / Possibly outdated:** Verified recruitment CTA: email, Google Form, Slack, or website form. FAQ mentions forms/Slack without durable public URLs in-repo.
+- [x] **Verified and implemented:** Inclusive beginner-facing guidance (no ultimate experience required). Source: FAQ.
+- [x] **Verified and implemented:** Fall 2026 tryout form, Fall 2026 club-interest form, and public WPI Frisbee Slack signup.
 - [ ] **Missing:** Monitored recipient/owner and response expectation.
 
 ### Optional
 
-- [ ] Frequently asked questions.
-- [ ] New-player checklist.
+- [x] Frequently asked questions with semantic disclosures.
+- [x] Structured new-player expectations and recruitment steps.
 - [ ] Testimonials or quotes, only with explicit approval and attribution.
 - [ ] Introductory ultimate-frisbee resources.
 
@@ -204,15 +206,17 @@ Milestone 4 status: complete. The public schedule page publishes three spring 20
 
 ## Media (`/media`)
 
+Milestone 5 status: implemented with two local, typed gallery covers and external photographer galleries. Records include contextual alt text, credit, dimensions, and explicit publication state; additional rights/participant-consent documentation remains a launch blocker.
+
 ### Required for launch
 
-- [ ] **Missing:** Curated launch set of team/action photos.
-- [ ] **Missing:** Creator/source, license or permission, participant consent, event/date, caption, and alt text for each published image.
-- [ ] **Missing:** Gallery organization and curator/update owner.
+- [x] **Implemented:** Two curated tournament gallery covers with event/date, description, alt text, and visible creator credit.
+- [ ] **Launch approval:** Confirm license/permission and participant consent records for the two published covers.
+- [ ] **Missing:** Named gallery curator/update owner.
 
 ### Optional
 
-- [ ] Tournament-specific galleries.
+- [x] Tournament-specific external galleries.
 - [ ] Videos with captions/transcripts or accessible source links.
 - [ ] Approved social embeds.
 - [ ] Historical media.
@@ -232,12 +236,14 @@ Milestone 4 status: complete. The public schedule page publishes three spring 20
 
 ## Contact (`/contact`)
 
+Milestone 5 status: implemented with recruitment forms, Slack, and Instagram. The incomplete `gr-ateam_exec` alias is retained only as disabled configuration and never rendered as `mailto:`.
+
 ### Required for launch
 
 - [ ] **Missing:** General team contact or durable role inbox.
-- [ ] **Missing:** Recruitment contact/action.
+- [x] **Supplied and implemented:** Fall 2026 recruitment forms and `/join` routing.
 - [ ] **Missing:** Inquiry categories and routing owner.
-- [ ] **Missing:** Verified official social links.
+- [x] **Supplied and implemented:** Instagram `@wpimensultimate`.
 - [ ] **Missing:** Reasonable response expectation if one is stated.
 
 ### Optional

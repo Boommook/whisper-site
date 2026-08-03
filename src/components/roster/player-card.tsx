@@ -43,23 +43,23 @@ export function PlayerCard({ player }: { player: PublicPlayer }) {
           </span>
         ) : null}
       </div>
-      <div className="p-5 sm:p-6">
+      <div className="p-4 sm:p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h3 className="font-heading text-2xl font-black tracking-[-0.025em]">
             {player.displayName}
           </h3>
-          {player.classYear !== undefined ? (
-            <span className="text-sm font-bold text-[var(--brand-primary)]">
-              Class of {player.classYear}
-            </span>
-          ) : null}
         </div>
-        {player.pronouns ? (
-          <p className="mt-1 text-sm text-[var(--text-subtle)]">{player.pronouns}</p>
-        ) : null}
-        {player.fieldRole ? (
-          <p className="mt-4 text-sm font-bold text-[var(--text-primary)]">{player.fieldRole}</p>
-        ) : null}
+        <div className="flex flex-row items-baseline justify-between gap-2">
+          {player.fieldRole ? (
+            <p className="mt-4 text-sm font-bold text-[var(--text-primary)]">{player.fieldRole}</p>
+          ) : null}
+          {player.classYear !== undefined ? (
+              <span className="text-sm font-bold text-[var(--brand-primary)]">
+                Class of {player.classYear}
+              </span>
+            ) : null}
+        </div>
+        
         {player.major || player.hometown ? (
           <dl className="mt-4 grid gap-2 border-t border-[var(--border)] pt-4 text-sm">
             {player.major ? (

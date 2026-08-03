@@ -93,7 +93,7 @@ export default function SchedulePage() {
             />
             <div className="mt-10 grid gap-6">
               {pastEvents.length > 0 ? pastEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
+                <EventCard key={event.id} event={event} collapseResults={event.type === "tournament"} />
               )) : <SectionEmptyState>No past events or public results are available yet.</SectionEmptyState>}
             </div>
           </Section>

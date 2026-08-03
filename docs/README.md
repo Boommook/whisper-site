@@ -46,7 +46,7 @@ Examples of known caution areas:
 
 - **Team name:** Constitution and site branding use Whisper / WPI Ultimate Frisbee Club; one spirit-manual filename uses “Bullets.” Do not claim a former-name history without team confirmation.
 - **Spirit Manual content:** The file does not currently provide Spirit-of-the-Game principles; public Spirit language should rely on the sport’s self-refereed nature (FAQ) and constitution purpose, not invented manual text.
-- **Recruitment intake:** FAQ mentions Slack and forms without durable public URLs in the repository. Keep Join/Contact intake deferred until a monitored channel is confirmed.
+- **Recruitment intake:** Team-approved Fall 2026 forms, public Slack signup, and Instagram are configured in `src/config/communications.ts`. Reverify seasonal forms and ownership before each cycle.
 - **Named people:** Transition-doc names of past officers, coaches, and staff contacts are not automatically approved for the public site.
 
 ## For future milestone agents

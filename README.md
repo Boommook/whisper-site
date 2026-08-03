@@ -70,7 +70,7 @@ Copy `.env.example` to `.env.local`. Never commit `.env.local` or expose Google 
 
 | Variable | Required | Purpose | Source |
 | --- | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Recommended locally; required for a custom production domain | Absolute canonical origin used by metadata, JSON-LD, sitemap, and robots | Local URL during development; final public HTTPS origin in Vercel |
+| `NEXT_PUBLIC_SITE_URL` | Optional locally; required for a custom production domain | Absolute canonical origin used by metadata, JSON-LD, sitemap, and robots | Final public HTTPS origin in Vercel, with no path, query, or hash |
 | `GOOGLE_SHEETS_CLIENT_EMAIL` | Required for live roster data | Server-only Google service-account identity | Google Cloud service account |
 | `GOOGLE_SHEETS_PRIVATE_KEY` | Required for live roster data | Server-only Google service-account key | Google Cloud service account; preserve escaped newlines |
 | `GOOGLE_ROSTER_SPREADSHEET_ID` | Required for live roster data | Selects the private roster Sheet | Google Sheet URL |
@@ -141,7 +141,7 @@ Reusable color, radius, width, spacing, focus, and header tokens are defined in 
 
 ## Vercel deployment
 
-Import the GitHub repository into Vercel and use the detected Next.js settings. Configure the four server-only Google variables for environments that should show live roster data. Set `NEXT_PUBLIC_SITE_URL` to the final public HTTPS origin, especially when using a custom domain; Vercel preview deployments otherwise use Vercel's provided deployment URL.
+Import the GitHub repository into Vercel and use the detected Next.js settings. Configure the four server-only Google variables for environments that should show live roster data. Set `NEXT_PUBLIC_SITE_URL` to the final public HTTPS origin, especially when using a custom domain. Origin resolution prefers that explicit value, then `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL`; only non-Vercel local development falls back to `http://localhost:3000`. A trailing slash and surrounding whitespace are normalized, while malformed URLs or values containing a path, query, hash, credentials, or non-local HTTP origin fail with a clear build error.
 
 Before promoting a preview, verify every public route, the mobile menu, light and dark themes, the executive-board email action, external form/gallery links, roster fallback or live data, `robots.txt`, `sitemap.xml`, social-share previews, and the custom 404. Run `npm run lint`, `npm run typecheck`, and `npm run build` against the deployment candidate.
 

@@ -52,7 +52,7 @@ export const viewport: Viewport = {
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "SportsOrganization",
+  "@type": "SportsTeam",
   name: siteConfig.name,
   url: getSiteUrl().toString(),
   description: siteConfig.description,

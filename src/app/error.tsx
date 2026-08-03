@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export default function ErrorPage({
   error,
@@ -25,9 +26,14 @@ export default function ErrorPage({
         <p className="mx-auto mt-5 max-w-md text-lg leading-8 text-[var(--text-muted)]">
           Please try again. If the problem continues, return to the homepage and use another route.
         </p>
-        <Button type="button" onClick={reset} className="mt-8">
-          Try again
-        </Button>
+        <div className="mt-8 flex flex-col items-center gap-2">
+          <Button type="button" onClick={reset}>
+            Try again
+          </Button>
+          <Link href="/" className={buttonVariants({ variant: "ghost" })}>
+            Back to homepage
+          </Link>
+        </div>
       </div>
     </section>
   );

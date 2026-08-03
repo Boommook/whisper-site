@@ -83,7 +83,7 @@ export function PlayerCard({ player }: { player: PublicPlayer }) {
           <a
             href={player.socialLink.href}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="mt-5 inline-flex min-h-11 items-center gap-2 py-2 text-sm font-bold text-[var(--brand-primary)] underline decoration-2 decoration-transparent transition-colors hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)] motion-reduce:transition-none"
           >
             {player.socialLink.label}

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, Instagram, Slack } from "lucide-react";
 import Link from "next/link";
 
@@ -8,11 +7,13 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { publicRecruitmentActions, publicSocialLinks } from "@/config/communications";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Join Whisper | WPI Men’s Ultimate",
-  description: "Learn how WPI students can connect with Whisper, express interest, and register for Fall 2026 tryouts.",
-};
+export const metadata = createPageMetadata(
+  "Join Whisper",
+  "Learn how WPI students can connect with Whisper, express interest, and register for Fall 2026 men's ultimate frisbee tryouts.",
+  "/join",
+);
 
 const action = (id: string) => publicRecruitmentActions.find((item) => item.id === id);
 const tryoutAction = action("fall-2026-tryouts");

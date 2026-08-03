@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { PageHeader } from "@/components/layout/page-header";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
@@ -14,12 +12,13 @@ import { currentSeason } from "@/data/roster";
 import { getGoogleRoster } from "@/lib/google-roster";
 import { validateRosterData } from "@/lib/validate-roster";
 import type { LeadershipAssignment, PublicPlayer } from "@/types/roster";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "WPI Whisper Roster",
-  description:
-    "View the public roster and team leadership for WPI Whisper men's club ultimate frisbee as approved information becomes available.",
-};
+export const metadata = createPageMetadata(
+  "Roster",
+  "View the public player roster and student leadership for WPI Whisper men's club ultimate frisbee.",
+  "/roster",
+);
 
 export const revalidate = 300;
 

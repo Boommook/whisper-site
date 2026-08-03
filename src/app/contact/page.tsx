@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { ArrowRight, MessagesSquare, ShieldCheck, UsersRound } from "lucide-react";
 import Link from "next/link";
 
@@ -8,11 +7,13 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { contactPaths, publicRecruitmentActions, publicSocialLinks } from "@/config/communications";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Contact WPI Whisper",
-  description: "Find verified recruitment, community, and public-update channels for WPI Whisper men’s ultimate frisbee.",
-};
+export const metadata = createPageMetadata(
+  "Contact",
+  "Contact the WPI Whisper executive board or find verified recruitment, community, and social channels.",
+  "/contact",
+);
 
 export default function ContactPage() {
   const paths = contactPaths.filter((path) => path.enabled && path.public);

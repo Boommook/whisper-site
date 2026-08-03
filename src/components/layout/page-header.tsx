@@ -76,7 +76,7 @@ export function PageHeader({
         <a
           href={photoCredit.href}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="absolute bottom-3 right-5 z-10 rounded-sm bg-black/55 px-2 py-1 text-xs font-semibold text-white/85 underline decoration-white/40 transition-colors hover:text-white hover:decoration-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none sm:right-8"
         >
           Photo: {photoCredit.name}

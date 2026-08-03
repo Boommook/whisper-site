@@ -236,11 +236,11 @@ Milestone 5 status: implemented with two local, typed gallery covers and externa
 
 ## Contact (`/contact`)
 
-Milestone 5 status: implemented with recruitment forms, Slack, and Instagram. The incomplete `gr-ateam_exec` alias is retained only as disabled configuration and never rendered as `mailto:`.
+Milestone 5 status: implemented with recruitment forms, Slack, Instagram, and the verified executive-board alias `gr-ateam_exec@wpi.edu`.
 
 ### Required for launch
 
-- [ ] **Missing:** General team contact or durable role inbox.
+- [x] **Implemented:** Durable executive-board role inbox.
 - [x] **Supplied and implemented:** Fall 2026 recruitment forms and `/join` routing.
 - [ ] **Missing:** Inquiry categories and routing owner.
 - [x] **Supplied and implemented:** Instagram `@wpimensultimate`.
@@ -254,7 +254,7 @@ Milestone 5 status: implemented with recruitment forms, Slack, and Instagram. Th
 
 ### Verification required
 
-- [ ] Confirm every address is approved for public display and actively monitored.
+- [ ] Confirm the executive-board alias remains actively monitored during each leadership transition.
 - [ ] Confirm whether personal names or addresses should be avoided in favor of role accounts.
 - [ ] Test email links or form submission on mobile and desktop.
 

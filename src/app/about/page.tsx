@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   ArrowRight,
   Handshake,
@@ -14,12 +13,13 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { ValueCard } from "@/components/layout/value-card";
 import { buttonVariants } from "@/components/ui/button";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "About WPI Whisper",
-  description:
-    "Learn about WPI Whisper, the men's club ultimate frisbee team at Worcester Polytechnic Institute.",
-};
+export const metadata = createPageMetadata(
+  "About",
+  "Learn about WPI Whisper, the student-run men's club ultimate frisbee team at Worcester Polytechnic Institute.",
+  "/about",
+);
 
 const values = [
   {

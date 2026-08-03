@@ -4,16 +4,29 @@ import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { siteConfig } from "@/config/site";
+import { publicSocialLinks } from "@/config/communications";
+import { getSiteUrl } from "@/lib/metadata";
 
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: getSiteUrl(),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
+  keywords: [
+    "WPI Whisper",
+    "WPI men's ultimate frisbee",
+    "Worcester Polytechnic Institute ultimate frisbee",
+    "college ultimate frisbee",
+  ],
+  icons: {
+    icon: "/img/whisper-logo.png",
+    apple: "/img/whisper-logo.png",
+  },
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
@@ -21,7 +34,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
   },
@@ -35,6 +48,17 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#f4f5f6" },
     { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SportsOrganization",
+  name: siteConfig.name,
+  url: getSiteUrl().toString(),
+  description: siteConfig.description,
+  sport: "Ultimate frisbee",
+  email: "gr-ateam_exec@wpi.edu",
+  sameAs: publicSocialLinks.map((link) => link.href),
 };
 
 const themeScript = `
@@ -53,6 +77,12 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
       </head>
       <body className="flex min-h-dvh flex-col antialiased">
         <a href="#main-content" className="skip-link">

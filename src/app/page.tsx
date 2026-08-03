@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { ArrowRight, CalendarDays, CircleUserRound, UsersRound } from "lucide-react";
 import Link from "next/link";
 
@@ -8,12 +7,13 @@ import { LinkCard } from "@/components/layout/link-card";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { buttonVariants } from "@/components/ui/button";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "WPI Whisper Men's Ultimate Frisbee",
-  description:
-    "WPI Whisper is Worcester Polytechnic Institute's men's club ultimate frisbee team. Learn about the team and how to get involved.",
-};
+export const metadata = createPageMetadata(
+  "WPI Whisper Men's Ultimate Frisbee",
+  "WPI Whisper is Worcester Polytechnic Institute's men's club ultimate frisbee team. Learn about the team, view the season, and find out how to join.",
+  "/",
+);
 
 const primaryPaths = [
   {

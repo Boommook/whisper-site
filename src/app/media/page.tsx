@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
@@ -9,12 +8,13 @@ import { MediaCollectionCard } from "@/components/media/media-collection-card";
 import { buttonVariants } from "@/components/ui/button";
 import { publicSocialLinks } from "@/config/communications";
 import { mediaCollections } from "@/data/media";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Media | WPI Whisper",
-  description:
-    "Explore tournament photography and event galleries featuring WPI Whisper men's ultimate frisbee.",
-};
+export const metadata = createPageMetadata(
+  "Media",
+  "Explore approved tournament photography and event galleries featuring WPI Whisper men's ultimate frisbee.",
+  "/media",
+);
 
 const portfolioUrl = "https://photo-makanapp.com/portfolio/";
 const sportsPortfolioUrl = "https://photo-makanapp.com/portfolio/sports";
@@ -68,7 +68,7 @@ export default function MediaPage() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
             <a
-              href={portfolioUrl}
+              href={sportsPortfolioUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={buttonVariants()}

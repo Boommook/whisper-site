@@ -56,7 +56,7 @@ export function MobileNavigation() {
           </nav>
 
           <p className="mt-auto border-t border-[var(--border)] pt-5 text-sm leading-6 text-[var(--text-muted)]">
-            Team content and official branding will be added after review.
+            WPI Whisper · Men&apos;s Ultimate Frisbee
           </p>
         </Dialog.Content>
       </Dialog.Portal>

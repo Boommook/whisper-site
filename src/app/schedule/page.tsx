@@ -1,5 +1,4 @@
 import { CalendarRange } from "lucide-react";
-import type { Metadata } from "next";
 
 import { PageHeader } from "@/components/layout/page-header";
 import { Section } from "@/components/layout/section";
@@ -11,12 +10,13 @@ import { scheduleEvents, scheduleSeason } from "@/data/schedule";
 import { getSeasonRecord, sortPastEvents, sortUpcomingEvents } from "@/lib/schedule";
 import { getCurrentDateInTimeZone } from "@/lib/schedule-date";
 import { validateScheduleData } from "@/lib/validate-schedule";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "WPI Whisper Schedule & Results",
-  description:
-    "Find upcoming WPI Whisper events and verified game results as public schedule information becomes available.",
-};
+export const metadata = createPageMetadata(
+  "Schedule & Results",
+  "Find WPI Whisper tournaments, events, and verified game results for the current men's ultimate frisbee season.",
+  "/schedule",
+);
 
 validateScheduleData({ season: scheduleSeason, events: scheduleEvents });
 

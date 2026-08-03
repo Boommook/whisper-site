@@ -17,11 +17,15 @@ export function PlayerCard({ player }: { player: PublicPlayer }) {
     <article className="overflow-hidden border-t-2 border-[var(--border-strong)] bg-[var(--surface)] shadow-[var(--shadow-soft)]">
       <div className="relative aspect-[4/3] overflow-hidden bg-[var(--surface-muted)]">
         {player.portrait ? (
+          // Unoptimized: the portrait comes from a same-origin API stream.
+          // Running it through next/image optimization re-fetches the route during
+          // render and has triggered ArrayBuffer transfer failures in this setup.
           <Image
             src={player.portrait.src}
-            alt={player.portrait.alt}
-            width={player.portrait.width}
-            height={player.portrait.height}
+            alt={player.portrait.alt ?? `Portrait of ${player.displayName}`}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            unoptimized
             className="size-full object-cover"
           />
         ) : (

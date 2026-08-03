@@ -82,19 +82,22 @@ export function validateRosterData({ season, players, leadership }: RosterDatase
 
     if (player.portrait) {
       if (
-        !player.portrait.src.startsWith("/images/players/") ||
+        (!player.portrait.src.startsWith("/images/players/") &&
+          !player.portrait.src.startsWith("/api/roster-portraits/")) ||
         player.portrait.src.includes("..")
       ) {
-        fail(`Player "${player.id}" portrait must use a safe path under /images/players/.`);
+        fail(`Player "${player.id}" portrait must use a safe local or roster API path.`);
       }
-      requireText(player.portrait.alt, "portrait.alt", player.id);
-      if (
-        !Number.isInteger(player.portrait.width) ||
-        player.portrait.width <= 0 ||
-        !Number.isInteger(player.portrait.height) ||
-        player.portrait.height <= 0
-      ) {
-        fail(`Player "${player.id}" portrait width and height must be positive integers.`);
+      if (player.portrait.alt !== undefined) {
+        requireText(player.portrait.alt, "portrait.alt", player.id);
+      }
+      for (const [field, value] of [
+        ["width", player.portrait.width],
+        ["height", player.portrait.height],
+      ] as const) {
+        if (value !== undefined && (!Number.isInteger(value) || value <= 0)) {
+          fail(`Player "${player.id}" portrait ${field} must be a positive integer.`);
+        }
       }
     }
 

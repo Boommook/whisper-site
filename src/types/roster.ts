@@ -12,10 +12,10 @@ export type LeadershipRole =
 export type FieldRole = "Handler" | "Cutter" | "Hybrid";
 
 export type PlayerPortrait = Readonly<{
-  src: `/images/players/${string}`;
-  alt: string;
-  width: number;
-  height: number;
+  src: `/images/players/${string}` | `/api/roster-portraits/${string}`;
+  alt?: string;
+  width?: number;
+  height?: number;
   photographerCredit?: string;
 }>;
 

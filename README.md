@@ -27,7 +27,7 @@ Milestone 0 planning remains authoritative:
 - Lucide React icons
 - ESLint 9 with Next.js Core Web Vitals and TypeScript rules
 - npm and `package-lock.json`
-- Vercel-compatible build with no required environment variables
+- Vercel-compatible build with server-only Google roster environment variables
 
 ## Requirements
 
@@ -64,7 +64,7 @@ Run the production build locally with:
 npm run start
 ```
 
-No environment variables are required. If a future milestone adds any, document them here and provide a safe `.env.example` without secrets.
+The roster integration requires four server-only Google environment variables. Copy the safe names and placeholder format from `.env.example`, then follow [the roster maintenance guide](docs/ROSTER_MAINTENANCE.md) for service-account and sharing setup. Never expose these values through `NEXT_PUBLIC_*` variables.
 
 ## Planned routes
 
@@ -111,7 +111,7 @@ All primary navigation entries live in [`src/config/navigation.ts`](src/config/n
 
 Home content is maintained in `src/app/page.tsx`, and About content is maintained in `src/app/about/page.tsx`. Shared editorial patterns used by both pages live in `src/components/layout/`, including section headings, link cards, value cards, and callouts. Keep concise page-specific content close to its route until content volume or editing needs justify a separate typed data module.
 
-Roster season metadata, player entries, and leadership assignments are maintained in `src/data/roster.ts`. Read the [roster maintenance guide](docs/ROSTER_MAINTENANCE.md) before adding records. The guide documents approval boundaries, portrait handling, schema examples, and validation behavior.
+Roster season metadata remains in `src/data/roster.ts`; player and leadership records are loaded server-side from a private Google Sheet, with optional portraits proxied from a private Google Drive folder. Read the [roster maintenance guide](docs/ROSTER_MAINTENANCE.md) before editing the Sheet or portrait folder. It documents environment setup, exact columns, access boundaries, portrait validation, caching, and fallback behavior.
 
 Schedule season metadata, events, and game results are maintained in `src/data/schedule.ts`; validation lives in `src/lib/validate-schedule.ts`. Read the [schedule maintenance guide](docs/SCHEDULE_MAINTENANCE.md) before adding records. With no verified data, `/schedule` directs visitors to Join and Roster without showing fictional details.
 

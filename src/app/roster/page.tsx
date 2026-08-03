@@ -10,8 +10,10 @@ import {
 } from "@/components/roster/leadership-grid";
 import { RosterGrid } from "@/components/roster/roster-grid";
 import { SeasonLabel } from "@/components/roster/season-label";
-import { currentRoster, currentSeason, publicLeadership } from "@/data/roster";
+import { currentSeason } from "@/data/roster";
+import { getGoogleRoster } from "@/lib/google-roster";
 import { validateRosterData } from "@/lib/validate-roster";
+import type { LeadershipAssignment, PublicPlayer } from "@/types/roster";
 
 export const metadata: Metadata = {
   title: "WPI Whisper Roster",
@@ -19,29 +21,44 @@ export const metadata: Metadata = {
     "View the public roster and team leadership for WPI Whisper men's club ultimate frisbee as approved information becomes available.",
 };
 
-validateRosterData({
-  season: currentSeason,
-  players: currentRoster,
-  leadership: publicLeadership,
-});
+export const revalidate = 300;
 
-const activePlayers = currentRoster.filter((player) => player.status === "active");
-const playerById = new Map(currentRoster.map((player) => [player.id, player]));
-const leaders = publicLeadership
-  .map((assignment) => ({
-    assignment,
-    player: playerById.get(assignment.playerId),
-  }))
-  .filter((leader): leader is PublicLeader => leader.player !== undefined)
-  .sort((a, b) => (a.assignment.sortOrder ?? 100) - (b.assignment.sortOrder ?? 100));
+export default async function RosterPage() {
+  let players: readonly PublicPlayer[] = [];
+  let leadership: readonly LeadershipAssignment[] = [];
 
-export default function RosterPage() {
+  try {
+    const roster = await getGoogleRoster();
+    validateRosterData({ season: currentSeason, ...roster });
+    players = roster.players;
+    leadership = roster.leadership;
+  } catch (error) {
+    console.error(
+      "[google roster] Unable to load the public roster; showing the empty state.",
+      error instanceof Error ? error.message : "Unknown server error",
+    );
+  }
+
+  const activePlayers = players.filter((player) => player.status === "active");
+  const playerById = new Map(players.map((player) => [player.id, player]));
+  const leaders = leadership
+    .map((assignment) => ({
+      assignment,
+      player: playerById.get(assignment.playerId),
+    }))
+    .filter((leader): leader is PublicLeader => leader.player !== undefined)
+    .sort((a, b) => (a.assignment.sortOrder ?? 100) - (b.assignment.sortOrder ?? 100));
   return (
     <>
       <PageHeader
         eyebrow="WPI Whisper roster"
         title="The team behind every point."
         description="This page is the public home for approved current-player and student-leadership information for WPI Whisper's competitive team."
+        backgroundImage="/img/whisper-huddle.jpeg"
+        photoCredit={{
+          name: "Luca Makarushka-Napp",
+          href: "https://photo-makanapp.com/",
+        }}
       />
 
       <Section className="py-[var(--space-section)]">

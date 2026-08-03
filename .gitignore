@@ -13,6 +13,13 @@
 .env*
 !.env.example
 
+# Google/service-account credential exports
+*service-account*.json
+*service_account*.json
+*google-credentials*.json
+*google_credentials*.json
+credentials.json
+
 # Logs and package-manager caches
 *.log
 .npm/

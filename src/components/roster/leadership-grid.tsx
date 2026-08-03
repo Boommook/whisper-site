@@ -19,7 +19,9 @@ export function LeadershipGrid({ leaders }: { leaders: readonly PublicLeader[] }
           <h3 className="mt-2 font-heading text-xl font-black tracking-tight">
             {player.displayName}
           </h3>
-          <p className="mt-1 text-sm text-[var(--text-muted)]">Class of {player.classYear}</p>
+          {player.classYear !== undefined ? (
+            <p className="mt-1 text-sm text-[var(--text-muted)]">Class of {player.classYear}</p>
+          ) : null}
         </article>
       ))}
     </div>

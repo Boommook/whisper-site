@@ -99,7 +99,7 @@ Milestone 2 status: About copy presents Whisper as a student-run club sport usin
 
 ## Roster (`/roster`)
 
-Milestone 3 status: the public roster page, typed local data model, validation, optional portrait presentation, conditional leadership section, and empty state are implemented. No player or leadership records were added because no publication-approved roster exists.
+Milestone 3 status: the public roster page, typed data model, validation, optional portrait presentation, conditional leadership section, and empty state are implemented. Player and leadership records now load server-side from a private Google Sheet; optional portraits resolve by exact filename from a private Google Drive folder through a validated internal image route.
 
 ### Required for launch
 

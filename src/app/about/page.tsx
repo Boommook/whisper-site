@@ -74,6 +74,11 @@ export default function AboutPage() {
         eyebrow="About WPI Whisper"
         title="A student-run club sport built around ultimate."
         description="Whisper is Worcester Polytechnic Institute's men's club ultimate frisbee team. The club educates and trains WPI students in the sport and competes against other schools."
+        backgroundImage="/img/whisper-about.jpeg"
+        photoCredit={{
+          name: "Luca Makarushka-Napp",
+          href: "https://photo-makanapp.com/",
+        }}
       />
 
       <Section className="py-[var(--space-section)]">

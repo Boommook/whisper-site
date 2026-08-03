@@ -1,83 +1,90 @@
 # Roster maintenance guide
 
-The public roster is stored locally, type-checked, validated during builds, and rendered without a database or CMS. No current player records have been approved or added yet.
+The public roster is loaded server-side from the `Roster` tab in a private Google Sheet. Optional portraits are resolved by exact filename from one private Google Drive folder. The browser never receives Google credentials, spreadsheet access, or Drive sharing URLs.
 
-## Files
+## Architecture
 
-- `src/types/roster.ts` defines the public schema.
-- `src/data/roster.ts` stores current-season metadata, player records, and leadership assignments.
-- `src/lib/validate-roster.ts` rejects likely data mistakes.
-- `src/components/roster/` renders the data.
-- `src/app/roster/page.tsx` assembles the public page.
+- `src/types/roster.ts` defines the public player, portrait, and leadership types.
+- `src/data/roster.ts` retains local current-season metadata only.
+- `src/lib/google-auth.ts` creates the server-only service-account authentication client with read-only scopes.
+- `src/lib/google-roster.ts` validates headers, parses rows, resolves portraits, and caches roster data for about five minutes.
+- `src/lib/google-drive-portraits.ts` lists and validates the portrait folder once per cache period and caches the filename index for about one hour.
+- `src/app/api/roster-portraits/[fileId]/route.ts` validates and streams approved Drive images through a same-origin route.
+- `src/lib/validate-roster.ts` performs final dataset validation before rendering.
+- `src/app/roster/page.tsx` is an async server component that preserves the existing active-player, leadership, sorting, and empty-state behavior.
 
-## Public fields and approval
+Google API failures are logged on the server. The public page falls back to the existing empty roster state rather than exposing an error or credentials.
 
-Every field identifies a student or describes their participation. Obtain player/team approval before publishing it, including optional fields.
+## Required server environment variables
 
-| Field | Purpose | Publication requirement |
-|---|---|---|
-| `id` | Stable lowercase kebab-case record key | Internal identifier; avoid student IDs or sensitive identifiers |
-| `displayName` | Publicly displayed player name | Confirm spelling, preference, and consent |
-| `classYear` | Optional graduation/class year | Confirm accuracy and consent; omit until known |
-| `status` | Controls current-roster inclusion | Use `active` for the current public roster; `inactive` records are not rendered |
-| `jerseyNumber` | Optional public uniform number | Confirm assignment and uniqueness among active players |
-| `fieldRole` | Optional ultimate role | Confirm team terminology and player assignment |
-| `pronouns` | Optional public pronouns | Publish only when supplied and approved by the player |
-| `hometown` | Optional broad hometown | Publish only with consent; never use an exact residence |
-| `major` | Optional academic major | Confirm accuracy and consent |
-| `biography` | Optional short public biography | Obtain approval for the final wording |
-| `portrait` | Optional approved player image metadata | Confirm image rights, player consent, crop, credit, and alt text |
-| `socialLink` | Optional explicitly approved public link | Must be HTTPS and carry `publicationApproved: true` |
-
-Never add personal email addresses, phone numbers, student IDs, exact residences, private social accounts, medical information, internal eligibility data, private notes, or unapproved biographies or photographs. Internal consent records belong in an access-controlled team process, not in client-visible website data.
-
-## Add or edit a player
-
-Edit `currentRoster` in `src/data/roster.ts`. This fictional snippet demonstrates the shape only; do not copy it into production data or treat it as a real person:
-
-```ts
-{
-  id: "sample-player",
-  displayName: "Sample Player",
-  classYear: 2030,
-  status: "active",
-  jerseyNumber: 0,
-  fieldRole: "[Approved team role]",
-} satisfies PublicPlayer
+```text
+GOOGLE_SHEETS_CLIENT_EMAIL
+GOOGLE_SHEETS_PRIVATE_KEY
+GOOGLE_ROSTER_SPREADSHEET_ID
+GOOGLE_ROSTER_PORTRAIT_FOLDER_ID
 ```
 
-Use a stable `id`; changing it also requires updating any leadership assignment that references it. To remove someone from the public current roster, remove the record or set `status` to `inactive` according to the team's archive policy.
+Set these locally in `.env.local` and in Vercel project settings. The private key may contain escaped `\n` sequences; the server converts them to real newlines. Never use `NEXT_PUBLIC_` names, commit `.env.local`, commit a service-account JSON export, paste credentials into documentation, or log environment values. Safe placeholders are provided in `.env.example`.
 
-## Assign leadership
+The service account needs Viewer access to the Sheet and the dedicated portrait folder. Do not make either resource public. Only the Sheets read-only and Drive read-only OAuth scopes are used.
 
-Add an entry to `publicLeadership` that references an existing player's `id`:
+## Sheet structure
 
-```ts
-{
-  playerId: "sample-player",
-  role: "Captain",
-  sortOrder: 1,
-} satisfies LeadershipAssignment
-```
+Use a tab named exactly `Roster`. Row 1 must contain these exact headers in this order; player records begin on row 2.
 
-Do not add an assignment until the role, person, and permission to publish are confirmed. The validator rejects references to nonexistent players and duplicate player/role combinations. The leadership section is omitted when this array is empty.
+| Column | Header | Rules |
+|---:|---|---|
+| A | `id` | Required stable lowercase kebab-case ID; never use a student ID |
+| B | `displayName` | Required approved public name |
+| C | `status` | Required: `active` or `inactive` |
+| D | `jerseyNumber` | Optional integer from 0–99; unique among active players |
+| E | `classYear` | Optional integer from 2020–2040 |
+| F | `fieldRole` | Optional approved public role |
+| G | `pronouns` | Optional; publish only with player approval |
+| H | `hometown` | Optional broad location; never an exact residence |
+| I | `major` | Optional approved academic major |
+| J | `biography` | Optional approved public biography |
+| K | `portraitSrc` | Optional exact filename in the configured Drive folder |
+| L | `portraitAlt` | Optional approved alt text; defaults to “Portrait of [display name]” |
+| M | `portraitWidth` | Optional positive intrinsic pixel width |
+| N | `portraitHeight` | Optional positive intrinsic pixel height |
+| O | `photographerCredit` | Optional approved credit |
+| P | `socialLabel` | Optional; all social fields must pass the rules below |
+| Q | `socialHref` | Must begin with `https://` |
+| R | `socialPublicationApproved` | Must be `true` to publish the social link |
+| S | `leadershipRole` | Optional supported role listed below |
+| T | `leadershipSortOrder` | Optional integer; lower values appear first |
 
-## Add a portrait safely
+Blank optional cells become `undefined` and do not render empty labels. Invalid individual rows are skipped with a server-side warning so one bad row does not hide every valid player. Duplicate IDs and duplicate active jersey numbers cause the later row to be skipped.
 
-1. Confirm player consent, photographer rights, permitted crops/edits, and any credit requirement outside the public repository.
-2. Add an optimized WebP or AVIF under `public/images/players/<season>/` using the conventions in `ASSET_INVENTORY.md`.
-3. Add `portrait` metadata with the `/images/players/...` path, intrinsic pixel dimensions, context-aware alt text, and optional photographer credit.
-4. Verify the crop at mobile and desktop sizes. Internal consent or review notes must not be added to rendered data.
+Supported leadership roles are `President`, `Vice President`, `Treasurer`, `Secretary`, `Public Relations Chair`, `Social Media Manager`, and `Captain`. Leadership on inactive or skipped players is not published. A social link is created only when its label is nonblank, its URL begins with HTTPS, and approval is exactly `true` (case-insensitive).
 
-When `portrait` is absent, the card uses decorative initials. Screen readers receive the player's visible name from the card heading and do not announce the fallback.
+## Portrait workflow
 
-## Season and empty-state behavior
+1. Obtain player consent, photographer rights, crop approval, alt text, and any required credit.
+2. Optimize the image as JPEG, PNG, WebP, or AVIF and keep it at or below 10 MB.
+3. Upload it to the one private Drive folder identified by `GOOGLE_ROSTER_PORTRAIT_FOLDER_ID`.
+4. Share that folder with the service-account email as Viewer; do not enable public link sharing.
+5. Enter the exact filename, including capitalization and extension, in `portraitSrc`.
+6. Optionally enter accurate intrinsic pixel dimensions and approved alt text in the adjacent columns. When alt text is blank, the site uses “Portrait of [display name].”
 
-Update `currentSeason` only after the public season label is confirmed. While `currentRoster` is empty, `/roster` displays a deliberate publication-pending message and useful links rather than example players. Leadership is also hidden when no approved assignments exist.
+The server lists non-trashed files only within the configured folder, validates MIME type and size, and builds one filename map for the roster request. Filenames must match exactly. If two files have the same filename, that filename is rejected instead of selecting one arbitrarily. Missing, duplicate, unsupported, oversized, or inaccessible portraits are omitted; the player still renders with decorative initials.
 
-## Validation
+The internal portrait route rechecks the file ID, parent folder, trashed state, MIME type, and size before download. It returns `404` for invalid or inaccessible files, adds `nosniff`, and provides browser/CDN cache headers. Never put a public Drive URL in the Sheet.
 
-Run:
+## Privacy boundaries
+
+Every roster field identifies a student or describes participation. Obtain player/team approval before publishing names, class years, numbers, roles, pronouns, hometowns, majors, biographies, portraits, credits, social links, or leadership assignments.
+
+Never add personal email addresses, phone numbers, student IDs, exact residences, private social accounts, medical information, internal eligibility data, private notes, credentials, consent records, or unapproved biographies or photographs. Keep approval evidence in an access-controlled team process rather than the public Sheet if the Sheet's editors or sharing scope are broader than that process.
+
+## Season and caching behavior
+
+Update `currentSeason` in `src/data/roster.ts` only after its public wording is confirmed. Sheet data is cached for approximately five minutes. The Drive filename index is cached for approximately one hour, and portrait responses have public/CDN cache headers. Allow for those intervals after edits or redeploy when an immediate refresh is required.
+
+When Google data is unavailable or no active records are returned, `/roster` displays the intentional empty state. Leadership is omitted when no valid assignments exist.
+
+## Validation before committing
 
 ```bash
 npm run lint
@@ -85,4 +92,4 @@ npm run typecheck
 npm run build
 ```
 
-Validation detects duplicate IDs, duplicate jersey numbers among active players, malformed IDs, empty text fields, supplied class years outside the deliberately broad 2020–2040 range, invalid jersey numbers, incomplete/unsafe portrait metadata, insecure social links, duplicate leadership assignments, and leadership references to missing or inactive players. Revisit the class-year bounds as the site ages. Errors identify the affected record and field.
+Validation covers sheet headers, required row fields, supported statuses and leadership roles, numeric values and ranges, duplicate IDs and active numbers, portrait metadata and safe internal paths, approved HTTPS social links, and leadership references. Preview both a populated roster and the empty fallback without exposing credential values in logs or screenshots.

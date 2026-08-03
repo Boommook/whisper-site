@@ -16,8 +16,9 @@ Do not mark an item as present until the exact file has been added and its prove
 
 | Category | File name | File type | Intended use | Optimization/conversion | Rights/attribution |
 |---|---|---|---|---|---|
-| Logos | None found | — | — | — | — |
-| Team photos | None found | — | — | — | — |
+| Logos | `public/img/whisper-logo.png` | PNG | Site-header identity mark | Web-ready PNG; vector source still preferred | Credit requirement supplied by team: Luca Makarushka-Napp, https://photo-makanapp.com/ |
+| Team photos | `public/img/whisper-huddle.jpeg` | JPEG | Roster header banner | Responsive crop through `next/image`; future WebP/AVIF conversion recommended | Photo: Luca Makarushka-Napp, https://photo-makanapp.com/; visible credit rendered with banner |
+| Team photos | `public/img/whisper-about.jpeg` | JPEG | About header banner | Responsive crop through `next/image`; future WebP/AVIF conversion recommended | Photo: Luca Makarushka-Napp, https://photo-makanapp.com/; visible credit rendered with banner |
 | Player photos | None found | — | — | — | — |
 | Tournament photos | None found | — | — | — | — |
 | Videos | None found | — | — | — | — |

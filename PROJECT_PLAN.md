@@ -278,7 +278,7 @@ Implementation notes: Home and About use Constitution and FAQ facts rewritten in
 - **Dependencies:** Roster publication/privacy decision, confirmed active roster, approved fields, photo consent, and update owner.
 - **Acceptance criteria:** Every displayed field is approved and verified; missing photos degrade gracefully; data changes require no component edits; build/type checks catch invalid entries.
 
-Implementation notes: roster content lives in typed local modules, validates at build time, and renders through reusable roster, player, leadership, season-label, and empty-state components. Leadership assignments reference roster player IDs and render only when approved assignments exist. No names, roles, numbers, class years, biographies, or portraits were invented.
+Implementation notes: roster types and season metadata live in typed local modules. Player and leadership records load server-side from a private Google Sheet, validate before rendering, and use the existing roster, player, leadership, season-label, and empty-state components. Optional portraits resolve by exact filename from a service-account-readable private Drive folder and stream through a validated same-origin route. Leadership assignments reference parsed player IDs and render only when valid.
 
 ### Milestone 4 — Schedule and results
 

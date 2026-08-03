@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -14,9 +15,15 @@ export function Wordmark({ className }: { className?: string }) {
     >
       <span
         aria-hidden="true"
-        className="grid size-9 place-items-center rounded-full border-2 border-[var(--brand-primary)] text-xs text-[var(--brand-primary)] transition-colors group-hover:bg-[var(--brand-primary)] group-hover:text-white motion-reduce:transition-none"
+        className="relative size-10 shrink-0 transition-transform group-hover:scale-105 motion-reduce:transition-none"
       >
-        W
+        <Image
+          src="/img/whisper-logo.png"
+          alt=""
+          fill
+          sizes="40px"
+          className="object-contain"
+        />
       </span>
       <span>WPI Whisper</span>
     </Link>

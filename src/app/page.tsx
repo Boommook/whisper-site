@@ -73,25 +73,26 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            className="relative mx-auto mt-14 hidden aspect-square w-full max-w-md lg:block"
-          >
-            <div className="absolute inset-[5%] rounded-full border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]" />
-            <Image
-              src="/img/goat-logo.png"
-              alt=""
-              fill
-              sizes="28rem"
-              className="object-contain p-[12%]"
-            />
-          </div>
+          <div aria-hidden="true" className="hidden lg:block" />
         </Container>
       </section>
 
       <Section className="py-[var(--space-section)]">
-        <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-20">
-          <p className="eyebrow lg:pt-2">The team</p>
+        <p className="eyebrow">The team</p>
+        <div className="mt-8 grid items-center gap-10 lg:grid-cols-[minmax(12rem,0.7fr)_1.3fr] lg:gap-16">
+          <div
+            aria-hidden="true"
+            className="relative mx-auto aspect-square w-full max-w-[18rem] lg:mx-0 lg:max-w-none"
+          >
+            <Image
+              src="/img/goat-logo.png"
+              alt=""
+              fill
+              sizes="18rem"
+              unoptimized
+              className="object-contain"
+            />
+          </div>
           <div>
             <h2 className="max-w-3xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.04em] sm:text-5xl">
               Train together. Compete with purpose. Welcome every skill level.

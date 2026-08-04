@@ -18,11 +18,20 @@ export function Wordmark({ className }: { className?: string }) {
         className="relative size-10 shrink-0 transition-transform group-hover:scale-105 motion-reduce:transition-none"
       >
         <Image
-          src="/img/whisper-logo.png"
+          src="/img/whisper_light_notext.png"
           alt=""
           fill
           sizes="40px"
-          className="object-contain"
+          unoptimized
+          className="object-contain [[data-theme=dark]_&]:hidden"
+        />
+        <Image
+          src="/img/whisper_dark_notext.png"
+          alt=""
+          fill
+          sizes="40px"
+          unoptimized
+          className="hidden object-contain [[data-theme=dark]_&]:block"
         />
       </span>
       <span>WPI Whisper</span>

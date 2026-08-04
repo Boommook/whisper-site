@@ -79,7 +79,7 @@ export default function HomePage() {
           >
             <div className="absolute inset-[5%] rounded-full border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]" />
             <Image
-              src="/img/WP-goat.png"
+              src="/img/goat-logo.png"
               alt=""
               fill
               sizes="28rem"

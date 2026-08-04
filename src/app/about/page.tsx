@@ -5,6 +5,7 @@ import {
   Scale,
   Sprout,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Callout } from "@/components/layout/callout";
@@ -83,7 +84,18 @@ export default function AboutPage() {
 
       <Section className="py-[var(--space-section)]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-          <SectionHeading eyebrow="Team identity" title="Club sport. Shared purpose." />
+          <div>
+            <SectionHeading eyebrow="Team identity" title="Club sport. Shared purpose." />
+            <div className="relative mt-8 size-20 overflow-hidden rounded-full border border-[var(--border)] bg-white shadow-[var(--shadow-soft)] sm:size-20">
+              <Image
+                src="/img/WPI-Crest.jpg"
+                alt="Worcester Polytechnic Institute crest"
+                fill
+                sizes="128px"
+                className="object-cover"
+              />
+            </div>
+          </div>
           <div className="max-w-2xl space-y-5 text-lg leading-8 text-[var(--text-muted)]">
             <p>
               Whisper is a student-run club sport at WPI. Membership is open to currently enrolled students who want to play ultimate in an organized setting—whether that means the competitive team, a more casual league experience, or both.

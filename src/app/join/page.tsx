@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, Instagram, Slack } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { ActionLink } from "@/components/communications/action-link";
@@ -47,7 +48,18 @@ export default function JoinPage() {
 
       <Section className="py-[var(--space-section)]">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <SectionHeading eyebrow="Who can join" title="A WPI student team with room to learn." description="Whisper is WPI’s men’s ultimate frisbee club team. Membership is open to currently enrolled WPI students, with a broader league experience and a selected competitive team." />
+          <div>
+            <SectionHeading eyebrow="Who can join" title="A WPI student team with room to learn." description="Whisper is WPI’s men’s ultimate frisbee club team. Membership is open to currently enrolled WPI students, with a broader league experience and a selected competitive team." />
+            <div className="relative mt-7 h-20 w-52 overflow-hidden border border-[var(--border)] bg-white px-4 shadow-[var(--shadow-soft)]">
+              <Image
+                src="/img/WPIAthleticsLogo.png"
+                alt="WPI Athletics"
+                fill
+                sizes="208px"
+                className="scale-125 object-contain"
+              />
+            </div>
+          </div>
           <div className="border-l-4 border-[var(--brand-primary)] bg-[var(--surface)] p-7 sm:p-9">
             <h3 className="font-heading text-2xl font-black">New to ultimate?</h3>
             <p className="mt-4 text-lg leading-8 text-[var(--text-muted)]">Prior ultimate experience is not required. Players from other athletic backgrounds are welcome to learn the sport; competitive-team placement still follows the team’s seasonal tryout process.</p>

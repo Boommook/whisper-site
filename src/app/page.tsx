@@ -1,4 +1,5 @@
 import { ArrowRight, CalendarDays, CircleUserRound, UsersRound } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Callout } from "@/components/layout/callout";
@@ -76,9 +77,14 @@ export default function HomePage() {
             aria-hidden="true"
             className="relative mx-auto mt-14 hidden aspect-square w-full max-w-md lg:block"
           >
-            <div className="absolute inset-[12%] rounded-full border-[clamp(2rem,4vw,4.5rem)] border-[var(--brand-soft)]" />
-            <div className="absolute inset-[29%] rounded-full border border-[var(--brand-primary)]/25" />
-            <div className="absolute right-[7%] top-[20%] h-px w-[70%] -rotate-[28deg] bg-[var(--brand-primary)]/35" />
+            <div className="absolute inset-[5%] rounded-full border border-[var(--border)] bg-white shadow-[var(--shadow-soft)]" />
+            <Image
+              src="/img/WP-goat.png"
+              alt=""
+              fill
+              sizes="28rem"
+              className="object-contain p-[12%]"
+            />
           </div>
         </Container>
       </section>

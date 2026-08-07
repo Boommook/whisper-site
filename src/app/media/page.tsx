@@ -30,8 +30,8 @@ export default function MediaPage() {
         description="Explore tournament photography, team moments, and highlights from WPI Whisper events. Our featured galleries are photographed and curated by photo.makanapp."
       />
 
-      <Section className="py-[var(--space-section)]">
-        <div className="flex flex-col gap-7 border-b border-[var(--border)] pb-10 sm:flex-row sm:items-end sm:justify-between">
+      <Section className="py-(--space-section-x2)">
+        <div className="flex flex-col gap-7 border-b border-(--border) pb-10 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
             eyebrow="Event photography"
             title="Featured Collections"
@@ -52,13 +52,13 @@ export default function MediaPage() {
           {approvedCollections.map((collection) => (
             <MediaCollectionCard key={collection.galleryUrl} collection={collection} />
           ))}
-        </div> : <div className="mt-10 border-l-4 border-[var(--brand-primary)] bg-[var(--surface)] p-7"><h3 className="font-heading text-2xl font-black">More media is being prepared.</h3><p className="mt-3 text-[var(--text-muted)]">Approved team photography will appear here after its context, credit, rights, and consent are confirmed.</p><Link href="/join" className={buttonVariants({ variant: "secondary", className: "mt-5" })}>Explore joining Whisper</Link></div>}
+        </div> : <div className="mt-10 border-l-4 border-(--brand-primary) bg-(--surface) p-7"><h3 className="font-heading text-2xl font-black">More media is being prepared.</h3><p className="mt-3 text-(--text-muted)">Approved team photography will appear here after its context, credit, rights, and consent are confirmed.</p><Link href="/join" className={buttonVariants({ variant: "secondary", className: "mt-5" })}>Explore joining Whisper</Link></div>}
       </Section>
 
-      <Section className="border-y border-[var(--border)] bg-[var(--brand-secondary)] py-[var(--space-section)] text-white">
+      <Section className="border-y border-(--border) bg-(--brand-secondary) py-(--space-section) text-white">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
           <div className="max-w-3xl">
-            <p className="eyebrow !text-[var(--accent)]">Behind the lens</p>
+            <p className="eyebrow text-(--accent)!">Behind the lens</p>
             <h2 className="mt-4 text-balance font-heading text-4xl font-black tracking-[-0.045em] sm:text-5xl">
               Photography by photo.makanapp
             </h2>
@@ -84,7 +84,7 @@ export default function MediaPage() {
               className={buttonVariants({
                 variant: "ghost",
                 className:
-                  "border border-white/70 !text-white hover:border-white hover:bg-white/10 hover:!text-white",
+                  "border border-white/70 text-white! hover:border-white hover:bg-white/10 hover:text-white!",
               })}
             >
               View Sports Photography
@@ -95,14 +95,14 @@ export default function MediaPage() {
         </div>
       </Section>
 
-      <Section className="py-[var(--space-section)]">
-        <div className="grid gap-6 border-l-4 border-[var(--brand-primary)] bg-[var(--surface)] p-7 shadow-[var(--shadow-soft)] sm:p-10 md:grid-cols-[1fr_auto] md:items-center md:gap-12">
+      <Section className="py-(--space-section)">
+        <div className="grid gap-6 border-l-4 border-(--brand-primary) bg-(--surface) p-7 shadow-(--shadow-soft) sm:p-10 md:grid-cols-[1fr_auto] md:items-center md:gap-12">
           <div>
             <p className="eyebrow">Share the moment</p>
             <h2 className="mt-3 font-heading text-3xl font-black tracking-[-0.035em]">
               Have photos from a Whisper event?
             </h2>
-            <p className="mt-3 max-w-2xl leading-7 text-[var(--text-muted)]">
+            <p className="mt-3 max-w-2xl leading-7 text-(--text-muted)">
               Team members and alumni can share event photography with the club for consideration in future galleries.
             </p>
           </div>

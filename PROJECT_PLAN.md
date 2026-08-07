@@ -271,7 +271,7 @@ Implementation notes: Home and About use Constitution and FAQ facts rewritten in
 
 ### Milestone 3 — Roster and team data
 
-**Status:** Implemented on `main` with server-side Google Sheets/Drive loading and an intentional empty fallback. Publication remains dependent on configured private services, team-approved fields, ownership, and portrait permissions.
+**Status:** Complete. Server-side Google Sheets/Drive loading is deployed, and the live roster has been manually reviewed and approved for public use. The intentional empty fallback remains for missing configuration or unavailable services; ongoing ownership and future portrait permissions remain administrative responsibilities.
 
 - **Objective:** Publish an accurate, maintainable roster using structured data.
 - **Main deliverables:** Typed roster/leadership schemas and data, roster presentation, optional portraits, season labeling, editing guide, and validation.
@@ -293,7 +293,7 @@ Implementation notes: schedule content lives in typed local season, event, and g
 
 ### Milestone 5 — Recruitment, media, and contact
 
-**Status:** Implemented. Join, Media, and Contact are complete responsive routes backed by typed communications and media configuration. Fall 2026 forms, public Slack, and Instagram are enabled. The full captain/exec email, changing practice/cost details, additional media approvals, and ongoing channel ownership remain unresolved launch inputs.
+**Status:** Complete. Join, Media, and Contact are responsive routes backed by typed communications and media configuration. Fall 2026 forms, public Slack, Instagram, and the captain/exec email are enabled. The Media page and its corrected photographer portfolio destinations have been reviewed. Changing practice/cost details, additional media approvals, and ongoing channel ownership remain maintenance inputs.
 
 - **Objective:** Complete the main action-oriented and community-facing content.
 - **Main deliverables:** Join page and FAQ, tested recruitment action, media gallery/video links, contact page, verified social links, and asset metadata.
@@ -302,12 +302,25 @@ Implementation notes: schedule content lives in typed local season, event, and g
 
 ### Milestone 6 — Accessibility, SEO, testing, and launch
 
+**Status:** Complete. All public routes, metadata/search files, error handling, CI checks, and the active Vercel deployment are in place.
+
 - **Objective:** Validate quality and release the site publicly.
 - **Main deliverables:** Accessibility review/fixes, responsive/browser QA, metadata and social cards, performance/image review, link check, content sign-off, domain configuration, deployment/runbook.
 - **Dependencies:** Completed pages and real content, domain access, launch approver, and analytics decision if any.
 - **Acceptance criteria:** Production build passes; critical accessibility issues are resolved; launch checklist is complete; social previews and links are verified; Vercel production and custom domain work; maintainer handoff is complete.
 
-### Milestone 7 — Optional future features
+### Milestone 7 — Live deployment QA, polish, and production hardening
+
+**Status:** Complete. The Vercel release candidate at `https://whisper-site-three.vercel.app` was audited route by route. Canonical, Open Graph, sitemap, robots, and JSON-LD origins were verified; the homepage motif was refined into reduced-motion-safe flying-disc forms; small-screen action wrapping was hardened; and deployment documentation now distinguishes local and Vercel environment configuration.
+
+- **Objective:** Treat the deployed site as a release candidate and fix substantiated launch-quality defects without redesigning it.
+- **Main deliverables:** Live-route and source audit, responsive/accessibility polish, subtle disc-shaped homepage background animation, metadata/deployment verification, production roster robustness review, documentation updates, and clean lint/typecheck/build validation.
+- **Dependencies:** Active deployment access, deployed Google roster configuration, and current approved content.
+- **Acceptance criteria:** All public and search routes respond correctly; live roster and external destinations remain intact; animation is responsive and reduced-motion safe; production URL generation is correct; no clear accessibility/runtime regressions remain; validation commands pass.
+
+Broad image replacement, compression, and visual-asset optimization were intentionally deferred because the current assets do not present a functional or severe performance defect. Final logo/branding, photography-rights, and custom-domain decisions remain human approval tasks rather than engineering blockers.
+
+### Milestone 8 — Optional future work
 
 - **Objective:** Add only features justified by observed needs after launch.
 - **Main deliverables:** Potential historical season archive, individual profiles, alumni area, donation links, CMS, analytics, newsletter, richer galleries, or external schedule integration—each scoped separately.

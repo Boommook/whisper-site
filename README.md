@@ -4,9 +4,9 @@ The official public website for WPI Whisper, Worcester Polytechnic Institute's m
 
 ## Current status
 
-**Milestone 6 launch-readiness implementation complete; final Vercel preview and content-owner review remain.**
+**Milestone 7 live-site QA, polish, and production hardening complete.** The release candidate is deployed at [whisper-site-three.vercel.app](https://whisper-site-three.vercel.app/).
 
-All planned routes are implemented. Join uses centrally configured Fall 2026 tryout and interest forms plus verified Slack and Instagram routes. Media uses typed, approved local gallery metadata and a limited-media fallback. Contact routes visitors through the same verified configuration, including the executive-board email alias.
+All planned routes are implemented. The Google Sheets/Drive roster is deployed and has been manually validated on the live site. Join uses centrally configured Fall 2026 tryout and interest forms plus verified Slack and Instagram routes. Media uses typed, approved local gallery metadata; its photographer portfolio destinations have been reviewed and corrected. Contact routes visitors through the same verified configuration, including the executive-board email alias.
 
 Automated lint, typecheck, and production build checks run locally and in GitHub Actions for pull requests and pushes to `main`. The site includes route-specific metadata, canonical URLs, Open Graph and Twitter presentation, JSON-LD, a sitemap, robots directives, a custom 404, and graceful data fallbacks.
 
@@ -66,11 +66,11 @@ npm run start
 
 ## Environment variables
 
-Copy `.env.example` to `.env.local`. Never commit `.env.local` or expose Google credentials through `NEXT_PUBLIC_*` variables.
+For local development, copy `.env.example` to `.env.local`. Never commit `.env.local` or expose Google credentials through `NEXT_PUBLIC_*` variables. Local configuration does not configure a deployment: set every production value separately in **Vercel Project Settings → Environment Variables**, then redeploy so the values take effect.
 
 | Variable | Required | Purpose | Source |
 | --- | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Optional locally; required for a custom production domain | Absolute canonical origin used by metadata, JSON-LD, sitemap, and robots | Final public HTTPS origin in Vercel, with no path, query, or hash |
+| `NEXT_PUBLIC_SITE_URL` | Optional locally; recommended in production | Absolute canonical origin used by metadata, JSON-LD, sitemap, and robots | `https://whisper-site-three.vercel.app` in the current Vercel production environment, with no path, query, or hash |
 | `GOOGLE_SHEETS_CLIENT_EMAIL` | Required for live roster data | Server-only Google service-account identity | Google Cloud service account |
 | `GOOGLE_SHEETS_PRIVATE_KEY` | Required for live roster data | Server-only Google service-account key | Google Cloud service account; preserve escaped newlines |
 | `GOOGLE_ROSTER_SPREADSHEET_ID` | Required for live roster data | Selects the private roster Sheet | Google Sheet URL |
@@ -141,7 +141,9 @@ Reusable color, radius, width, spacing, focus, and header tokens are defined in 
 
 ## Vercel deployment
 
-Import the GitHub repository into Vercel and use the detected Next.js settings. Configure the four server-only Google variables for environments that should show live roster data. Set `NEXT_PUBLIC_SITE_URL` to the final public HTTPS origin, especially when using a custom domain. Origin resolution prefers that explicit value, then `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL`; only non-Vercel local development falls back to `http://localhost:3000`. A trailing slash and surrounding whitespace are normalized, while malformed URLs or values containing a path, query, hash, credentials, or non-local HTTP origin fail with a clear build error.
+The active production deployment is [whisper-site-three.vercel.app](https://whisper-site-three.vercel.app/). Import the GitHub repository into Vercel and use the detected Next.js settings. In **Vercel Project Settings → Environment Variables**, configure the four server-only Google variables for environments that should show live roster data and set `NEXT_PUBLIC_SITE_URL=https://whisper-site-three.vercel.app`. A developer's `.env.local` affects only that local checkout and is never a substitute for Vercel configuration.
+
+Origin resolution prefers `NEXT_PUBLIC_SITE_URL`, then `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL`; only non-Vercel local development falls back to `http://localhost:3000`. A trailing slash and surrounding whitespace are normalized, while malformed URLs or values containing a path, query, hash, credentials, or non-local HTTP origin fail with a clear build error. Milestone 7 verified the deployed canonical, Open Graph, sitemap, robots, and JSON-LD URL architecture against the production origin.
 
 Before promoting a preview, verify every public route, the mobile menu, light and dark themes, the executive-board email action, external form/gallery links, roster fallback or live data, `robots.txt`, `sitemap.xml`, social-share previews, and the custom 404. Run `npm run lint`, `npm run typecheck`, and `npm run build` against the deployment candidate.
 
@@ -152,13 +154,13 @@ The following remain unavailable or unapproved and must not be invented:
 - Original vector logo, logo approval evidence, and WPI branding rules
 - Current officer/captain names with publication consent
 - Verified team history milestones and founding details
-- Roster field/portrait consent and update ownership
+- Ongoing roster field/portrait consent and update ownership (the current live roster itself has been reviewed and approved for public use)
 - Schedule update ownership and historical-retention policy
 - Recruitment/contact monitoring owner
 - Exact current practice times, dues, and season dates for public display
 - General, competition, media, and alumni contact destinations beyond the verified recruitment/community routes
-- Confirmed rights/participant consent for current photography, additional media, and a social-sharing image
-- Final production domain (configure it through `NEXT_PUBLIC_SITE_URL`)
+- Final administrative confirmation of rights/participant consent for current photography, additional media, and the generated social-sharing presentation
+- Final long-term custom-domain decision, if the team wants an address beyond the active Vercel URL
 
 See [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) for the complete collection checklist and [PROJECT_PLAN.md](PROJECT_PLAN.md#open-decisions-requiring-team-input) for decisions requiring team input.
 
@@ -170,7 +172,8 @@ See [CONTENT_INVENTORY.md](CONTENT_INVENTORY.md) for the complete collection che
 3. Roster and team data — implemented with optional private Google data and a safe empty fallback
 4. Schedule and results — complete with verified 2026 USA Ultimate results
 5. Recruitment, media, and contact — complete with safe fallbacks; seasonal ownership and additional media approvals remain open
-6. Accessibility, SEO, testing, and launch readiness — implemented; final Vercel preview review remains
-7. Optional future features justified by post-launch needs
+6. Accessibility, SEO, testing, and launch readiness — complete
+7. Live deployment QA, homepage animation polish, and production hardening — complete
+8. Optional future work justified by post-launch needs; branding approvals and nonessential image optimization remain administrative/future tasks rather than launch code blockers
 
 Do not invent player details, schedules, scores, contacts, quotations, history, or achievements. Development placeholders must remain clearly labeled and must be replaced or intentionally omitted before launch.

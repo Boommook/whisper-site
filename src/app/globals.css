@@ -124,10 +124,10 @@ a {
 }
 
 .hero-field {
-  --disc-orbit-x: 18px;
-  --disc-orbit-y: 11px;
-  --arc-orbit-x: 20px;
-  --arc-orbit-y: 14px;
+  --disc-drift-x: 22px;
+  --disc-drift-y: 14px;
+  --arc-drift-x: 18px;
+  --arc-drift-y: 12px;
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -156,114 +156,94 @@ a {
 .hero-field__disc {
   position: absolute;
   right: clamp(-7rem, -3vw, -2rem);
-  top: 5%;
+  top: 9%;
   width: clamp(18rem, 42vw, 42rem);
-  aspect-ratio: 1;
-  border: clamp(2.5rem, 6vw, 6rem) solid var(--brand-soft);
+  aspect-ratio: 1.55;
   border-radius: 50%;
-  animation: hero-disc-orbit 26s linear infinite;
+  background:
+    radial-gradient(ellipse at 50% 42%, transparent 0 44%, color-mix(in srgb, var(--brand-primary) 12%, transparent) 45% 47%, transparent 48%),
+    linear-gradient(170deg, color-mix(in srgb, white 32%, var(--brand-soft)) 0 42%, var(--brand-soft) 58% 78%, color-mix(in srgb, var(--brand-primary) 18%, var(--brand-soft)) 100%);
+  box-shadow:
+    inset 0 -0.65rem 1.2rem color-mix(in srgb, var(--brand-primary) 13%, transparent),
+    0 1.1rem 2.8rem rgb(20 15 15 / 0.08);
+  opacity: 0.82;
+  animation: hero-disc-flight 29s ease-in-out -7s infinite;
+}
+
+.hero-field__disc::after {
+  position: absolute;
+  inset: 11%;
+  border: 1px solid color-mix(in srgb, var(--brand-primary) 20%, transparent);
+  border-radius: inherit;
+  content: "";
 }
 
 .hero-field__arc {
   position: absolute;
   right: 7%;
   bottom: -19rem;
-  width: min(48rem, 68vw);
-  aspect-ratio: 1;
-  border: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  width: min(46rem, 66vw);
+  aspect-ratio: 1.65;
+  border: clamp(0.5rem, 1vw, 0.9rem) solid color-mix(in srgb, var(--accent) 34%, transparent);
   border-radius: 50%;
-  animation: hero-arc-orbit 34s linear -11s infinite;
+  box-shadow: inset 0 -0.35rem 0 color-mix(in srgb, var(--brand-primary) 9%, transparent);
+  animation: hero-arc-flight 37s ease-in-out -19s infinite;
 }
 
-@keyframes hero-disc-orbit {
+@keyframes hero-disc-flight {
   0%,
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) rotate(-7deg) scale(1);
   }
-
-  12.5% {
-    transform: translate3d(calc(var(--disc-orbit-x) * 0.7), calc(var(--disc-orbit-y) * -0.7), 0);
-  }
-
   25% {
-    transform: translate3d(var(--disc-orbit-x), calc(var(--disc-orbit-y) * -1), 0);
+    transform: translate3d(var(--disc-drift-x), calc(var(--disc-drift-y) * -1), 0) rotate(-4deg) scale(1.015);
   }
-
-  37.5% {
-    transform: translate3d(calc(var(--disc-orbit-x) * 0.7), calc(var(--disc-orbit-y) * -1.35), 0);
-  }
-
   50% {
-    transform: translate3d(calc(var(--disc-orbit-x) * -0.55), calc(var(--disc-orbit-y) * -1.25), 0);
+    transform: translate3d(calc(var(--disc-drift-x) * -0.35), calc(var(--disc-drift-y) * -1.25), 0) rotate(-8deg) scale(0.99);
   }
-
-  62.5% {
-    transform: translate3d(calc(var(--disc-orbit-x) * -1), calc(var(--disc-orbit-y) * -0.35), 0);
-  }
-
   75% {
-    transform: translate3d(calc(var(--disc-orbit-x) * -0.85), calc(var(--disc-orbit-y) * 0.85), 0);
-  }
-
-  87.5% {
-    transform: translate3d(calc(var(--disc-orbit-x) * 0.45), calc(var(--disc-orbit-y) * 0.75), 0);
+    transform: translate3d(calc(var(--disc-drift-x) * -1), calc(var(--disc-drift-y) * 0.45), 0) rotate(-10deg) scale(1.008);
   }
 }
 
-@keyframes hero-arc-orbit {
+@keyframes hero-arc-flight {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(8deg) scale(1);
   }
-
-  12.5% {
-    transform: translate3d(calc(var(--arc-orbit-x) * -0.7), calc(var(--arc-orbit-y) * 0.55), 0) rotate(-0.4deg);
-  }
-
   25% {
-    transform: translate3d(calc(var(--arc-orbit-x) * -1), var(--arc-orbit-y), 0) rotate(-0.7deg);
+    transform: translate3d(calc(var(--arc-drift-x) * -1), var(--arc-drift-y), 0) rotate(6deg) scale(0.99);
   }
-
-  37.5% {
-    transform: translate3d(calc(var(--arc-orbit-x) * -0.6), calc(var(--arc-orbit-y) * 0.55), 0) rotate(-0.4deg);
-  }
-
   50% {
-    transform: translate3d(calc(var(--arc-orbit-x) * 0.35), calc(var(--arc-orbit-y) * -0.35), 0) rotate(0.2deg);
+    transform: translate3d(calc(var(--arc-drift-x) * 0.25), calc(var(--arc-drift-y) * -0.65), 0) rotate(9deg) scale(1.01);
   }
-
-  62.5% {
-    transform: translate3d(var(--arc-orbit-x), calc(var(--arc-orbit-y) * -0.8), 0) rotate(0.7deg);
-  }
-
   75% {
-    transform: translate3d(calc(var(--arc-orbit-x) * 0.8), calc(var(--arc-orbit-y) * -1), 0) rotate(0.8deg);
-  }
-
-  87.5% {
-    transform: translate3d(calc(var(--arc-orbit-x) * 0.45), calc(var(--arc-orbit-y) * -0.65), 0) rotate(0.4deg);
+    transform: translate3d(var(--arc-drift-x), calc(var(--arc-drift-y) * -1), 0) rotate(11deg) scale(1.004);
   }
 }
 
 @media (max-width: 639px) {
   .hero-field {
-    --disc-orbit-x: 11px;
-    --disc-orbit-y: 7px;
-    --arc-orbit-x: 12px;
-    --arc-orbit-y: 8px;
+    --disc-drift-x: 10px;
+    --disc-drift-y: 7px;
+    --arc-drift-x: 9px;
+    --arc-drift-y: 6px;
   }
 
   .hero-field__disc {
-    right: -10rem;
-    top: 10%;
-    opacity: 0.7;
-    animation-duration: 30s;
+    right: -11rem;
+    top: 16%;
+    width: 23rem;
+    opacity: 0.5;
+    animation-duration: 33s;
   }
 
   .hero-field__arc {
-    right: -12rem;
-    bottom: -12rem;
-    animation-duration: 39s;
+    right: -13rem;
+    bottom: -8rem;
+    width: 25rem;
+    opacity: 0.65;
+    animation-duration: 42s;
   }
 }
 

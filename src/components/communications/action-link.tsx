@@ -29,8 +29,8 @@ export function ActionLink({
       className={cn(buttonVariants({ variant }), className)}
     >
       {icon ?? (!external ? <Mail aria-hidden="true" className="size-4" /> : null)}
-      <span>{label}</span>
-      {external ? <ExternalLink aria-hidden="true" className="size-4" /> : null}
+      <span className="min-w-0 break-words">{label}</span>
+      {external ? <ExternalLink aria-hidden="true" className="size-4 shrink-0" /> : null}
       {external ? <span className="sr-only"> (opens in a new tab)</span> : null}
     </a>
   );

@@ -86,13 +86,14 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div>
             <SectionHeading eyebrow="Team identity" title="Club sport. Shared purpose." />
-            <div className="relative mt-8 size-20 overflow-hidden rounded-full border border-[var(--border)] bg-white shadow-[var(--shadow-soft)] sm:size-20">
+            <div className="mt-8 w-60">
               <Image
-                src="/img/WPI-Crest.jpg"
-                alt="Worcester Polytechnic Institute crest"
-                fill
-                sizes="128px"
-                className="object-cover"
+                src="/img/WPIAthleticsLogo.png"
+                alt="Worcester Polytechnic Institute Athletics Logo"
+                width={1080}
+                height={403}
+                sizes="240px"
+                className="h-auto w-full in-data-[theme=dark]:invert"
               />
             </div>
           </div>

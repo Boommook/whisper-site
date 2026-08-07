@@ -68,7 +68,7 @@ export default function MediaPage() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
             <a
-              href={sportsPortfolioUrl}
+              href={portfolioUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={buttonVariants()}
@@ -78,7 +78,7 @@ export default function MediaPage() {
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
             <a
-              href={portfolioUrl}
+              href={sportsPortfolioUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={buttonVariants({

@@ -66,8 +66,8 @@ export default async function RosterPage() {
             <SeasonLabel season={currentSeason} />
           </div>
           <div>
-            <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.04em] sm:text-4xl">
-              Meet the current team.
+            <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.015em] sm:text-4xl">
+              Meet this season's roster.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
               This roster is reserved for current competitive-team players. Only information reviewed and approved for public display will appear here.
@@ -80,10 +80,9 @@ export default async function RosterPage() {
         <Section className="border-y border-[var(--border)] bg-[var(--surface-muted)] py-[var(--space-section)]">
           <SectionHeading
             eyebrow="Student leadership"
-            title="Public team leadership."
-            description="Leadership assignments shown here are linked to approved current-player records."
+            title="The students leading the team."
           />
-          <div className="mt-10">
+          <div className="mt-6">
             <LeadershipGrid leaders={leaders} />
           </div>
         </Section>
@@ -93,9 +92,8 @@ export default async function RosterPage() {
         <SectionHeading
           eyebrow={currentSeason.label}
           title={currentSeason.rosterHeading}
-          description="Approved current-player information will appear here when the team is ready to publish it."
         />
-        <div className="mt-10">
+        <div className="mt-6">
           {activePlayers.length > 0 ? (
             <RosterGrid players={activePlayers} />
           ) : (

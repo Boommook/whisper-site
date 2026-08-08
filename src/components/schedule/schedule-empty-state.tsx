@@ -11,7 +11,7 @@ export function ScheduleEmptyState() {
         <span className="grid size-12 place-items-center rounded-full bg-[var(--brand-soft)] text-[var(--brand-primary)]">
           <CalendarClock aria-hidden="true" className="size-6" />
         </span>
-        <h2 className="mt-6 text-balance font-heading text-2xl font-black tracking-[-0.03em] sm:text-3xl">
+        <h2 className="mt-6 text-balance font-heading text-2xl font-black tracking-[-0.015em] sm:text-3xl">
           Check back for the next schedule update.
         </h2>
         <p className="mt-4 leading-7 text-[var(--text-muted)]">

@@ -9,7 +9,7 @@ export default function NotFound() {
     <Container className="grid min-h-[60vh] place-items-center py-16 text-center">
       <div className="max-w-xl">
         <p className="eyebrow">404 · Out of bounds</p>
-        <h1 className="mt-4 font-heading text-5xl font-black tracking-[-0.05em] sm:text-6xl">
+        <h1 className="mt-4 font-heading text-5xl font-black tracking-[-0.02em] sm:text-6xl">
           This page was not found.
         </h1>
         <p className="mx-auto mt-5 max-w-md text-lg leading-8 text-[var(--text-muted)]">

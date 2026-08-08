@@ -20,7 +20,7 @@ const primaryPaths = [
   {
     title: "Join Whisper",
     description:
-      "See how WPI students get involved, from casual play to the competitive team.",
+      "See how WPI students get involved, from the all-students intramural league to the men's competitive team.",
     href: "/join",
     icon: UsersRound,
   },
@@ -50,9 +50,9 @@ export default function HomePage() {
         <Container className="relative grid min-h-[calc(100svh-var(--header-height))] items-center py-16 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(20rem,.65fr)] lg:gap-16 lg:py-24">
           <div className="relative z-10 max-w-4xl">
             <p className="eyebrow">WPI men&apos;s club ultimate frisbee</p>
-            <h1 className="mt-5 text-balance font-heading text-[clamp(3.5rem,11vw,7.75rem)] font-black leading-[0.84] tracking-[-0.065em] text-[var(--text-primary)]">
-              Play fast.
-              <span className="block text-[var(--brand-primary)]">Build together.</span>
+            <h1 className="mt-5 text-balance font-heading flex flex-col text-[clamp(3.5rem,11vw,7.75rem)] font-black leading-[0.84] tracking-[-0.02em] text-[var(--text-primary)]">
+              <span className="whitespace-nowrap">WPI Ultimate.</span>
+              <span className="whitespace-nowrap text-[var(--brand-primary)]">Built together.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-[var(--text-muted)] sm:text-xl sm:leading-9">
               WPI Whisper is Worcester Polytechnic Institute&apos;s men&apos;s club ultimate frisbee team—a student-run program for players who want to learn, compete, and grow with teammates.
@@ -94,11 +94,11 @@ export default function HomePage() {
             />
           </div>
           <div>
-            <h2 className="max-w-3xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.04em] sm:text-5xl">
-              Train together. Compete with purpose. Welcome every skill level.
+            <h2 className="max-w-3xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.015em] sm:text-5xl">
+              From first throws to tournament weekends.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
-              Whisper exists to educate and train WPI students in ultimate frisbee, with room for both a competitive team and a more casual league experience. Prior ultimate experience helps, but it is not required—athletes who are ready to learn are a common and welcome part of the team.
+              Whisper exists to educate and train WPI students in ultimate frisbee, with room for both a men's competitive team and an intramural league open to all students in fall and spring. Prior ultimate experience helps, but it is not required—athletes who are ready to learn are a common and welcome part of the team.
             </p>
             <Link
               href="/about"
@@ -114,7 +114,7 @@ export default function HomePage() {
       <Section className="border-y border-[var(--border)] bg-[var(--surface)] py-[var(--space-section)]">
         <SectionHeading
           eyebrow="Find your route"
-          title="Start with what matters to you."
+          title="Explore your options."
           description="Whether you want to join, follow the roster, or check the season schedule, these paths get you there."
         />
         <div className="mt-10 grid gap-8 md:grid-cols-3 md:gap-6 lg:gap-10">
@@ -131,9 +131,9 @@ export default function HomePage() {
           href="/join"
           linkLabel="Explore joining Whisper"
         >
-          <p>
-            Membership is open to currently enrolled WPI students. Start with the Join page to learn how fall league, tryouts, and the competitive team fit together—and how to take the next step.
-          </p>
+        <p>
+          The intramural league is open to all currently enrolled WPI students; the competitive team is men's only. Start with the Join page to learn how the league, tryouts, and competitive path fit together—and how to take the next step.
+        </p>
         </Callout>
       </Section>
     </>

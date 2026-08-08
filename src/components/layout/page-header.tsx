@@ -57,7 +57,7 @@ export function PageHeader({
         <p className={cn("eyebrow", backgroundImage && "text-[var(--accent)]")}>{eyebrow}</p>
         <h1
           className={cn(
-            "mt-4 max-w-4xl text-balance font-heading text-5xl font-black leading-[0.96] tracking-[-0.055em] text-[var(--text-primary)] sm:text-6xl lg:text-7xl",
+            "mt-4 max-w-4xl text-balance font-heading text-5xl font-black leading-[0.96] tracking-[-0.02em] text-[var(--text-primary)] sm:text-6xl lg:text-7xl",
             backgroundImage && "text-white",
           )}
         >

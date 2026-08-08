@@ -26,7 +26,7 @@ export function EventCard({
             <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[var(--brand-primary)]">
               {typeLabels[event.type]}
             </p>
-            <h3 className="mt-2 break-words text-balance font-heading text-2xl font-black leading-tight tracking-[-0.03em] sm:text-3xl">
+            <h3 className="mt-2 break-words text-balance font-heading text-2xl font-black leading-tight tracking-[-0.015em] sm:text-3xl">
               {event.name}
             </h3>
           </div>

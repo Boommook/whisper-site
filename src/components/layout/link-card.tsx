@@ -18,7 +18,7 @@ export function LinkCard({ title, description, href, icon: Icon }: LinkCardProps
       <span className="grid size-11 place-items-center rounded-full bg-[var(--brand-soft)] text-[var(--brand-primary)] transition-colors group-hover:bg-[var(--brand-primary)] group-hover:text-white motion-reduce:transition-none">
         <Icon aria-hidden="true" className="size-5" strokeWidth={2} />
       </span>
-      <h3 className="mt-8 font-heading text-2xl font-black tracking-[-0.025em] text-[var(--text-primary)]">
+      <h3 className="mt-8 font-heading text-2xl font-black tracking-[-0.01em] text-[var(--text-primary)]">
         {title}
       </h3>
       <p className="mt-3 max-w-sm leading-7 text-[var(--text-muted)]">{description}</p>

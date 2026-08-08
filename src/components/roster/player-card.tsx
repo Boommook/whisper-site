@@ -45,7 +45,7 @@ export function PlayerCard({ player }: { player: PublicPlayer }) {
       </div>
       <div className="p-4 sm:p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h3 className="font-heading text-2xl font-black tracking-[-0.025em]">
+          <h3 className="font-heading text-2xl font-black tracking-[-0.01em]">
             {player.displayName}
           </h3>
         </div>

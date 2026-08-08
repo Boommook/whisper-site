@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Barlow } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -8,6 +9,20 @@ import { publicSocialLinks } from "@/config/communications";
 import { getSiteUrl } from "@/lib/metadata";
 
 import "./globals.css";
+
+// Headline font: a normal-width, ultra-bold display face. We intentionally
+// avoid "condensed" family names (e.g. Roboto Condensed) — combined with the
+// heavy negative letter-spacing used on headlines, condensed glyph metrics
+// make text render visibly squished in Firefox (both locally and on
+// Vercel), even after disabling metric-based fallback size-adjust. Barlow is
+// normal-width, ships a true 900 weight (no synthetic/faux bold), and keeps
+// an athletic, tall-and-bold headline feel without the condensed narrowing.
+const headingFont = Barlow({
+  subsets: ["latin"],
+  weight: ["700", "900"],
+  variable: "--font-heading-family",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
@@ -74,7 +89,7 @@ const themeScript = `
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={headingFont.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script

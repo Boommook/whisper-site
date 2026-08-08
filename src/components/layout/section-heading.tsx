@@ -5,6 +5,7 @@ type SectionHeadingProps = {
   title: string;
   description?: string;
   align?: "left" | "center";
+  className?: string;
 };
 
 export function SectionHeading({
@@ -12,11 +13,12 @@ export function SectionHeading({
   title,
   description,
   align = "left",
+  className,
 }: SectionHeadingProps) {
   return (
     <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center")}>
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="mt-3 text-balance font-heading text-3xl font-black leading-tight tracking-[-0.035em] text-[var(--text-primary)] sm:text-4xl">
+      <h2 className={cn("mt-3 text-balance font-heading text-3xl font-black leading-tight tracking-[-0.015em] text-[var(--text-primary)] sm:text-4xl", className)}>
         {title}
       </h2>
       {description ? (

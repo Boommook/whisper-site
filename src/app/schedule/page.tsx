@@ -33,36 +33,32 @@ export default function SchedulePage() {
     <>
       <PageHeader
         eyebrow="Schedule & results"
-        title="Every event. Every verified result."
+        title="The season, from first pull to final point."
         description="Follow WPI Whisper's upcoming competition and review completed events in one clear season view."
       />
 
       <Section className="py-[var(--space-section)]">
-        <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-          <div>
-            <div className="inline-flex min-h-10 items-center gap-2 border-l-2 border-[var(--brand-primary)] bg-[var(--surface-muted)] px-3 py-2 text-sm font-bold">
-              <CalendarRange aria-hidden="true" className="size-4 text-[var(--brand-primary)]" />
-              <span>{scheduleSeason.label}</span>
-            </div>
-            {hasResults ? (
-              <p className="mt-4 text-sm font-bold text-[var(--text-muted)]">
-                Season record{" "}
-                <span className="font-heading text-2xl font-black tabular-nums text-[var(--text-primary)]">
-                  {seasonRecord.wins}–{seasonRecord.losses}
-                  {seasonRecord.ties > 0 ? `–${seasonRecord.ties}` : ""}
-                </span>
-                {seasonRecord.ties > 0 ? " (W–L–T)" : " (W–L)"}
-              </p>
-            ) : null}
+        <div className="grid items-start gap-x-10 gap-y-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-x-20">
+          <div className="inline-flex w-fit min-h-10 items-center gap-2 border-l-2 border-[var(--brand-primary)] bg-[var(--surface-muted)] px-3 py-2 text-sm font-bold lg:col-start-1 lg:row-start-1">
+            <CalendarRange aria-hidden="true" className="size-4 text-[var(--brand-primary)]" />
+            <span>{scheduleSeason.label}</span>
           </div>
-          <div>
-            <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.04em] sm:text-4xl">
-              Plan ahead. Catch up afterward.
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
-              {scheduleSeason.description ?? "Event details and verified results are organized by season."}
+          {hasResults ? (
+            <p className="text-sm font-bold text-[var(--text-muted)] lg:col-start-1 lg:row-start-2">
+              Season record{" "}
+              <span className="font-heading text-2xl font-black tabular-nums text-[var(--text-primary)]">
+                {seasonRecord.wins}–{seasonRecord.losses}
+                {seasonRecord.ties > 0 ? `–${seasonRecord.ties}` : ""}
+              </span>
+              {seasonRecord.ties > 0 ? " (W–L–T)" : " (W–L)"}
             </p>
-          </div>
+          ) : null}
+          <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.015em] sm:text-4xl lg:col-start-2 lg:row-start-1">
+            See what's next and how we've played.
+          </h2>
+          <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)] lg:col-start-2 lg:row-start-2">
+            {scheduleSeason.description ?? "Event details and verified results are organized by season."}
+          </p>
         </div>
       </Section>
 
@@ -87,7 +83,7 @@ export default function SchedulePage() {
 
           <Section className="border-t border-[var(--border)] py-[var(--space-section)]">
             <SectionHeading
-              eyebrow="Final whistle"
+              eyebrow="In the books"
               title="Past events & results"
               description="Completed events include verified scores. Other past events retain their latest published status."
             />

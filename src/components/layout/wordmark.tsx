@@ -8,7 +8,7 @@ export function Wordmark({ className }: { className?: string }) {
     <Link
       href="/"
       className={cn(
-        "group inline-flex items-center gap-3 rounded-sm font-heading text-[1.05rem] font-black tracking-[-0.025em] text-[var(--text-primary)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)]",
+        "group inline-flex items-center gap-3 rounded-sm font-heading text-[1.05rem] font-black tracking-[-0.01em] text-[var(--text-primary)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)]",
         className,
       )}
       aria-label="WPI Whisper home"

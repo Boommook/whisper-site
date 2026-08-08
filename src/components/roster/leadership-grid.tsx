@@ -13,10 +13,10 @@ export function LeadershipGrid({ leaders }: { leaders: readonly PublicLeader[] }
           key={`${assignment.playerId}:${assignment.role}`}
           className="border-l-2 border-[var(--accent)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)]"
         >
-          <p className="text-xs font-extrabold uppercase tracking-[0.1em] text-[var(--brand-primary)]">
+          <p className="text-xs font-extrabold uppercase text-[var(--brand-primary)]">
             {assignment.role}
           </p>
-          <h3 className="mt-2 font-heading text-xl font-black tracking-tight">
+          <h3 className="mt-2 font-heading text-xl font-black">
             {player.displayName}
           </h3>
           {player.classYear !== undefined ? (

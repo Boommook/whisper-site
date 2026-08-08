@@ -51,12 +51,12 @@ const values = [
 
 const clubExperience = [
   {
-    label: "Fall league",
-    text: "A larger, more casual league gives students a welcoming place to play, learn, and stay involved. It is open to club members and can support PE and Wellness credit when registration slots are available.",
+    label: "Intramural league",
+    text: "A larger, more casual league runs in both the fall and the spring, giving students a welcoming place to play, learn, and stay involved. It is open to all WPI students regardless of gender, and can support PE and Wellness credit when registration slots are available.",
   },
   {
     label: "Competitive team",
-    text: "The competitive team holds tryouts in the fall and rosters players who want to compete against other schools. The main USAU college season is in the spring, with a couple of tournaments or games in the fall as well. Athletic backgrounds are welcome even without prior ultimate experience.",
+    text: "The competitive team is men's only. It holds tryouts in the fall and rosters players who want to compete against other schools. The main USAU college season is in the spring, with a couple of tournaments or games in the fall as well. Athletic backgrounds are welcome even without prior ultimate experience.",
   },
   {
     label: "Practice & competition",
@@ -82,10 +82,10 @@ export default function AboutPage() {
         }}
       />
 
-      <Section className="py-[var(--space-section)]">
+      <Section className="py-[--space-section]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div>
-            <SectionHeading eyebrow="Team identity" title="Club sport. Shared purpose." />
+            <SectionHeading eyebrow="Team identity" title="What Whisper is about." />
             <div className="mt-8 w-60">
               <Image
                 src="/img/WPIAthleticsLogo.png"
@@ -99,7 +99,7 @@ export default function AboutPage() {
           </div>
           <div className="max-w-2xl space-y-5 text-lg leading-8 text-[var(--text-muted)]">
             <p>
-              Whisper is a student-run club sport at WPI. Membership is open to currently enrolled students who want to play ultimate in an organized setting—whether that means the competitive team, a more casual league experience, or both.
+              Whisper is a student-run club sport at WPI. The intramural league is open to all currently enrolled students who want to play ultimate in an organized setting. The competitive team is men's only and selected through tryouts—students can take part in one path or both, depending on eligibility and interest.
             </p>
             <p>
               The program balances competition with community. Players learn the game, support one another, and build a team environment that works for dedicated competitors and students balancing other commitments.
@@ -111,7 +111,7 @@ export default function AboutPage() {
       <Section className="border-y border-[var(--border)] bg-[var(--surface-muted)] py-[var(--space-section)]">
         <SectionHeading
           eyebrow="Team culture"
-          title="Principles that guide how Whisper plays."
+          title="What Whisper stands for."
           description="These expectations shape participation on and off the field. They describe the culture the team works to uphold, not a claim of perfection."
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -124,9 +124,10 @@ export default function AboutPage() {
       <Section className="py-[var(--space-section)]">
         <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <SectionHeading
-            eyebrow="The club experience"
-            title="How participation works."
-            description="Whisper includes both a competitive team and a broader league experience for WPI students."
+            eyebrow="Paths to participation"
+            title="More than one way to play."
+            description="Whisper includes a men's competitive team and an intramural league open to all WPI students in fall and spring."
+            className="w-fit text-nowrap"
           />
           <ol className="divide-y divide-[var(--border)] border-y border-[var(--border)]">
             {clubExperience.map((item, index) => (
@@ -146,16 +147,16 @@ export default function AboutPage() {
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-20">
           <article className="border-t-2 border-[var(--brand-primary)] pt-6">
             <p className="eyebrow">Membership</p>
-            <h2 className="mt-3 font-heading text-3xl font-black tracking-[-0.035em]">
+            <h2 className="mt-3 font-heading text-3xl font-black tracking-[-0.015em]">
               Open to WPI students.
             </h2>
             <p className="mt-4 leading-7 text-[var(--text-muted)]">
-              Any currently enrolled WPI student may join the club. The Worcester Polytechnic Institute Ultimate Frisbee Club does not discriminate in membership or activities on the basis of race, creed, gender, age, nationality, disability, marital status, or sexual orientation.
+              Any currently enrolled WPI student may join the intramural league, regardless of gender. The competitive team is men's only and fills its roster through tryouts. Beyond that competitive roster path, the Worcester Polytechnic Institute Ultimate Frisbee Club does not discriminate in membership or activities on the basis of race, creed, gender, age, nationality, disability, marital status, or sexual orientation.
             </p>
           </article>
           <article className="border-t-2 border-[var(--brand-primary)] pt-6">
             <p className="eyebrow">Leadership</p>
-            <h2 className="mt-3 font-heading text-3xl font-black tracking-[-0.035em]">
+            <h2 className="mt-3 font-heading text-3xl font-black tracking-[-0.015em]">
               Led by an elected student board.
             </h2>
             <p className="mt-4 leading-7 text-[var(--text-muted)]">

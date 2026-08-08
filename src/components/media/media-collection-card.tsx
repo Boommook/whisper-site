@@ -28,7 +28,7 @@ export function MediaCollectionCard({ collection }: { collection: MediaCollectio
             {collection.location}
           </span>
         </div>
-        <h3 className="mt-5 font-heading text-3xl font-black tracking-[-0.035em]">
+        <h3 className="mt-5 font-heading text-3xl font-black tracking-[-0.015em]">
           {collection.title}
         </h3>
         <p className="mt-4 leading-7 text-[var(--text-muted)]">{collection.description}</p>

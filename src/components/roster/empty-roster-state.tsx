@@ -13,7 +13,7 @@ export function EmptyRosterState() {
       <span className="grid size-12 place-items-center rounded-full bg-[var(--brand-soft)] text-[var(--brand-primary)]">
         <ClipboardList aria-hidden="true" className="size-6" />
       </span>
-      <h3 className="mt-6 max-w-xl font-heading text-3xl font-black tracking-[-0.035em]">
+      <h3 className="mt-6 max-w-xl font-heading text-3xl font-black tracking-[-0.015em]">
         The active roster is being prepared.
       </h3>
       <p className="mt-4 max-w-2xl leading-7 text-[var(--text-muted)]">

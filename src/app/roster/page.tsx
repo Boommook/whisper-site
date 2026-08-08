@@ -67,7 +67,7 @@ export default async function RosterPage() {
           </div>
           <div>
             <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.015em] sm:text-4xl">
-              Meet this season's roster.
+              Meet this season&apos;s roster.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
               This roster is reserved for current competitive-team players. Only information reviewed and approved for public display will appear here.

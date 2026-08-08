@@ -54,7 +54,7 @@ export default function SchedulePage() {
             </p>
           ) : null}
           <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.015em] sm:text-4xl lg:col-start-2 lg:row-start-1">
-            See what's next and how we've played.
+            See what&apos;s next and how we&apos;ve played.
           </h2>
           <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)] lg:col-start-2 lg:row-start-2">
             {scheduleSeason.description ?? "Event details and verified results are organized by season."}

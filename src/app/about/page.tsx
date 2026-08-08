@@ -99,7 +99,7 @@ export default function AboutPage() {
           </div>
           <div className="max-w-2xl space-y-5 text-lg leading-8 text-[var(--text-muted)]">
             <p>
-              Whisper is a student-run club sport at WPI. The intramural league is open to all currently enrolled students who want to play ultimate in an organized setting. The competitive team is men's only and selected through tryouts—students can take part in one path or both, depending on eligibility and interest.
+              Whisper is a student-run club sport at WPI. The intramural league is open to all currently enrolled students who want to play ultimate in an organized setting. The competitive team is men&apos;s only and selected through tryouts—students can take part in one path or both, depending on eligibility and interest.
             </p>
             <p>
               The program balances competition with community. Players learn the game, support one another, and build a team environment that works for dedicated competitors and students balancing other commitments.
@@ -151,7 +151,7 @@ export default function AboutPage() {
               Open to WPI students.
             </h2>
             <p className="mt-4 leading-7 text-[var(--text-muted)]">
-              Any currently enrolled WPI student may join the intramural league, regardless of gender. The competitive team is men's only and fills its roster through tryouts. Beyond that competitive roster path, the Worcester Polytechnic Institute Ultimate Frisbee Club does not discriminate in membership or activities on the basis of race, creed, gender, age, nationality, disability, marital status, or sexual orientation.
+              Any currently enrolled WPI student may join the intramural league, regardless of gender. The competitive team is men&apos;s only and fills its roster through tryouts. Beyond that competitive roster path, the Worcester Polytechnic Institute Ultimate Frisbee Club does not discriminate in membership or activities on the basis of race, creed, gender, age, nationality, disability, marital status, or sexual orientation.
             </p>
           </article>
           <article className="border-t-2 border-[var(--brand-primary)] pt-6">

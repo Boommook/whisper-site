@@ -98,7 +98,7 @@ export default function HomePage() {
               From first throws to tournament weekends.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
-              Whisper exists to educate and train WPI students in ultimate frisbee, with room for both a men's competitive team and an intramural league open to all students in fall and spring. Prior ultimate experience helps, but it is not required—athletes who are ready to learn are a common and welcome part of the team.
+              Whisper exists to educate and train WPI students in ultimate frisbee, with room for both a men&apos;s competitive team and an intramural league open to all students in fall and spring. Prior ultimate experience helps, but it is not required—athletes who are ready to learn are a common and welcome part of the team.
             </p>
             <Link
               href="/about"
@@ -132,7 +132,7 @@ export default function HomePage() {
           linkLabel="Explore joining Whisper"
         >
         <p>
-          The intramural league is open to all currently enrolled WPI students; the competitive team is men's only. Start with the Join page to learn how the league, tryouts, and competitive path fit together—and how to take the next step.
+          The intramural league is open to all currently enrolled WPI students; the competitive team is men&apos;s only. Start with the Join page to learn how the league, tryouts, and competitive path fit together—and how to take the next step.
         </p>
         </Callout>
       </Section>

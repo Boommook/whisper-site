@@ -82,7 +82,7 @@ export default function AboutPage() {
         }}
       />
 
-      <Section className="py-[--space-section]">
+      <Section className="py-[var(--space-section)]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div>
             <SectionHeading eyebrow="Team identity" title="What Whisper is about." />
@@ -188,7 +188,7 @@ export default function AboutPage() {
             className={buttonVariants({
               variant: "ghost",
               className:
-                "mt-4 min-h-0 justify-start p-0 text-white underline decoration-white/30 hover:bg-transparent hover:text-white hover:decoration-white focus-visible:outline-white",
+                "mt-4 inline-flex min-h-11 items-center px-0! bg-none hover:bg-transparent  py-2 text-sm font-bold text-[var(--brand-primary)] underline decoration-2 decoration-transparent transition-colors hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)] motion-reduce:transition-none",
             })}
           >
             View the roster

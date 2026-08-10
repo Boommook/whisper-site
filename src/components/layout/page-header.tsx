@@ -1,6 +1,9 @@
-import Image from "next/image";
+"use client";
+
+import type { MouseEvent } from "react";
 
 import { Container } from "@/components/layout/container";
+import { ProtectedImage } from "@/components/media/protected-image";
 import { cn } from "@/lib/utils";
 
 type PageHeaderProps = {
@@ -8,17 +11,30 @@ type PageHeaderProps = {
   title: string;
   description: string;
   backgroundImage?: `/${string}`;
+  /** Tailwind object-position class for the hero photo. Defaults to object-top. */
+  backgroundImagePosition?: string;
   photoCredit?: Readonly<{
     name: string;
     href: `https://${string}`;
   }>;
 };
 
+function preventPhotoSave(event: MouseEvent) {
+  const target = event.target;
+  if (!(target instanceof Element)) {
+    event.preventDefault();
+    return;
+  }
+  if (target.closest("a, button")) return;
+  event.preventDefault();
+}
+
 export function PageHeader({
   eyebrow,
   title,
   description,
   backgroundImage,
+  backgroundImagePosition = "object-top",
   photoCredit,
 }: PageHeaderProps) {
   return (
@@ -27,20 +43,23 @@ export function PageHeader({
         "relative isolate overflow-hidden border-b border-[var(--border)] bg-[var(--surface)]",
         backgroundImage && "bg-[var(--brand-secondary)]",
       )}
+      onContextMenu={backgroundImage ? preventPhotoSave : undefined}
+      onDragStart={backgroundImage ? preventPhotoSave : undefined}
     >
       {backgroundImage ? (
         <>
-          <Image
+          <ProtectedImage
             src={backgroundImage}
             alt=""
             fill
             priority
             sizes="100vw"
-            className="-z-20 object-cover object-top"
+            className={cn("object-cover", backgroundImagePosition)}
+            wrapperClassName="-z-20"
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(18,15,15,0.9)_0%,rgba(18,15,15,0.72)_52%,rgba(18,15,15,0.42)_100%)]"
+            className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(18,15,15,0.9)_0%,rgba(18,15,15,0.72)_52%,rgba(18,15,15,0.42)_100%)]"
           />
         </>
       ) : (

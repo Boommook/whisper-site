@@ -56,7 +56,7 @@ const clubExperience = [
   },
   {
     label: "Competitive Ultimate",
-    text: "Our men's team holds tryouts in the fall, practices twice a week, and competes against other colleges. The main USAU season is in spring, with some competition in fall.",
+    text: "Our men's team holds tryouts in the fall, generally practices Tuesday and Thursday evenings, and competes against other colleges. The main USAU season is in spring, with some competition in fall.",
   },
   {
     label: "One club",
@@ -102,7 +102,7 @@ export default function AboutPage() {
           </div>
           <div className="max-w-2xl space-y-5 text-lg leading-8 text-[var(--text-muted)]">
             <p>
-              Whisper brings together WPI students who want to play ultimate. We welcome complete beginners, experienced players, and everyone in between.
+              Whisper brings together WPI students who want to play ultimate. We welcome complete beginners, experienced players, and everyone in between. You will also find us tossing on the quad a lot, feel free to join us!
             </p>
           </div>
         </div>
@@ -143,7 +143,25 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section className="border-y border-[var(--border)] bg-[var(--surface)] py-[var(--space-section)]">
+      <Section className="border-y border-[var(--border)] bg-[var(--surface-muted)] py-[var(--space-section)]">
+        <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20 lg:items-start">
+          <SectionHeading
+            eyebrow="Competitive team life"
+            title="More than practices and tournaments."
+            description="The competitive team hangs out off the field too."
+          />
+          <div className="max-w-2xl space-y-5 text-lg leading-8 text-[var(--text-muted)]">
+            <p>
+              Beyond twice-weekly practices and college competition, the competitive team builds community through occasional parties and hangouts, a team formal, and other social events through the year.
+            </p>
+            <p>
+              Players also field an intramural basketball team together—another way teammates stay connected when ultimate season is quiet.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section className="py-[var(--space-section)]">
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-20">
           <article className="border-t-2 border-[var(--brand-primary)] pt-6">
             <p className="eyebrow">Membership</p>

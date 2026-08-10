@@ -25,7 +25,7 @@ const instagram = publicSocialLinks.find((item) => item.id === "instagram");
 const expectations = [
   ["New players", "Never played ultimate? That's completely fine."],
   ["Intramural season", "The league runs in fall and spring and is open to all WPI students."],
-  ["Competitive season", "The team practices twice a week in fall and spring. Its main college season is in spring, with some fall competition."],
+  ["Competitive season", "The team generally practices Tuesday and Thursday evenings. Its main college season is in spring, with some fall competition."],
   ["What to bring", "Check Slack or the signup forms for current equipment and field details."],
   ["Time", "Intramural and competitive ultimate have different commitments. Ask for the current schedule before deciding."],
   ["Costs", "Current costs are shared before you commit."],
@@ -35,7 +35,8 @@ const faqs = [
   ["Which Fall 2026 forms do I need?", "For competitive tryouts, complete both the interest form and tryout form. For intramurals—or if you are not sure yet—complete the interest form."],
   ["Who can join the intramural league vs. the competitive team?", "The intramural league is open to all WPI students regardless of gender and runs in both fall and spring. The competitive team is men's only and fills its roster through tryouts."],
   ["Do I need ultimate experience?", "No. Beginners are welcome in intramurals and at competitive tryouts."],
-  ["When does the team practice?", "The competitive team generally practices twice a week in fall and spring. Exact days, times, and locations are confirmed each season through team communication."],
+  ["When does the team practice?", "The competitive team generally practices Tuesday and Thursday evenings from 8–10pm on the WPI Rooftop Fields or O'Connell Field. Confirm the current location through team communication each season."],
+
   ["What should I bring?", "Check the forms or Slack before you come. What you need depends on the session and field conditions."],
   ["How much does it cost?", "Costs can change by season. We will share current costs before you commit."],
   ["Should I join Slack?", "Yes. It is the easiest way to meet the frisbee community and get current details. You still need both forms if you plan to try out."],
@@ -44,21 +45,23 @@ const faqs = [
 export default function JoinPage() {
   return (
     <>
-      <PageHeader eyebrow="Join Whisper" title="How to play ultimate at WPI." description="Join the intramural league, try out for the competitive team, or meet the community while you decide." />
+      <PageHeader
+        eyebrow="Join Whisper"
+        title="How to play ultimate at WPI."
+        description="Join the intramural league, try out for the competitive team, or meet the community while you decide."
+        backgroundImage="/img/tryout.jpeg"
+        backgroundImagePosition="object-[center_58%]"
+        photoCredit={{
+          name: "Luca Makarushka-Napp",
+          href: "https://photo-makanapp.com/",
+        }}
+      />
 
       <Section className="py-[var(--space-section)]">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div>
             <SectionHeading eyebrow="How do you want to play?" title="Two options. One community." description="Intramurals are open to all WPI students. The competitive men’s team holds tryouts each fall." />
-            <div className="relative mt-7 h-20 w-52 overflow-hidden">
-              <Image
-                src="/img/WPIAthleticsLogo.png"
-                alt="WPI Athletics"
-                fill
-                sizes="208px"
-                className="scale-125 object-contain"
-              />
-            </div>
+            
           </div>
           <div className="border-l-4 border-[var(--brand-primary)] bg-[var(--surface)] p-7 sm:p-9">
             <h3 className="font-heading text-2xl font-black">New to ultimate?</h3>
@@ -102,8 +105,8 @@ export default function JoinPage() {
           ) : null}
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {slackAction ? <ActionLink href={slackAction.href!} label={slackAction.label} external={slackAction.external} icon={<Slack aria-hidden="true" className="size-5 text-[var(--brand-primary)]" />} variant="ghost" className="justify-start border border-[var(--border)] bg-[var(--surface)]" /> : null}
-          {instagram ? <ActionLink href={instagram.href} label={`${instagram.accessibleLabel} (${instagram.username})`} external icon={<Instagram aria-hidden="true" className="size-5 text-[var(--brand-primary)]" />} variant="ghost" className="justify-start border border-[var(--border)] bg-[var(--surface)]" /> : null}
+          {slackAction ? <ActionLink href={slackAction.href!} label={slackAction.label} external={slackAction.external} icon={<Slack aria-hidden="true" className="size-5 text-[var(--brand-primary)]" />} variant="ghost" className="justify-start border border-[var(--border)] bg-[var(--surface)] text-left" /> : null}
+          {instagram ? <ActionLink href={instagram.href} label={`Follow ${instagram.username} on Instagram`} external icon={<Instagram aria-hidden="true" className="size-5 text-[var(--brand-primary)]" />} variant="ghost" className="justify-start border border-[var(--border)] bg-[var(--surface)] text-left" /> : null}
         </div>
       </Section>
 
@@ -122,15 +125,37 @@ export default function JoinPage() {
       </Section>
 
       <Section className="pb-[var(--space-section)] pt-0">
-        <div className="bg-[var(--brand-secondary)] text-white mb-8 lg:flex lg:items-end lg:justify-between lg:gap-12">
+        <div className="mb-8 border-l-4 border-[var(--brand-primary)] bg-[var(--surface-muted)] p-7 sm:p-10 lg:flex lg:items-end lg:justify-between lg:gap-12">
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[var(--accent)]">
-              Ready for the next point?
-              </p>
-            <h2 className="mt-3 font-heading text-3xl font-black sm:text-4xl">Find your way onto the field.</h2>
-            <p className="mt-4 max-w-2xl text-white/75">Students trying out must complete both the interest form and tryout form. If you are unsure or do not want to play competitively, complete only the interest form.</p>
+            <p className="eyebrow">Ready for the next point?</p>
+            <h2 className="mt-3 font-heading text-3xl font-black tracking-[-0.015em] sm:text-4xl">
+              Find your way onto the field.
+            </h2>
+            <p className="mt-4 max-w-2xl leading-7 text-[var(--text-muted)]">
+              Students trying out must complete both the interest form and tryout form. If you are unsure or do not want to play competitively, complete only the interest form.
+            </p>
           </div>
-          <div className="mt-7 flex flex-col items-start gap-3 lg:mt-0">{interestAction ? <ActionLink href={interestAction.href!} label={interestAction.label} external={interestAction.external} /> : null}{tryoutAction ? <ActionLink href={tryoutAction.href!} label={tryoutAction.label} external={tryoutAction.external} variant="secondary" className="border-white/70 bg-transparent !text-white hover:bg-white/10 hover:!text-white" /> : null}{!interestAction && !tryoutAction ? <Link href="/contact" className={buttonVariants()}>View current contact options</Link> : null}
+          <div className="mt-7 flex flex-col items-start gap-3 lg:mt-0">
+            {interestAction ? (
+              <ActionLink
+                href={interestAction.href!}
+                label={interestAction.label}
+                external={interestAction.external}
+              />
+            ) : null}
+            {tryoutAction ? (
+              <ActionLink
+                href={tryoutAction.href!}
+                label={tryoutAction.label}
+                external={tryoutAction.external}
+                variant="secondary"
+              />
+            ) : null}
+            {!interestAction && !tryoutAction ? (
+              <Link href="/contact" className={buttonVariants()}>
+                View current contact options
+              </Link>
+            ) : null}
           </div>
         </div>
       </Section>

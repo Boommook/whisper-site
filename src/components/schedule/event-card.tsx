@@ -67,7 +67,7 @@ export function EventCard({
         {event.games && event.games.length > 0 ? <ResultList games={event.games} /> : null}
         {event.status === "completed" && (!event.games || event.games.length === 0) ? (
           <p className="mt-6 border-t border-[var(--border)] pt-5 text-sm text-[var(--text-muted)]">
-            This event is complete. No game-level results are available for public display.
+            This event is complete. No game scores are listed.
           </p>
         ) : null}
     </>

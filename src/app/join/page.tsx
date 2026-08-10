@@ -11,8 +11,8 @@ import { publicRecruitmentActions, publicSocialLinks } from "@/config/communicat
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata(
-  "Join Whisper",
-  "Learn how WPI students can connect with Whisper, express interest, and register for Fall 2026 men's ultimate frisbee tryouts.",
+  "How to Play Ultimate at WPI",
+  "Join WPI ultimate through the intramural league or competitive men's team. Beginners are welcome.",
   "/join",
 );
 
@@ -23,34 +23,33 @@ const slackAction = action("wpi-frisbee-slack");
 const instagram = publicSocialLinks.find((item) => item.id === "instagram");
 
 const expectations = [
-  ["Experience", "Prior ultimate experience is not required. Athletic experience can help, and prospective players should be ready to learn."],
-  ["Season structure", "Whisper includes an intramural league in both fall and spring, open to all students, plus a men's competitive team. The competitive team's main college season is in spring, with some competition in fall."],
-  ["Practices and tournaments", "The competitive team generally practices twice a week in fall and spring. Current times, locations, and tournament logistics are confirmed each season."],
-  ["Equipment", "What to bring can vary by session and field conditions. Confirm current equipment expectations through the recruitment forms or team communication."],
-  ["Time commitment", "Commitment differs between the intramural league and competitive team. Ask for the current schedule before deciding which path fits."],
-  ["Costs", "Costs and dues can change. Current costs will be shared before a player commits; no unverified figure is published here."],
+  ["New players", "Never played ultimate? That's completely fine."],
+  ["Intramural season", "The league runs in fall and spring and is open to all WPI students."],
+  ["Competitive season", "The team practices twice a week in fall and spring. Its main college season is in spring, with some fall competition."],
+  ["What to bring", "Check Slack or the signup forms for current equipment and field details."],
+  ["Time", "Intramural and competitive ultimate have different commitments. Ask for the current schedule before deciding."],
+  ["Costs", "Current costs are shared before you commit."],
 ] as const;
 
 const faqs = [
-  ["Which Fall 2026 form should I complete?", "If you plan to attend Fall 2026 tryouts, complete both the club interest form and the tryout form. If you are unsure about trying out or do not want to play competitively, complete only the club interest form."],
+  ["Which Fall 2026 forms do I need?", "For competitive tryouts, complete both the interest form and tryout form. For intramurals—or if you are not sure yet—complete the interest form."],
   ["Who can join the intramural league vs. the competitive team?", "The intramural league is open to all WPI students regardless of gender and runs in both fall and spring. The competitive team is men's only and fills its roster through tryouts."],
-  ["Do I need ultimate experience?", "No. Team source materials explicitly welcome athletes without prior ultimate experience who are ready to learn."],
+  ["Do I need ultimate experience?", "No. Beginners are welcome in intramurals and at competitive tryouts."],
   ["When does the team practice?", "The competitive team generally practices twice a week in fall and spring. Exact days, times, and locations are confirmed each season through team communication."],
-  ["What should I bring?", "Equipment expectations may depend on the session and conditions. Use the forms or Slack to confirm current guidance before attending."],
-  ["How much does it cost?", "Costs can change by season. Current costs will be shared before a player commits."],
-  ["Should I join the Slack?", "Interested WPI students can use Slack to connect with the frisbee community and receive communication. Slack signup does not replace either required form for students planning to try out."],
-  ["Where can I follow the team?", "The verified public account is WPI Men’s Ultimate on Instagram, @wpimensultimate. Do not rely on social media alone for every schedule change."],
+  ["What should I bring?", "Check the forms or Slack before you come. What you need depends on the session and field conditions."],
+  ["How much does it cost?", "Costs can change by season. We will share current costs before you commit."],
+  ["Should I join Slack?", "Yes. It is the easiest way to meet the frisbee community and get current details. You still need both forms if you plan to try out."],
 ] as const;
 
 export default function JoinPage() {
   return (
     <>
-      <PageHeader eyebrow="Join Whisper" title="Find your way onto the field." description="Whether you are new to ultimate or ready to compete, start here to understand the team and choose the right Fall 2026 action." />
+      <PageHeader eyebrow="Join Whisper" title="How to play ultimate at WPI." description="Join the intramural league, try out for the competitive team, or meet the community while you decide." />
 
       <Section className="py-[var(--space-section)]">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div>
-            <SectionHeading eyebrow="Who can join" title="A WPI student team with room to learn." description="Whisper is WPI’s men’s ultimate frisbee club team. The intramural league is open to all currently enrolled WPI students regardless of gender; the competitive team is men's only and selected through tryouts." />
+            <SectionHeading eyebrow="How do you want to play?" title="Two options. One community." description="Intramurals are open to all WPI students. The competitive men’s team holds tryouts each fall." />
             <div className="relative mt-7 h-20 w-52 overflow-hidden">
               <Image
                 src="/img/WPIAthleticsLogo.png"
@@ -63,19 +62,19 @@ export default function JoinPage() {
           </div>
           <div className="border-l-4 border-[var(--brand-primary)] bg-[var(--surface)] p-7 sm:p-9">
             <h3 className="font-heading text-2xl font-black">New to ultimate?</h3>
-            <p className="mt-4 text-lg leading-8 text-[var(--text-muted)]">Prior ultimate experience is not required. Players from other athletic backgrounds are welcome to learn the sport; competitive-team placement still follows the team’s seasonal tryout process.</p>
+            <p className="mt-4 text-lg leading-8 text-[var(--text-muted)]">You do not need experience to join the intramural league or come to competitive tryouts. We will help you learn.</p>
             <Link href="/about" className="mt-5 inline-flex min-h-11 items-center gap-2 font-bold text-[var(--brand-primary)] underline decoration-2 decoration-transparent hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)]">Learn about Whisper <ArrowRight aria-hidden="true" className="size-4" /></Link>
           </div>
         </div>
       </Section>
 
       <Section className="border-y border-[var(--border)] bg-[var(--surface-muted)] py-[var(--space-section)]">
-        <SectionHeading eyebrow="Fall 2026" title="Choose how you want to play." description="Trying out? Complete both forms. Unsure about tryouts or interested only in noncompetitive play? Complete the interest form only." />
+        <SectionHeading eyebrow="Fall 2026" title="Choose how you want to get involved." description="Intramurals or not sure yet? Complete the interest form. Competitive tryouts? Complete both forms." />
         <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-2">
           {interestAction ? (
             <article className="flex flex-col rounded-[var(--radius-panel)] border bg-[var(--surface)] p-7 sm:p-9">
-              <p className="eyebrow">Broader interest</p>
-              <h3 className="mt-3 font-heading text-3xl font-black">Stay informed</h3>
+              <p className="eyebrow">Intramural League</p>
+              <h3 className="mt-3 font-heading text-3xl font-black">Play casually</h3>
               <p className="mt-4 leading-7 text-[var(--text-muted)]">{interestAction.description}</p>
               <ActionLink
                 href={interestAction.href!}
@@ -89,7 +88,7 @@ export default function JoinPage() {
           {tryoutAction ? (
             <article className="flex flex-col rounded-[var(--radius-panel)] bg-[var(--brand-secondary)] p-7 text-white sm:p-9">
               <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[var(--accent)]">
-                Competitive play
+                Competitive Team
               </p>
               <h3 className="mt-3 font-heading text-3xl font-black">Fall 2026 Tryouts</h3>
               <p className="mt-4 leading-7 text-white/75">{tryoutAction.description}</p>
@@ -115,15 +114,8 @@ export default function JoinPage() {
         </dl>
       </Section>
 
-      <Section className="border-y border-[var(--border)] bg-[var(--surface)] py-[var(--space-section)]">
-        <SectionHeading eyebrow="Recruitment process" title="How to get involved." />
-        <ol className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {["Tell us you are interested|Every interested student should complete the Fall 2026 interest form.", "Register for tryouts|Planning to try out? Complete the Fall 2026 tryout form in addition to the interest form.", "Connect with the team|Join Slack and follow @wpimensultimate for community communication and public updates.", "Confirm current details|Get current practices, tryout logistics, equipment expectations, and costs through team communication."].map((step, index) => { const [title, text] = step.split("|"); return <li key={title} className="border-t-2 border-[var(--brand-primary)] pt-5"><span className="text-sm font-black text-[var(--brand-primary)]">0{index + 1}</span><h3 className="mt-3 font-heading text-xl font-black">{title}</h3><p className="mt-3 leading-7 text-[var(--text-muted)]">{text}</p></li>; })}
-        </ol>
-      </Section>
-
       <Section className="py-[var(--space-section)]">
-        <SectionHeading eyebrow="FAQ" title="Common questions from new players." />
+        <SectionHeading eyebrow="FAQ" title="What new players ask." />
         <div className="mt-8 divide-y border-y">
           {faqs.map(([question, answer]) => <details key={question} className="group"><summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-5 font-heading text-lg font-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)]">{question}<CheckCircle2 aria-hidden="true" className="size-5 shrink-0 text-[var(--brand-primary)]" /></summary><p className="max-w-3xl pb-6 leading-7 text-[var(--text-muted)]">{answer}</p></details>)}
         </div>

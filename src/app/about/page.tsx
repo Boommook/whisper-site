@@ -18,7 +18,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata(
   "About",
-  "Learn about WPI Whisper, the student-run men's club ultimate frisbee team at Worcester Polytechnic Institute.",
+  "Meet WPI Whisper, the student-run home of men's ultimate at WPI.",
   "/about",
 );
 
@@ -26,45 +26,45 @@ const values = [
   {
     title: "Spirit of the Game",
     description:
-      "Ultimate is self-refereed. Players are expected to compete hard while communicating fairly, respecting opponents, and owning calls on the field.",
+      "Compete hard. Make fair calls. Respect the people across from you.",
     icon: Scale,
   },
   {
     title: "Improvement",
     description:
-      "The club exists to educate and train students in ultimate. Practices and competition create room for beginners and experienced players to develop together.",
+      "We help each other get better, whether it is your first throw or your hundredth game.",
     icon: Sprout,
   },
   {
     title: "Teamwork",
     description:
-      "Strong culture means working hard and staying close as teammates—through wins, losses, practices, and the everyday work of building a program.",
+      "We work for each other on the field and show up for each other off it.",
     icon: Handshake,
   },
   {
     title: "Communication",
     description:
-      "Clear expectations and open communication help players with different schedules and experience levels stay engaged and contribute meaningfully.",
+      "We speak clearly, listen, and keep our teammates in the loop.",
     icon: MessageSquare,
   },
 ] as const;
 
 const clubExperience = [
   {
-    label: "Intramural league",
-    text: "A larger, more casual league runs in both the fall and the spring, giving students a welcoming place to play, learn, and stay involved. It is open to all WPI students regardless of gender, and can support PE and Wellness credit when registration slots are available.",
+    label: "Intramural Ultimate",
+    text: "Our fall and spring league is open to all WPI students, regardless of gender. It is beginner-friendly, social, and lower-pressure; PE and Wellness credit may be available when registration slots are open.",
   },
   {
-    label: "Competitive team",
-    text: "The competitive team is men's only. It holds tryouts in the fall and rosters players who want to compete against other schools. The main USAU college season is in the spring, with a couple of tournaments or games in the fall as well. Athletic backgrounds are welcome even without prior ultimate experience.",
+    label: "Competitive Ultimate",
+    text: "Our men's team holds tryouts in the fall, practices twice a week, and competes against other colleges. The main USAU season is in spring, with some competition in fall.",
   },
   {
-    label: "Practice & competition",
-    text: "The competitive team practices twice a week in the fall and spring. Exact times and venues change with field availability each term.",
+    label: "One club",
+    text: "Some students play intramurals, some compete, and some do both. Both are real parts of the Whisper community.",
   },
   {
     label: "Student leadership",
-    text: "Whisper is student-run. An elected executive board organizes the club, and coaches help mentor the competitive team through practices, strategy, and competition.",
+    text: "An elected student board runs the club. Coaches lead the competitive team at practices and tournaments.",
   },
 ] as const;
 
@@ -73,8 +73,8 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About WPI Whisper"
-        title="A student-run club sport built around ultimate."
-        description="Whisper is Worcester Polytechnic Institute's men's club ultimate frisbee team. The club educates and trains WPI students in the sport and competes against other schools."
+        title="The home of men&apos;s ultimate at WPI."
+        description="We run an intramural league and a competitive college team. You can play one, both, or just start by meeting the community."
         backgroundImage="/img/whisper-about.jpeg"
         photoCredit={{
           name: "Luca Makarushka-Napp",
@@ -83,9 +83,12 @@ export default function AboutPage() {
       />
 
       <Section className="py-[var(--space-section)]">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+        <p className="eyebrow">About Whisper</p>
+        <div className="mt-3 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:items-start">
           <div>
-            <SectionHeading eyebrow="Team identity" title="What Whisper is about." />
+            <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.015em] text-[var(--text-primary)] sm:text-4xl">
+              Ultimate built by WPI students.
+            </h2>
             <div className="mt-8 w-60">
               <Image
                 src="/img/WPIAthleticsLogo.png"
@@ -99,10 +102,7 @@ export default function AboutPage() {
           </div>
           <div className="max-w-2xl space-y-5 text-lg leading-8 text-[var(--text-muted)]">
             <p>
-              Whisper is a student-run club sport at WPI. The intramural league is open to all currently enrolled students who want to play ultimate in an organized setting. The competitive team is men&apos;s only and selected through tryouts—students can take part in one path or both, depending on eligibility and interest.
-            </p>
-            <p>
-              The program balances competition with community. Players learn the game, support one another, and build a team environment that works for dedicated competitors and students balancing other commitments.
+              Whisper brings together WPI students who want to play ultimate. We welcome complete beginners, experienced players, and everyone in between.
             </p>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="Team culture"
           title="What Whisper stands for."
-          description="These expectations shape participation on and off the field. They describe the culture the team works to uphold, not a claim of perfection."
+          description="How we try to show up for the game and for each other."
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((value) => (
@@ -124,9 +124,9 @@ export default function AboutPage() {
       <Section className="py-[var(--space-section)]">
         <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <SectionHeading
-            eyebrow="Paths to participation"
-            title="More than one way to play."
-            description="Whisper includes a men's competitive team and an intramural league open to all WPI students in fall and spring."
+            eyebrow="Two ways to play"
+            title="Choose what works for you."
+            description="Intramural and competitive ultimate share one community."
             className="w-fit text-nowrap"
           />
           <ol className="divide-y divide-[var(--border)] border-y border-[var(--border)]">
@@ -135,7 +135,7 @@ export default function AboutPage() {
                 <span className="font-heading text-sm font-black text-[var(--brand-primary)]" aria-hidden="true">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-heading text-lg font-black tracking-tight">{item.label}</h3>
+                <h3 className="font-heading text-lg font-black ">{item.label}</h3>
                 <p className="leading-7 text-[var(--text-muted)]">{item.text}</p>
               </li>
             ))}
@@ -151,7 +151,7 @@ export default function AboutPage() {
               Open to WPI students.
             </h2>
             <p className="mt-4 leading-7 text-[var(--text-muted)]">
-              Any currently enrolled WPI student may join the intramural league, regardless of gender. The competitive team is men&apos;s only and fills its roster through tryouts. Beyond that competitive roster path, the Worcester Polytechnic Institute Ultimate Frisbee Club does not discriminate in membership or activities on the basis of race, creed, gender, age, nationality, disability, marital status, or sexual orientation.
+              The intramural league is open to every currently enrolled WPI student, regardless of gender. The competitive men&apos;s team fills its roster through tryouts. 
             </p>
           </article>
           <article className="border-t-2 border-[var(--brand-primary)] pt-6">
@@ -160,7 +160,7 @@ export default function AboutPage() {
               Led by an elected student board.
             </h2>
             <p className="mt-4 leading-7 text-[var(--text-muted)]">
-              Rostered competitive-team members elect an executive board that includes a president, vice president, treasurer, secretary, and public relations chair. Coaches support the competitive team with practice planning, development, and competition. Reach out through the contact page for team inquiries.
+              Competitive-team players elect our executive board. Coaches lead the competitive team through practices and competition.
             </p>
             <Link
               href="/contact"
@@ -181,7 +181,7 @@ export default function AboutPage() {
           linkLabel="Join Whisper"
         >
           <p>
-            Ready to play? Head to Join for pathways into the club, or browse the roster to see who makes up the team.
+            Ready to play? See the intramural and competitive options on the Join page.
           </p>
           <Link
             href="/roster"

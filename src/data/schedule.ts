@@ -7,7 +7,7 @@ import type { ScheduleEvent, ScheduleSeason } from "@/types/schedule";
 export const scheduleSeason = {
   id: "2026",
   label: "2026 season",
-  description: "Completed events and verified game results from WPI Whisper's spring 2026 competition.",
+  description: "Tournaments and results from WPI Whisper's spring 2026 season.",
   publicationStatus: "published",
   startDate: "2026-03-21",
   endDate: "2026-04-12",

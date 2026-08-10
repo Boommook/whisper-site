@@ -8,7 +8,7 @@ export const mediaCollections = [
     date: "April 11–12, 2026",
     location: "Williamstown, Massachusetts",
     description:
-      "Two days of tournament action, sideline energy, and competitive ultimate at New England Sectionals.",
+      "Whisper at New England Sectionals in Williamstown.",
     image: "/img/sectionals-cover.jpg",
     imageAlt: "WPI Whisper players competing at New England Sectionals",
     width: 2048,
@@ -28,7 +28,7 @@ export const mediaCollections = [
     date: "April 26, 2026",
     location: "Bristol, Rhode Island",
     description:
-      "A curated collection capturing Whisper’s tournament play, team atmosphere, and sideline moments at Roger Williams University.",
+      "Whisper on the field and sideline at Roger Williams University.",
     image: "/img/RWU-cover.jpg",
     imageAlt: "WPI Whisper players at the Roger Williams University tournament",
     width: 5424,

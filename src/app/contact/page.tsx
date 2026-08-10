@@ -11,7 +11,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata(
   "Contact",
-  "Contact the WPI Whisper executive board or find verified recruitment, community, and social channels.",
+  "Contact WPI Whisper about playing, tryouts, tournaments, or the WPI frisbee community.",
   "/contact",
 );
 
@@ -21,11 +21,11 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact WPI Whisper"
-        title="Get in touch with Whisper."
-        description="Use the verified path that best matches your question. Reach the executive board directly, complete the recruitment forms, join the community Slack, or follow the team on Instagram."
+        title="Get in touch."
+        description="Want to play, ask about intramurals or tryouts, or reach the team? Start here."
       />
       <Section className="py-[var(--space-section)]">
-        <SectionHeading eyebrow="Verified channels" title="Find the right contact." />
+        <SectionHeading eyebrow="Contact Whisper" title="What do you need?" />
         {paths.length ? (
           <div className="mt-10 flex flex-col gap-6">
             {paths.map((path) => {
@@ -68,7 +68,7 @@ export default function ContactPage() {
                           className: "w-full sm:w-auto",
                         })}
                       >
-                        Read the Join guide
+                        How to play
                         <ArrowRight aria-hidden="true" className="size-4" />
                       </Link>
                     ) : null}
@@ -80,11 +80,10 @@ export default function ContactPage() {
         ) : (
           <div className="mt-10 border-l-4 border-[var(--brand-primary)] bg-[var(--surface)] p-7">
             <h3 className="font-heading text-2xl font-black">
-              Public contact details are being confirmed.
+              Contact details coming soon.
             </h3>
             <p className="mt-3 leading-7 text-[var(--text-muted)]">
-              No direct destination is currently enabled. Check the verified public account below or
-              return later for updated contact routes.
+              Check Instagram below or come back later.
             </p>
           </div>
         )}
@@ -92,9 +91,9 @@ export default function ContactPage() {
       <Section className="border-y bg-[var(--surface-muted)] py-[var(--space-section)]">
         <div className="flex flex-col gap-8 lg:max-w-2xl">
           <SectionHeading
-            eyebrow="Public updates and media"
-            title="Follow the team account."
-            description="Instagram is the approved public social destination. It is useful for updates and media, but should not be treated as the only source for changing logistics."
+            eyebrow="Instagram"
+            title="Follow the team."
+            description="See tournament photos and team updates at @wpimensultimate."
           />
           <div className="flex flex-wrap items-start gap-3">
             {publicSocialLinks.length ? (
@@ -109,7 +108,7 @@ export default function ContactPage() {
               ))
             ) : (
               <p className="leading-7 text-[var(--text-muted)]">
-                No official public social account is currently enabled.
+                Our Instagram link is not available right now.
               </p>
             )}
           </div>
@@ -119,11 +118,9 @@ export default function ContactPage() {
         <div className="grid gap-6 border-l-4 border-[var(--brand-primary)] bg-[var(--surface)] p-7 sm:p-10 md:grid-cols-[auto_1fr]">
           <ShieldCheck aria-hidden="true" className="size-8 text-[var(--brand-primary)]" />
           <div>
-            <h2 className="font-heading text-2xl font-black">Share only what is needed.</h2>
+            <h2 className="font-heading text-2xl font-black">Keep personal information private.</h2>
             <p className="mt-3 max-w-3xl leading-7 text-[var(--text-muted)]">
-              Do not submit passwords, financial information, medical details, government
-              identifiers, or other sensitive personal information through public forms, Slack,
-              social messages, or email.
+              Do not send passwords, financial details, medical information, or government IDs through forms, Slack, Instagram, or email.
             </p>
           </div>
         </div>

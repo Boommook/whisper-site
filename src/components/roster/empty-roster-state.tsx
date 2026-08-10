@@ -14,10 +14,10 @@ export function EmptyRosterState() {
         <ClipboardList aria-hidden="true" className="size-6" />
       </span>
       <h3 className="mt-6 max-w-xl font-heading text-3xl font-black tracking-[-0.015em]">
-        The active roster is being prepared.
+        Roster coming soon.
       </h3>
       <p className="mt-4 max-w-2xl leading-7 text-[var(--text-muted)]">
-        Player information has not yet been approved for public release. The roster will appear here after the team confirms the current season, public fields, and publication permissions.
+        We&apos;re getting this season&apos;s competitive roster ready.
       </p>
       <div className="mt-7 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
         <Link href="/join" className={buttonVariants({ className: "w-full min-[420px]:w-auto" })}>

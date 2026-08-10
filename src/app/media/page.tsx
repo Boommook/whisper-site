@@ -12,7 +12,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata(
   "Media",
-  "Explore approved tournament photography and event galleries featuring WPI Whisper men's ultimate frisbee.",
+  "See tournament photography and galleries from WPI Whisper men's ultimate.",
   "/media",
 );
 
@@ -27,15 +27,14 @@ export default function MediaPage() {
       <PageHeader
         eyebrow="WPI Whisper / Media"
         title="Whisper in Action"
-        description="Explore tournament photography, team moments, and highlights from WPI Whisper events. Our featured galleries are photographed and curated by photo.makanapp."
+        description="Tournament photography and team moments, captured by photo.makanapp."
       />
 
       <Section className="py-(--space-section-x2)">
         <div className="flex flex-col gap-7 border-b border-(--border) pb-10 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
             eyebrow="Event photography"
-            title="Whisper event galleries"
-            description="Selected tournament galleries from Whisper's season, presented here with links to the photographer's original collections."
+            title="Featured galleries"
           />
           <a
             href={portfolioUrl}
@@ -43,7 +42,7 @@ export default function MediaPage() {
             rel="noopener noreferrer"
             className={buttonVariants({ variant: "secondary", className: "shrink-0 sm:mb-1" })}
           >
-            Explore All Photography
+            View All Photography
             <ExternalLink aria-hidden="true" className="size-4" />
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
@@ -52,7 +51,7 @@ export default function MediaPage() {
           {approvedCollections.map((collection) => (
             <MediaCollectionCard key={collection.galleryUrl} collection={collection} />
           ))}
-        </div> : <div className="mt-10 border-l-4 border-(--brand-primary) bg-(--surface) p-7"><h3 className="font-heading text-2xl font-black">More media is being prepared.</h3><p className="mt-3 text-(--text-muted)">Approved team photography will appear here after its context, credit, rights, and consent are confirmed.</p><Link href="/join" className={buttonVariants({ variant: "secondary", className: "mt-5" })}>Explore joining Whisper</Link></div>}
+        </div> : <div className="mt-10 border-l-4 border-(--brand-primary) bg-(--surface) p-7"><h3 className="font-heading text-2xl font-black">More photos coming soon.</h3><p className="mt-3 text-(--text-muted)">Check back for new tournament galleries.</p><Link href="/join" className={buttonVariants({ variant: "secondary", className: "mt-5" })}>Join Whisper</Link></div>}
       </Section>
 
       <Section className="border-y border-(--border) bg-(--brand-secondary) py-(--space-section) text-white">
@@ -63,7 +62,7 @@ export default function MediaPage() {
               Photography by photo.makanapp
             </h2>
             <p className="mt-5 text-lg leading-8 text-white/75">
-              Whisper’s featured event photography is captured and curated by photo.makanapp. Visit the full portfolio to explore additional sports, event, landscape, and automotive photography.
+              Luca Makarushka-Napp captures and curates Whisper&apos;s featured event photography at photo.makanapp.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">

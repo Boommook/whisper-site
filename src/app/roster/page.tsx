@@ -16,7 +16,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata(
   "Roster",
-  "View the public player roster and student leadership for WPI Whisper men's club ultimate frisbee.",
+  "Meet the players and student leaders on WPI Whisper's competitive men's ultimate team.",
   "/roster",
 );
 
@@ -50,9 +50,9 @@ export default async function RosterPage() {
   return (
     <>
       <PageHeader
-        eyebrow="WPI Whisper roster"
+        eyebrow="Competitive team roster"
         title="The team behind every point."
-        description="This page is the public home for approved current-player and student-leadership information for WPI Whisper's competitive team."
+        description="Meet the players representing Whisper this season."
         backgroundImage="/img/whisper-huddle.jpeg"
         photoCredit={{
           name: "Luca Makarushka-Napp",
@@ -67,10 +67,10 @@ export default async function RosterPage() {
           </div>
           <div>
             <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.015em] sm:text-4xl">
-              Meet this season&apos;s roster.
+              Our competitive team.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
-              This roster is reserved for current competitive-team players. Only information reviewed and approved for public display will appear here.
+              These are the players on this season&apos;s competitive roster. Intramural players are not listed here.
             </p>
           </div>
         </div>

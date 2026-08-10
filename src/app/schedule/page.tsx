@@ -14,7 +14,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata(
   "Schedule & Results",
-  "Find WPI Whisper tournaments, events, and verified game results for the current men's ultimate frisbee season.",
+  "See WPI Whisper's upcoming tournaments and results for the current competitive season.",
   "/schedule",
 );
 
@@ -33,8 +33,8 @@ export default function SchedulePage() {
     <>
       <PageHeader
         eyebrow="Schedule & results"
-        title="The season, from first pull to final point."
-        description="Follow WPI Whisper's upcoming competition and review completed events in one clear season view."
+        title="Every tournament. Every result."
+        description="The competitive team&apos;s current season at a glance."
       />
 
       <Section className="py-[var(--space-section)]">
@@ -54,10 +54,10 @@ export default function SchedulePage() {
             </p>
           ) : null}
           <h2 className="max-w-2xl text-balance font-heading text-3xl font-black leading-tight tracking-[-0.015em] sm:text-4xl lg:col-start-2 lg:row-start-1">
-            See what&apos;s next and how we&apos;ve played.
+            {hasResults ? "Season record" : "Current season"}
           </h2>
           <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)] lg:col-start-2 lg:row-start-2">
-            {scheduleSeason.description ?? "Event details and verified results are organized by season."}
+            {scheduleSeason.description ?? "Upcoming tournaments and past results."}
           </p>
         </div>
       </Section>
@@ -70,9 +70,8 @@ export default function SchedulePage() {
         <>
           <Section className="border-t border-[var(--border)] bg-[var(--surface-muted)] py-[var(--space-section)]">
             <SectionHeading
-              eyebrow="On the calendar"
+              eyebrow="Up next"
               title="Upcoming events"
-              description="Scheduled competition, tentative plans, and important event updates appear here in date order."
             />
             <div className="mt-10 grid gap-6">
               {upcomingEvents.length > 0 ? upcomingEvents.map((event) => (
@@ -85,7 +84,6 @@ export default function SchedulePage() {
             <SectionHeading
               eyebrow="In the books"
               title="Past events & results"
-              description="Completed events include verified scores. Other past events retain their latest published status."
             />
             <div className="mt-10 grid gap-6">
               {pastEvents.length > 0 ? pastEvents.map((event) => (

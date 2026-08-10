@@ -15,7 +15,7 @@ export function ScheduleEmptyState() {
           Check back for the next schedule update.
         </h2>
         <p className="mt-4 leading-7 text-[var(--text-muted)]">
-          There are no public events or results to share right now. Explore the team while you wait for the next season update.
+          There are no events or results listed right now.
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link href="/join" className={buttonVariants()}>Join Whisper</Link>

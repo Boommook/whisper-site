@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  ExternalLink,
   Handshake,
   MessageSquare,
   Scale,
@@ -14,6 +15,7 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { ValueCard } from "@/components/layout/value-card";
 import { buttonVariants } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata(
@@ -104,6 +106,21 @@ export default function AboutPage() {
             <p>
               Whisper brings together WPI students who want to play ultimate. We welcome complete beginners, experienced players, and everyone in between. You will also find us tossing on the quad a lot, feel free to join us!
             </p>
+            <div>
+              <p>
+                Whisper is WPI&apos;s men&apos;s ultimate frisbee club and participates in the WPI Club Sports program.
+              </p>
+              <a
+                href={siteConfig.clubSportsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex min-h-11 items-center gap-2 py-2 text-sm font-bold text-[var(--brand-primary)] underline decoration-2 decoration-transparent transition-colors hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)] motion-reduce:transition-none"
+              >
+                Learn about WPI Club Sports
+                <ExternalLink aria-hidden="true" className="size-4" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </div>
           </div>
         </div>
       </Section>

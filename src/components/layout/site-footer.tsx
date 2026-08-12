@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { Wordmark } from "@/components/layout/wordmark";
 import { publicSocialLinks } from "@/config/communications";
+import { siteConfig } from "@/config/site";
 
 export function SiteFooter() {
   return (
@@ -21,7 +22,22 @@ export function SiteFooter() {
         <div><Wordmark /><p className="mt-3 max-w-lg text-sm leading-6 text-[var(--text-muted)]">The home of men&apos;s ultimate at WPI.</p></div>
         <div className="flex flex-col gap-2 sm:items-end">
           {publicSocialLinks.map((social) => <a key={social.id} href={social.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-[var(--brand-primary)] underline decoration-transparent hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)]">{social.username}<ExternalLink aria-hidden="true" className="size-4" /><span className="sr-only"> on Instagram (opens in a new tab)</span></a>)}
-          <p className="text-xs font-semibold tracking-wide text-[var(--text-subtle)]">Worcester Polytechnic Institute · Men&apos;s Ultimate</p>
+          <p className="flex flex-wrap items-center gap-x-2 text-xs font-semibold tracking-wide text-[var(--text-subtle)] sm:justify-end">
+            <span>Worcester Polytechnic Institute</span>
+            <span aria-hidden="true">·</span>
+            <span>Men&apos;s Ultimate</span>
+            <span aria-hidden="true">·</span>
+            <a
+              href={siteConfig.clubSportsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center gap-1 underline decoration-transparent transition-colors hover:text-[var(--brand-primary)] hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)] motion-reduce:transition-none"
+            >
+              WPI Club Sports
+              <ExternalLink aria-hidden="true" className="size-3.5" />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
         </div>
       </Container>
     </footer>
